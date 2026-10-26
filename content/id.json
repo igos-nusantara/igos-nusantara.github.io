@@ -1,0 +1,657 @@
+{
+  "lang": "id",
+  "page": "id.html",
+  "other_page": "index.html",
+  "meta": {
+    "title": "IGN 26 — desktop Indonesia, dibangun ulang dari nol",
+    "description": "IGN 26 hadir dengan BAYU, desktop Wayland tempat GTK 4 dan Qt 6 tampak sama. Pasang aplikasi Linux lewat Flatpak, jalankan aplikasi Android lewat Lapis, dan kelola keduanya dari Bayu Store. Unduh ISO live."
+  },
+  "skip": "Lewati ke konten",
+  "nav": {
+    "links": [
+      {
+        "label": "Bayu Desktop",
+        "href": "#bayu"
+      },
+      {
+        "label": "Pitaloka",
+        "href": "#pitaloka"
+      },
+      {
+        "label": "Bayu Store",
+        "href": "#store"
+      },
+      {
+        "label": "Lapis",
+        "href": "#lapis"
+      },
+      {
+        "label": "Nabau",
+        "href": "#nabau"
+      }
+    ],
+    "cta": "Unduh",
+    "menu_label": "Buka menu"
+  },
+  "hero": {
+    "badge": "IGN 26 · ISO live, dibangun tiap malam · Sudah dengan desktop Bayu",
+    "h1": "Desktop Indonesia, dibangun ulang dari nol.",
+    "sub": "IGN 26 hadir dengan BAYU — lingkungan desktop Wayland tempat GTK 4 dan Qt 6 akhirnya tampak sama. Pasang aplikasi Linux lewat Flatpak, jalankan aplikasi Android lewat Lapis, dan kelola keduanya dari satu toko.",
+    "cta_primary": "Unduh IGN 26",
+    "cta_secondary": "Apa yang baru di 26",
+    "meta": [
+      "x86_64 · UEFI + Secure Boot",
+      "ISO live · 1,21 GB",
+      "GPL-3.0 / BSD-3-Clause"
+    ]
+  },
+  "slider": {
+    "label": "Tangkapan layar IGN 26",
+    "prev": "Tangkapan layar sebelumnya",
+    "next": "Tangkapan layar berikutnya",
+    "slides": [
+      {
+        "img": "1.png",
+        "label": "Tur selamat datang"
+      },
+      {
+        "img": "2.png",
+        "label": "Pasang aplikasi pertama"
+      },
+      {
+        "img": "3.png",
+        "label": "Sesuaikan tampilan"
+      },
+      {
+        "img": "4.png",
+        "label": "Pencarian Bayu Store"
+      },
+      {
+        "img": "5.png",
+        "label": "Pustaka — aplikasi terpasang"
+      },
+      {
+        "img": "6.png",
+        "label": "Pengaturan — papan ketik"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "Wayland",
+      "label": "Kompositor, shell, dan sesi"
+    },
+    {
+      "value": "12.480+",
+      "label": "Aplikasi dari Flathub dan F-Droid"
+    },
+    {
+      "value": "12",
+      "label": "Bahasa antarmuka yang disertakan"
+    },
+    {
+      "value": "GTK 4 + Qt 6",
+      "label": "Satu sistem desain, dua toolkit"
+    }
+  ],
+  "bayu": {
+    "eyebrow": "Lingkungan desktop Bayu",
+    "title": "Satu desktop. Dua toolkit. Tanpa sambungan.",
+    "body": "BAYU adalah lingkungan desktop Wayland yang menjadi inti IGN 26, dibangun komponen demi komponen — kompositor, shell, sesi, manajer berkas, pengaturan, dan terminal — sehingga setiap jendela berbicara dalam satu bahasa visual, bukan tiga.",
+    "shots": [
+      {
+        "img": "6.png",
+        "alt": "Pengaturan Bayu menampilkan panel Papan Ketik dalam mode gelap"
+      },
+      {
+        "img": "3.png",
+        "alt": "Tur selamat datang IGN 26 pada langkah tampilan"
+      }
+    ],
+    "components": [
+      {
+        "icon": "layers",
+        "color": "tile-blue",
+        "title": "Kompositor & shell",
+        "body": "Kompositor Wayland dengan panel, dok, peluncur, dan ikhtisar sendiri — tanpa shell GNOME atau KDE di bawahnya."
+      },
+      {
+        "icon": "log-in",
+        "color": "tile-indigo",
+        "title": "Manajer sesi & tampilan",
+        "body": "Greeter dan manajer sesi yang serasi, sehingga tampilannya dimulai sejak layar masuk dan tidak pernah terputus."
+      },
+      {
+        "icon": "folder",
+        "color": "tile-cyan",
+        "title": "Manajer berkas",
+        "body": "Tab, tampilan terbelah, penanganan arsip, dan Buka Dengan yang sadar Flatpak, dalam bingkai jendela yang sama seperti aplikasi lain."
+      },
+      {
+        "icon": "sliders-horizontal",
+        "color": "tile-gray",
+        "title": "Pengaturan",
+        "body": "Wi-Fi, Bluetooth, layar, suara, papan ketik, dok, dan tampilan dalam satu aplikasi yang bisa dicari."
+      },
+      {
+        "icon": "square-terminal",
+        "color": "tile-purple",
+        "title": "Terminal",
+        "body": "Bertema mengikuti warna aksen sistem serta mode terang/gelap secara otomatis."
+      },
+      {
+        "icon": "shopping-bag",
+        "color": "tile-green",
+        "title": "Bayu Store",
+        "body": "Flathub dan F-Droid dalam satu katalog — pasang, perbarui, dan hapus dari satu tempat."
+      },
+      {
+        "icon": "hard-drive",
+        "color": "tile-orange",
+        "title": "Pemasang Nabau",
+        "body": "Pemasang terpandu delapan langkah yang bekerja untuk distribusi Linux berbasis systemd mana pun."
+      },
+      {
+        "icon": "smartphone",
+        "color": "tile-red",
+        "title": "Runtime Lapis",
+        "body": "Aplikasi Android sebagai jendela Wayland sungguhan, ditenagai kernel dengan dukungan binder."
+      }
+    ]
+  },
+  "pitaloka": {
+    "eyebrow": "Sistem desain Pitaloka",
+    "title": "Satu sumber kebenaran untuk GTK 4 dan Qt 6.",
+    "body": "Setiap warna, radius, tingkat huruf, dan elevasi di BAYU berasal dari satu berkas: tokens.json. Dari berkas itu Pitaloka membangkitkan stylesheet untuk tiap toolkit, sehingga aplikasi GTK 4 dan Qt 6 yang berdampingan konsisten sampai ke piksel — radius kartu sama, aksen sama, cincin fokus sama.",
+    "outputs": [
+      {
+        "file": "tokens.json",
+        "target": "Sumber kebenaran"
+      },
+      {
+        "file": "pitaloka-web.css",
+        "target": "Web"
+      },
+      {
+        "file": "pitaloka.css",
+        "target": "GTK 4"
+      },
+      {
+        "file": "pitaloka.qss",
+        "target": "Qt 6"
+      },
+      {
+        "file": "pitaloka.h",
+        "target": "Header C++"
+      }
+    ],
+    "colors_label": "Token warna",
+    "type_label": "Skala huruf · Inter + JetBrains Mono",
+    "radius_label": "Radius · ritme jarak 4px",
+    "type_rows": [
+      {
+        "name": "Display",
+        "size": 34,
+        "weight": 700,
+        "spec": "62 / -1.6"
+      },
+      {
+        "name": "Judul 1",
+        "size": 26,
+        "weight": 700,
+        "spec": "40 / -1.0"
+      },
+      {
+        "name": "Judul 2",
+        "size": 20,
+        "weight": 600,
+        "spec": "22 / -0.3"
+      },
+      {
+        "name": "Teks",
+        "size": 15,
+        "weight": 400,
+        "spec": "14 / 0"
+      },
+      {
+        "name": "Keterangan",
+        "size": 12,
+        "weight": 500,
+        "spec": "12 / +0.4"
+      }
+    ],
+    "themes": [
+      {
+        "name": "Terang",
+        "token": "bg-window #F5F6FA",
+        "dot": "#F5F6FA",
+        "img": "store-light-01-discover.png",
+        "alt": "Halaman Temukan Bayu Store dalam tema terang"
+      },
+      {
+        "name": "Gelap",
+        "token": "bg-window #1B1B1D",
+        "dot": "#1B1B1D",
+        "img": "store-dark-01-discover.png",
+        "alt": "Halaman Temukan Bayu Store dalam tema gelap"
+      }
+    ],
+    "caption": "Jendela Bayu Store yang sama dalam dua tema. Tidak ada yang digambar ulang — token hanya berubah ke nilai gelapnya, dan setiap aplikasi GTK maupun Qt di sistem ikut menyesuaikan."
+  },
+  "store": {
+    "eyebrow": "Bayu Store",
+    "title": "Flathub dan F-Droid, dalam satu katalog.",
+    "body": "Bayu Store menelusuri sumber Linux dan Android sekaligus lalu menampilkan hasilnya dalam satu daftar. Pasang aplikasi desktop Flatpak dan aplikasi Android F-Droid dari layar yang sama, lalu perbarui keduanya dari tab Pembaruan yang sama.",
+    "counts_label": "aplikasi terindeks",
+    "counts": [
+      {
+        "icon": "package",
+        "color": "tile-blue",
+        "name": "Flathub",
+        "value": "8.420"
+      },
+      {
+        "icon": "shield-check",
+        "color": "tile-green",
+        "name": "F-Droid",
+        "value": "4.060"
+      }
+    ],
+    "hero_shot": {
+      "img": "4.png",
+      "alt": "Bayu Store mencari Discord di Flathub dan F-Droid"
+    },
+    "details": [
+      {
+        "img": "store-light-02-app-detail.png",
+        "alt": "Halaman aplikasi di Bayu Store dengan tangkapan layar, lisensi, dan izin",
+        "caption": "Halaman aplikasi lengkap dengan tangkapan layar, catatan rilis, lisensi, dan ukuran unduhan — untuk aplikasi Flatpak maupun Android."
+      },
+      {
+        "img": "5.png",
+        "alt": "Tab Pustaka di Bayu Store menampilkan aplikasi terpasang",
+        "caption": "Satu tab Pustaka untuk semua yang terpasang, lengkap dengan versi, sumber, dan ukuran, plus satu tombol Periksa pembaruan."
+      }
+    ],
+    "features": [
+      {
+        "icon": "search",
+        "title": "Cari dua dunia sekaligus",
+        "body": "Satu kueri mengembalikan hasil Flathub dan F-Droid sekaligus, terurut dan tanpa duplikat, dalam waktu jauh di bawah satu detik."
+      },
+      {
+        "icon": "badge-check",
+        "title": "Sinyal kepercayaan di depan",
+        "body": "Lencana Terverifikasi dan Sumber terbuka, nama penerbit, lisensi, serta pengenal SPDX ditampilkan sebelum Anda memasang."
+      },
+      {
+        "icon": "sliders-horizontal",
+        "title": "Saring yang penting saja",
+        "body": "Persempit berdasarkan sumber, lisensi, verifikasi, atau kebaruan tanpa meninggalkan daftar hasil."
+      },
+      {
+        "icon": "download",
+        "title": "Pasang tanpa terminal",
+        "body": "Satu tombol per aplikasi. Progres tampil langsung, dan aplikasi muncul di peluncur begitu selesai."
+      },
+      {
+        "icon": "refresh-cw",
+        "title": "Pembaruan di satu tempat",
+        "body": "Pembaruan Flatpak dan Android berbagi antrean yang sama, lengkap dengan ukuran dan catatan rilis sebelum Anda memutuskan."
+      },
+      {
+        "icon": "settings-2",
+        "title": "Sumber yang Anda kendalikan",
+        "body": "Aktifkan atau nonaktifkan Flathub dan F-Droid, tambahkan cermin, dan tentukan seberapa sering katalog disegarkan."
+      }
+    ]
+  },
+  "lapis": {
+    "eyebrow": "Lapis · Android di Linux",
+    "title": "Aplikasi Android sebagai jendela Wayland biasa.",
+    "body": "Lapis menjalankan image Android berbasis LineageOS di dalam kontainer systemd-nspawn yang berjalan di atas kernel Anda sendiri. Tanpa mesin virtual, tanpa LXC, tanpa Python — hanya satu biner Go statis dan beberapa unit systemd. Setiap aplikasi Android terbuka sebagai jendelanya sendiri, berdampingan dengan aplikasi Linux, dalam dok dan alt-tab yang sama.",
+    "checks": [
+      "Google Play, dengan penerjemahan ARM opsional",
+      "Akselerasi GPU melalui render node host (Mesa)",
+      "Audio dialirkan lewat PipeWire atau PulseAudio",
+      "Sinkronisasi papan klip, notifikasi, dan entri menu desktop",
+      "Pembekuan otomatis saat suspend, sehingga tidak ada yang menguras daya di latar",
+      "Tata letak antarmuka ponsel dan tablet dengan ukuran jendela yang bisa diatur"
+    ],
+    "stack_label": "Cara kerjanya",
+    "layers": [
+      {
+        "icon": "smartphone",
+        "color": "tile-green",
+        "title": "Aplikasi Android",
+        "body": "Tiap aplikasi adalah jendela Wayland tersendiri"
+      },
+      {
+        "icon": "box",
+        "color": "tile-cyan",
+        "title": "Image LineageOS",
+        "body": "Dijalankan di dalam kontainer systemd-nspawn"
+      },
+      {
+        "icon": "cpu",
+        "color": "tile-indigo",
+        "title": "Lapis · satu biner Go statis",
+        "body": "Binder murni Go · NAT nftables via netlink · penerus DHCP + DNS · seccomp BPF mentah · shim PID-1 minimal"
+      },
+      {
+        "icon": "server",
+        "color": "tile-gray",
+        "title": "Kernel host dengan dukungan binder",
+        "body": "Kernel Anda sendiri. Tanpa hypervisor, tanpa penjadwal kedua."
+      }
+    ],
+    "req_label": "Kebutuhan",
+    "reqs": [
+      "kernel dengan binder",
+      "systemd ≥ 250",
+      "util-linux",
+      "sesi Wayland",
+      "amd64 / arm64"
+    ],
+    "repo": "github.com/igos-nusantara/lapis",
+    "repo_url": "https://github.com/igos-nusantara/lapis"
+  },
+  "nabau": {
+    "eyebrow": "Nabau · pemasang universal",
+    "title": "Pemasang yang bisa dipakai distribusi Linux mana pun.",
+    "body": "Nabau adalah pemasang terpandu yang diperkenalkan bersama IGN 26, dan sengaja dibuat netral terhadap distribusi. Delapan langkah berbahasa sederhana, tinjauan menyeluruh sebelum satu bita pun ditulis, paket terverifikasi GPG, dan dukungan Secure Boot — tidak ada bagian alurnya yang terikat pada IGOS Nusantara.",
+    "featured": {
+      "img": "step-05.png",
+      "alt": "Nabau langkah 5, memilih lingkungan dasar dan pelengkap",
+      "caption": "Langkah 05 — pilih lingkungan dasar, lalu tambahkan hanya yang Anda butuhkan. Jumlah paket, ukuran unduhan, ukuran terpasang, dan perkiraan waktu diperbarui seiring pilihan Anda."
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Bahasa",
+        "body": "Pilih satu dari dua belas bahasa antarmuka"
+      },
+      {
+        "n": "02",
+        "title": "Lokalisasi",
+        "body": "Zona waktu, papan ketik, dan format"
+      },
+      {
+        "n": "03",
+        "title": "Jaringan",
+        "body": "Kabel atau Wi-Fi, nama host, opsional"
+      },
+      {
+        "n": "04",
+        "title": "Tujuan",
+        "body": "Disk, skema, enkripsi opsional"
+      },
+      {
+        "n": "05",
+        "title": "Perangkat Lunak",
+        "body": "Lingkungan dasar plus pelengkap"
+      },
+      {
+        "n": "06",
+        "title": "Akun",
+        "body": "Pengguna, kata sandi, hak administrator"
+      },
+      {
+        "n": "07",
+        "title": "Tinjau",
+        "body": "Semuanya dalam satu layar sebelum ditulis"
+      },
+      {
+        "n": "08",
+        "title": "Pasang",
+        "body": "Progres, log, dan mulai ulang yang bersih"
+      }
+    ],
+    "strip": [
+      {
+        "img": "step-01.png",
+        "label": "01 · Bahasa"
+      },
+      {
+        "img": "step-03.png",
+        "label": "03 · Jaringan"
+      },
+      {
+        "img": "step-04.png",
+        "label": "04 · Tujuan"
+      },
+      {
+        "img": "step-07.png",
+        "label": "07 · Tinjau"
+      }
+    ],
+    "guarantees": [
+      {
+        "icon": "shield-check",
+        "title": "Paket terverifikasi GPG",
+        "body": "Secure Boot tetap aktif, dan setiap paket diperiksa sebelum ditulis ke disk."
+      },
+      {
+        "icon": "database",
+        "title": "Data Anda tetap aman",
+        "body": "Hanya ruang yang Anda pilih di disk tujuan yang disentuh. Sisanya dibiarkan utuh."
+      },
+      {
+        "icon": "terminal",
+        "title": "Jalan keluar selalu ada",
+        "body": "F1 membuka bantuan, F12 masuk ke konsol. Pemasang tidak pernah menyembunyikan apa yang sedang dikerjakannya."
+      },
+      {
+        "icon": "globe",
+        "title": "Dua belas bahasa",
+        "body": "Indonesia, Jawa, Sunda, Melayu, Mandarin, Jepang, Korea, Spanyol, Prancis, Jerman, Portugis, Rusia."
+      }
+    ]
+  },
+  "more": {
+    "eyebrow": "Juga di rilis ini",
+    "title": "Bagian yang baru terasa saat tidak ada.",
+    "items": [
+      {
+        "icon": "languages",
+        "color": "tile-indigo",
+        "title": "Dua belas bahasa antarmuka",
+        "body": "Indonesia, Jawa, Sunda, Melayu, Mandarin, Jepang, Korea, Spanyol, Prancis, Jerman, Portugis, dan Rusia — diterjemahkan di shell, pengaturan, toko, dan pemasang."
+      },
+      {
+        "icon": "laptop",
+        "color": "tile-gray",
+        "title": "Dukungan perangkat keras Apple",
+        "body": "Keanehan papan ketik dan trackpad, driver SMC, serta bawaan tombol Command yang masuk akal, sehingga MacBook tetap terasa seperti MacBook."
+      },
+      {
+        "icon": "wifi",
+        "color": "tile-cyan",
+        "title": "Wi-Fi Broadcom langsung jalan",
+        "body": "Driver untuk chipset Broadcom di MacBook lawas sudah ada di dalam ISO — tidak perlu kabel untuk terhubung saat pemasangan."
+      },
+      {
+        "icon": "container",
+        "color": "tile-purple",
+        "title": "Dibangun sepenuhnya di kontainer",
+        "body": "Setiap paket dan image dibuat dengan Podman di CI, sehingga setiap build dapat direproduksi dan diaudit sejak komit pertama."
+      },
+      {
+        "icon": "disc-3",
+        "color": "tile-orange",
+        "title": "ISO live, tanpa perlu dipasang",
+        "body": "Boot image dari flash disk dan langsung pakai sistem jadinya. Pasang ke disk nanti dari sesi yang sama — atau tidak sama sekali, dan terus jalankan secara live."
+      },
+      {
+        "icon": "scale",
+        "color": "tile-green",
+        "title": "GPL-3.0 dan BSD-3-Clause",
+        "body": "Berlisensi ganda GPL-3.0 dan BSD-3-Clause. Setiap komponen adalah perangkat lunak bebas, dengan sumber dan resep build yang diterbitkan lengkap. Tidak ada yang disembunyikan."
+      }
+    ]
+  },
+  "download": {
+    "eyebrow": "Unduh",
+    "title": "Dapatkan IGN 26.",
+    "sub": "Tulis ke flash disk lalu boot. Sesi live itulah sistem jadinya — Nabau tinggal menyalinnya ke disk saat Anda siap.",
+    "name": "IGN 26 · Bayu Live",
+    "tag": "Build harian",
+    "body": "Desktop Bayu lengkap dengan Bayu Store, Lapis, dan pemasang Nabau. Boot, coba, lalu pasang ke disk dari sesi yang sama. Untuk saat ini hanya image inilah yang diterbitkan, dan dibangun ulang setiap malam dari paket terbaru.",
+    "facts": [
+      {
+        "k": "Berkas",
+        "v": "ign26-bayu-harian-latest.iso"
+      },
+      {
+        "k": "Ukuran",
+        "v": "1,21 GB"
+      },
+      {
+        "k": "Arsitektur",
+        "v": "x86_64 · UEFI"
+      },
+      {
+        "k": "Dibangun",
+        "v": "25 Okt 2026"
+      }
+    ],
+    "button": "Unduh ISO live",
+    "host_note": "r2.igos-nusantara.or.id · unduhan langsung, tanpa pilih cermin",
+    "cmd_title": "Unduh dan tulis",
+    "copy": "Salin",
+    "copied": "Tersalin",
+    "cmds": [
+      "curl -LO https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso",
+      "sudo dd if=ign26-bayu-harian-latest.iso of=/dev/sdX bs=4M status=progress oflag=sync"
+    ],
+    "cmd_note": "Ganti /dev/sdX dengan perangkat USB Anda — dd tidak akan bertanya dua kali. URL harian selalu mengarah ke build terbaru, jadi cukup jalankan ulang curl untuk menyegarkan flash disk Anda.",
+    "sys_title": "Kebutuhan sistem",
+    "sys": [
+      {
+        "k": "Prosesor",
+        "v": "64-bit x86 (amd64)"
+      },
+      {
+        "k": "Memori",
+        "v": "Minimum 4 GB · 8 GB untuk Lapis"
+      },
+      {
+        "k": "Penyimpanan",
+        "v": "20 GB ruang kosong"
+      },
+      {
+        "k": "Firmware",
+        "v": "UEFI · Secure Boot didukung"
+      },
+      {
+        "k": "Grafis",
+        "v": "GPU apa pun yang didukung Mesa"
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Indonesia, Go Open Source",
+    "about": "Distribusi Linux yang dibangun di Indonesia, secara terbuka. IGN 26 adalah perangkat lunak bebas — unduh, pelajari, ubah, dan bagikan kembali.",
+    "columns": [
+      {
+        "head": "Komponen",
+        "items": [
+          {
+            "label": "Desktop BAYU",
+            "href": "https://github.com/igos-nusantara/bayu"
+          },
+          {
+            "label": "Bayu Store",
+            "href": "#store"
+          },
+          {
+            "label": "Lapis",
+            "href": "https://github.com/igos-nusantara/lapis"
+          },
+          {
+            "label": "Pemasang Nabau",
+            "href": "#nabau"
+          },
+          {
+            "label": "Pitaloka",
+            "href": "https://pitaloka.igos-nusantara.or.id"
+          }
+        ]
+      },
+      {
+        "head": "Unduh",
+        "items": [
+          {
+            "label": "ISO Live (harian)",
+            "href": "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
+          },
+          {
+            "label": "Catatan rilis",
+            "href": "#download"
+          },
+          {
+            "label": "Masalah diketahui",
+            "href": "https://github.com/igos-nusantara"
+          },
+          {
+            "label": "Cermin",
+            "href": "#download"
+          }
+        ]
+      },
+      {
+        "head": "Dokumentasi",
+        "items": [
+          {
+            "label": "Panduan pemasangan",
+            "href": "#nabau"
+          },
+          {
+            "label": "Menjalankan aplikasi Android",
+            "href": "https://github.com/igos-nusantara/lapis"
+          },
+          {
+            "label": "Token desain",
+            "href": "https://pitaloka.igos-nusantara.or.id"
+          },
+          {
+            "label": "Pemaketan",
+            "href": "https://github.com/igos-nusantara"
+          }
+        ]
+      },
+      {
+        "head": "Komunitas",
+        "items": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/igos-nusantara"
+          },
+          {
+            "label": "Laporkan bug",
+            "href": "https://github.com/igos-nusantara/bayu/issues"
+          },
+          {
+            "label": "Terjemahkan IGN 26",
+            "href": "https://github.com/igos-nusantara"
+          },
+          {
+            "label": "Kontributor",
+            "href": "https://github.com/igos-nusantara"
+          }
+        ]
+      }
+    ],
+    "legal": "© 2026 IGOS Nusantara · Dilisensikan di bawah GPL-3.0 dan BSD-3-Clause",
+    "links": [
+      {
+        "label": "github.com/igos-nusantara",
+        "href": "https://github.com/igos-nusantara"
+      },
+      {
+        "label": "pitaloka.igos-nusantara.or.id",
+        "href": "https://pitaloka.igos-nusantara.or.id"
+      }
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+/* Pitaloka design tokens — generated from tokens.json v1.0.0
+   https://pitaloka.igos-nusantara.or.id
+   One interface language for GTK 4 and Qt 6 on Linux. */
+
+:root {
+  /* Surfaces */
+  --bg-window: #f5f6fa;
+  --bg-sidebar: #f7f8fa;
+  --bg-card: #ffffff;
+  --bg-field: #eff0f3;
+  --bg-hover: #e9eaee;
+  --bg-selected: #e2e4e9;
+
+  /* Text */
+  --text-primary: #17191d;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ba1ac;
+  --text-on-accent: #ffffff;
+
+  /* Lines */
+  --border: #e1e4e9;
+  --divider: #eceef1;
+  --track-off: #d6d8de;
+
+  /* Accent and status */
+  --accent: #3385ff;
+  --accent-hover: #2b73e6;
+  --accent-soft: #e8f1ff;
+  --success: #2fb457;
+  --warning: #f0a030;
+  --danger: #e8453c;
+  --caution-text: #c2501e;
+
+  /* Icon tiles */
+  --tile-blue: #2d7cf6;
+  --tile-indigo: #5b5be6;
+  --tile-cyan: #17b8ce;
+  --tile-green: #2fb457;
+  --tile-orange: #f0893a;
+  --tile-red: #f0555e;
+  --tile-pink: #d858c8;
+  --tile-purple: #7b61ff;
+  --tile-gray: #7a818c;
+
+  /* Radius */
+  --r-tile: 7px;
+  --r-control: 8px;
+  --r-menu: 10px;
+  --r-card: 12px;
+  --r-pill: 999px;
+
+  /* 4px spacing rhythm */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+
+  /* Elevation */
+  --elev-card: 0 1px 2px rgba(10, 15, 26, 0.06);
+  --elev-menu: 0 8px 24px rgba(10, 15, 26, 0.17);
+  --elev-dialog: 0 16px 48px rgba(10, 15, 26, 0.22);
+
+  /* Type */
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+
+  /* Marketing shades — the deep blue of the IGN wallpaper.
+     Not part of tokens.json; used only for the dark bands on this page. */
+  --navy-900: #07121f;
+  --navy-800: #0b1b30;
+  --navy-700: #103154;
+  --navy-600: #14457c;
+  --navy-line: #1e3a5c;
+  --navy-card: #0d1b2e;
+  --navy-layer: #132840;
+  --on-navy: #ffffff;
+  --on-navy-2: #a9bdd6;
+  --on-navy-3: #7e97b5;
+  --on-navy-4: #6e8aab;
+  --accent-light: #5fa8ff;
+}
+
+/* The dark values of the same tokens, applied inside .theme-dark regions. */
+.theme-dark {
+  --bg-window: #1b1b1d;
+  --bg-sidebar: #222224;
+  --bg-card: #2c2c2e;
+  --bg-field: #3a3a3c;
+  --bg-hover: #3a3a3c;
+  --bg-selected: #3f3f43;
+  --text-primary: #f2f2f5;
+  --text-secondary: #9d9da5;
+  --text-tertiary: #76767c;
+  --border: #3a3a3c;
+  --divider: #343436;
+  --track-off: #4a4a4e;
+  --accent: #0a84ff;
+  --accent-hover: #2b95ff;
+  --accent-soft: #15345c;
+  --danger: #ff453a;
+  --caution-text: #ff9f6a;
+}

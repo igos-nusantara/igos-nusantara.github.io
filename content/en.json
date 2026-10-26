@@ -1,0 +1,657 @@
+{
+  "lang": "en",
+  "page": "index.html",
+  "other_page": "id.html",
+  "meta": {
+    "title": "IGN 26 — the Indonesian desktop, rebuilt from the ground up",
+    "description": "IGN 26 ships BAYU, a Wayland desktop where GTK 4 and Qt 6 look the same. Install Linux apps with Flatpak, run Android apps with Lapis, and manage both from Bayu Store. Download the live ISO."
+  },
+  "skip": "Skip to content",
+  "nav": {
+    "links": [
+      {
+        "label": "Bayu Desktop",
+        "href": "#bayu"
+      },
+      {
+        "label": "Pitaloka",
+        "href": "#pitaloka"
+      },
+      {
+        "label": "Bayu Store",
+        "href": "#store"
+      },
+      {
+        "label": "Lapis",
+        "href": "#lapis"
+      },
+      {
+        "label": "Nabau",
+        "href": "#nabau"
+      }
+    ],
+    "cta": "Download",
+    "menu_label": "Open menu"
+  },
+  "hero": {
+    "badge": "IGN 26 · Live ISO, rebuilt nightly · Bayu desktop built in",
+    "h1": "The Indonesian desktop, rebuilt from the ground up.",
+    "sub": "IGN 26 ships BAYU — a Wayland desktop environment where GTK 4 and Qt 6 finally look the same. Install Linux apps with Flatpak, run Android apps with Lapis, and manage both from one store.",
+    "cta_primary": "Download IGN 26",
+    "cta_secondary": "What's new in 26",
+    "meta": [
+      "x86_64 · UEFI + Secure Boot",
+      "Live ISO · 1.21 GB",
+      "GPL-3.0 / BSD-3-Clause"
+    ]
+  },
+  "slider": {
+    "label": "IGN 26 screenshots",
+    "prev": "Previous screenshot",
+    "next": "Next screenshot",
+    "slides": [
+      {
+        "img": "1.png",
+        "label": "Welcome tour"
+      },
+      {
+        "img": "2.png",
+        "label": "Install your first app"
+      },
+      {
+        "img": "3.png",
+        "label": "Make it yours"
+      },
+      {
+        "img": "4.png",
+        "label": "Bayu Store search"
+      },
+      {
+        "img": "5.png",
+        "label": "Library — installed apps"
+      },
+      {
+        "img": "6.png",
+        "label": "Settings — keyboard"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "Wayland",
+      "label": "Compositor, shell and session"
+    },
+    {
+      "value": "12,480+",
+      "label": "Apps from Flathub and F-Droid"
+    },
+    {
+      "value": "12",
+      "label": "Interface languages shipped"
+    },
+    {
+      "value": "GTK 4 + Qt 6",
+      "label": "One design system, both toolkits"
+    }
+  ],
+  "bayu": {
+    "eyebrow": "Bayu desktop environment",
+    "title": "One desktop. Two toolkits. No seams.",
+    "body": "BAYU is the Wayland desktop environment at the centre of IGN 26, built component by component — compositor, shell, session, file manager, settings and terminal — so that every window shares one visual language instead of three.",
+    "shots": [
+      {
+        "img": "6.png",
+        "alt": "Bayu Settings showing the Keyboard pane in dark mode"
+      },
+      {
+        "img": "3.png",
+        "alt": "The IGN 26 welcome tour on the appearance step"
+      }
+    ],
+    "components": [
+      {
+        "icon": "layers",
+        "color": "tile-blue",
+        "title": "Compositor & shell",
+        "body": "A Wayland compositor with its own panel, dock, launcher and overview — no GNOME or KDE shell underneath."
+      },
+      {
+        "icon": "log-in",
+        "color": "tile-indigo",
+        "title": "Session & display manager",
+        "body": "A matching greeter and session manager, so the look starts at the login screen and never breaks."
+      },
+      {
+        "icon": "folder",
+        "color": "tile-cyan",
+        "title": "File manager",
+        "body": "Tabs, split view, archive handling and Flatpak-aware Open With, in the same window chrome as everything else."
+      },
+      {
+        "icon": "sliders-horizontal",
+        "color": "tile-gray",
+        "title": "Settings",
+        "body": "Wi-Fi, Bluetooth, display, sound, keyboard, dock and appearance in one searchable app."
+      },
+      {
+        "icon": "square-terminal",
+        "color": "tile-purple",
+        "title": "Terminal",
+        "body": "Themed to follow the system accent and light/dark mode automatically."
+      },
+      {
+        "icon": "shopping-bag",
+        "color": "tile-green",
+        "title": "Bayu Store",
+        "body": "Flathub and F-Droid in a single catalogue — install, update and remove from one place."
+      },
+      {
+        "icon": "hard-drive",
+        "color": "tile-orange",
+        "title": "Nabau installer",
+        "body": "A guided, eight-step installer that works for any systemd Linux distribution."
+      },
+      {
+        "icon": "smartphone",
+        "color": "tile-red",
+        "title": "Lapis runtime",
+        "body": "Android apps as real Wayland windows, powered by a kernel with binder support."
+      }
+    ]
+  },
+  "pitaloka": {
+    "eyebrow": "Pitaloka design system",
+    "title": "One source of truth for GTK 4 and Qt 6.",
+    "body": "Every colour, radius, font step and elevation in BAYU comes from one file: tokens.json. From it, Pitaloka generates a stylesheet for each toolkit, so a GTK 4 app and a Qt 6 app sitting side by side are pixel-consistent — same card radius, same accent, same focus ring.",
+    "outputs": [
+      {
+        "file": "tokens.json",
+        "target": "Source of truth"
+      },
+      {
+        "file": "pitaloka-web.css",
+        "target": "Web"
+      },
+      {
+        "file": "pitaloka.css",
+        "target": "GTK 4"
+      },
+      {
+        "file": "pitaloka.qss",
+        "target": "Qt 6"
+      },
+      {
+        "file": "pitaloka.h",
+        "target": "C++ header"
+      }
+    ],
+    "colors_label": "Color tokens",
+    "type_label": "Type scale · Inter + JetBrains Mono",
+    "radius_label": "Radius · 4px spacing rhythm",
+    "type_rows": [
+      {
+        "name": "Display",
+        "size": 34,
+        "weight": 700,
+        "spec": "62 / -1.6"
+      },
+      {
+        "name": "Title 1",
+        "size": 26,
+        "weight": 700,
+        "spec": "40 / -1.0"
+      },
+      {
+        "name": "Title 2",
+        "size": 20,
+        "weight": 600,
+        "spec": "22 / -0.3"
+      },
+      {
+        "name": "Body",
+        "size": 15,
+        "weight": 400,
+        "spec": "14 / 0"
+      },
+      {
+        "name": "Caption",
+        "size": 12,
+        "weight": 500,
+        "spec": "12 / +0.4"
+      }
+    ],
+    "themes": [
+      {
+        "name": "Light",
+        "token": "bg-window #F5F6FA",
+        "dot": "#F5F6FA",
+        "img": "store-light-01-discover.png",
+        "alt": "Bayu Store Discover page in the light theme"
+      },
+      {
+        "name": "Dark",
+        "token": "bg-window #1B1B1D",
+        "dot": "#1B1B1D",
+        "img": "store-dark-01-discover.png",
+        "alt": "Bayu Store Discover page in the dark theme"
+      }
+    ],
+    "caption": "The same Bayu Store window in both themes. Nothing is re-drawn — the tokens simply resolve to their dark values, and every GTK and Qt app on the system follows along."
+  },
+  "store": {
+    "eyebrow": "Bayu Store",
+    "title": "Flathub and F-Droid, in one catalogue.",
+    "body": "Bayu Store searches Linux and Android sources at the same time and shows the results in one list. Install a Flatpak desktop app and an F-Droid Android app from the same screen, then keep both updated from the same Updates tab.",
+    "counts_label": "apps indexed",
+    "counts": [
+      {
+        "icon": "package",
+        "color": "tile-blue",
+        "name": "Flathub",
+        "value": "8,420"
+      },
+      {
+        "icon": "shield-check",
+        "color": "tile-green",
+        "name": "F-Droid",
+        "value": "4,060"
+      }
+    ],
+    "hero_shot": {
+      "img": "4.png",
+      "alt": "Bayu Store searching Flathub and F-Droid for Discord"
+    },
+    "details": [
+      {
+        "img": "store-light-02-app-detail.png",
+        "alt": "An app page in Bayu Store showing screenshots, licence and permissions",
+        "caption": "App pages with screenshots, release notes, licence and download size — for Flatpak and Android apps alike."
+      },
+      {
+        "img": "5.png",
+        "alt": "The Library tab in Bayu Store listing installed apps",
+        "caption": "One Library tab for everything installed, with version, source and size, plus a single Check for updates."
+      }
+    ],
+    "features": [
+      {
+        "icon": "search",
+        "title": "Search both worlds at once",
+        "body": "One query returns Flathub and F-Droid results together, ranked and de-duplicated, in well under a second."
+      },
+      {
+        "icon": "badge-check",
+        "title": "Trust signals up front",
+        "body": "Verified and Open source badges, publisher name, licence and SPDX identifier are shown before you install."
+      },
+      {
+        "icon": "sliders-horizontal",
+        "title": "Filter by what matters",
+        "body": "Narrow by source, licence, verification or recency without leaving the result list."
+      },
+      {
+        "icon": "download",
+        "title": "Install without a terminal",
+        "body": "One button per app. Progress is inline, and the app lands in the launcher when it finishes."
+      },
+      {
+        "icon": "refresh-cw",
+        "title": "Updates in one place",
+        "body": "Flatpak and Android updates share the same queue, with sizes and release notes before you commit."
+      },
+      {
+        "icon": "settings-2",
+        "title": "Sources you control",
+        "body": "Enable or disable Flathub and F-Droid, add mirrors, and choose how often the catalogue refreshes."
+      }
+    ]
+  },
+  "lapis": {
+    "eyebrow": "Lapis · Android on Linux",
+    "title": "Android apps as ordinary Wayland windows.",
+    "body": "Lapis boots a LineageOS-based Android image inside a systemd-nspawn container running on your own kernel. No virtual machine, no LXC, no Python — a single static Go binary and a handful of systemd units. Each Android app opens as its own window, alongside your Linux apps, in the same dock and the same alt-tab.",
+    "checks": [
+      "Google Play, with optional ARM translation",
+      "GPU acceleration through host render nodes (Mesa)",
+      "Audio routed over PipeWire or PulseAudio",
+      "Clipboard sync, notifications and desktop menu entries",
+      "Automatic freeze on suspend, so nothing drains in the background",
+      "Phone and tablet UI layouts with adjustable window sizes"
+    ],
+    "stack_label": "How it runs",
+    "layers": [
+      {
+        "icon": "smartphone",
+        "color": "tile-green",
+        "title": "Android apps",
+        "body": "Each app is a separate Wayland window"
+      },
+      {
+        "icon": "box",
+        "color": "tile-cyan",
+        "title": "LineageOS image",
+        "body": "Booted inside a systemd-nspawn container"
+      },
+      {
+        "icon": "cpu",
+        "color": "tile-indigo",
+        "title": "Lapis · single static Go binary",
+        "body": "Pure-Go binder · nftables NAT over netlink · DHCP + DNS forwarder · raw BPF seccomp · minimal PID-1 shim"
+      },
+      {
+        "icon": "server",
+        "color": "tile-gray",
+        "title": "Host kernel with binder support",
+        "body": "Your kernel. No hypervisor, no second scheduler."
+      }
+    ],
+    "req_label": "Requirements",
+    "reqs": [
+      "kernel with binder",
+      "systemd ≥ 250",
+      "util-linux",
+      "Wayland session",
+      "amd64 / arm64"
+    ],
+    "repo": "github.com/igos-nusantara/lapis",
+    "repo_url": "https://github.com/igos-nusantara/lapis"
+  },
+  "nabau": {
+    "eyebrow": "Nabau · universal installer",
+    "title": "An installer any Linux distribution can ship.",
+    "body": "Nabau is the guided installer introduced with IGN 26, and it is deliberately distribution-agnostic. Eight plain-language steps, a full review before a single byte is written, GPG-verified packages and Secure Boot support — nothing in the flow is tied to IGOS Nusantara.",
+    "featured": {
+      "img": "step-05.png",
+      "alt": "Nabau step 5, choosing a base environment and add-ons",
+      "caption": "Step 05 — pick a base environment, then add only what you need. Package count, download size, installed size and estimated time update as you choose."
+    },
+    "steps": [
+      {
+        "n": "01",
+        "title": "Language",
+        "body": "Pick an interface language from twelve"
+      },
+      {
+        "n": "02",
+        "title": "Localization",
+        "body": "Time zone, keyboard and formats"
+      },
+      {
+        "n": "03",
+        "title": "Network",
+        "body": "Wired or Wi-Fi, host name, optional"
+      },
+      {
+        "n": "04",
+        "title": "Destination",
+        "body": "Disk, scheme, optional encryption"
+      },
+      {
+        "n": "05",
+        "title": "Software",
+        "body": "Base environment plus add-ons"
+      },
+      {
+        "n": "06",
+        "title": "Account",
+        "body": "User, password, administrator rights"
+      },
+      {
+        "n": "07",
+        "title": "Review",
+        "body": "Everything on one screen before writing"
+      },
+      {
+        "n": "08",
+        "title": "Install",
+        "body": "Progress, logs and a clean restart"
+      }
+    ],
+    "strip": [
+      {
+        "img": "step-01.png",
+        "label": "01 · Language"
+      },
+      {
+        "img": "step-03.png",
+        "label": "03 · Network"
+      },
+      {
+        "img": "step-04.png",
+        "label": "04 · Destination"
+      },
+      {
+        "img": "step-07.png",
+        "label": "07 · Review"
+      }
+    ],
+    "guarantees": [
+      {
+        "icon": "shield-check",
+        "title": "GPG-verified packages",
+        "body": "Secure Boot stays on, and every package is checked before it lands on disk."
+      },
+      {
+        "icon": "database",
+        "title": "Your data is kept",
+        "body": "Only the space you choose on the destination is touched. Everything else is left alone."
+      },
+      {
+        "icon": "terminal",
+        "title": "Escape hatches",
+        "body": "F1 opens help, F12 drops to a console. The installer never hides what it is doing."
+      },
+      {
+        "icon": "globe",
+        "title": "Twelve languages",
+        "body": "Indonesian, Javanese, Sundanese, Malay, Chinese, Japanese, Korean, Spanish, French, German, Portuguese, Russian."
+      }
+    ]
+  },
+  "more": {
+    "eyebrow": "Also in this release",
+    "title": "The parts you only notice when they are missing.",
+    "items": [
+      {
+        "icon": "languages",
+        "color": "tile-indigo",
+        "title": "Twelve interface languages",
+        "body": "Indonesian, Javanese, Sundanese, Malay, Chinese, Japanese, Korean, Spanish, French, German, Portuguese and Russian — translated across the shell, settings, store and installer."
+      },
+      {
+        "icon": "laptop",
+        "color": "tile-gray",
+        "title": "Apple hardware support",
+        "body": "Keyboard and trackpad quirks, SMC drivers and sensible Command-key defaults, so a MacBook behaves like a MacBook."
+      },
+      {
+        "icon": "wifi",
+        "color": "tile-cyan",
+        "title": "Broadcom Wi-Fi out of the box",
+        "body": "Drivers for the Broadcom chipsets in older MacBooks are on the ISO — no cable needed to get online during install."
+      },
+      {
+        "icon": "container",
+        "color": "tile-purple",
+        "title": "Built entirely in containers",
+        "body": "Every package and image is produced with Podman in CI, so a build is reproducible and auditable from the first commit."
+      },
+      {
+        "icon": "disc-3",
+        "color": "tile-orange",
+        "title": "Live ISO, no install required",
+        "body": "Boot the image from a USB stick and use the finished system straight away. Install to disk later from the same session — or never, and keep running it live."
+      },
+      {
+        "icon": "scale",
+        "color": "tile-green",
+        "title": "GPL-3.0 and BSD-3-Clause",
+        "body": "Dual-licensed GPL-3.0 and BSD-3-Clause. Every component is free software, with the full source and build recipe published. Nothing is hidden."
+      }
+    ]
+  },
+  "download": {
+    "eyebrow": "Download",
+    "title": "Get IGN 26.",
+    "sub": "Write it to a USB stick and boot. The live session is the finished system — Nabau simply copies it to disk when you are ready.",
+    "name": "IGN 26 · Bayu Live",
+    "tag": "Nightly build",
+    "body": "The complete Bayu desktop with Bayu Store, Lapis and the Nabau installer. Boot it, try it, and install to disk from the same session. This is the only image published right now, and it is rebuilt every night from the newest packages.",
+    "facts": [
+      {
+        "k": "File",
+        "v": "ign26-bayu-harian-latest.iso"
+      },
+      {
+        "k": "Size",
+        "v": "1.21 GB"
+      },
+      {
+        "k": "Architecture",
+        "v": "x86_64 · UEFI"
+      },
+      {
+        "k": "Built",
+        "v": "25 Oct 2026"
+      }
+    ],
+    "button": "Download live ISO",
+    "host_note": "r2.igos-nusantara.or.id · direct download, no mirror selection",
+    "cmd_title": "Download and write",
+    "copy": "Copy",
+    "copied": "Copied",
+    "cmds": [
+      "curl -LO https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso",
+      "sudo dd if=ign26-bayu-harian-latest.iso of=/dev/sdX bs=4M status=progress oflag=sync"
+    ],
+    "cmd_note": "Replace /dev/sdX with your USB device — dd will not ask twice. The nightly URL always resolves to the newest build, so re-running curl is all it takes to refresh your stick.",
+    "sys_title": "System requirements",
+    "sys": [
+      {
+        "k": "Processor",
+        "v": "64-bit x86 (amd64)"
+      },
+      {
+        "k": "Memory",
+        "v": "4 GB minimum · 8 GB for Lapis"
+      },
+      {
+        "k": "Storage",
+        "v": "20 GB free"
+      },
+      {
+        "k": "Firmware",
+        "v": "UEFI · Secure Boot supported"
+      },
+      {
+        "k": "Graphics",
+        "v": "Any Mesa-supported GPU"
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Indonesian Go Open Source",
+    "about": "A Linux distribution built in Indonesia, in the open. IGN 26 is free software — download it, study it, change it, and pass it on.",
+    "columns": [
+      {
+        "head": "Components",
+        "items": [
+          {
+            "label": "BAYU Desktop",
+            "href": "https://github.com/igos-nusantara/bayu"
+          },
+          {
+            "label": "Bayu Store",
+            "href": "#store"
+          },
+          {
+            "label": "Lapis",
+            "href": "https://github.com/igos-nusantara/lapis"
+          },
+          {
+            "label": "Nabau Installer",
+            "href": "#nabau"
+          },
+          {
+            "label": "Pitaloka",
+            "href": "https://pitaloka.igos-nusantara.or.id"
+          }
+        ]
+      },
+      {
+        "head": "Download",
+        "items": [
+          {
+            "label": "Live ISO (nightly)",
+            "href": "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
+          },
+          {
+            "label": "Release notes",
+            "href": "#download"
+          },
+          {
+            "label": "Known issues",
+            "href": "https://github.com/igos-nusantara"
+          },
+          {
+            "label": "Mirrors",
+            "href": "#download"
+          }
+        ]
+      },
+      {
+        "head": "Documentation",
+        "items": [
+          {
+            "label": "Installation guide",
+            "href": "#nabau"
+          },
+          {
+            "label": "Running Android apps",
+            "href": "https://github.com/igos-nusantara/lapis"
+          },
+          {
+            "label": "Design tokens",
+            "href": "https://pitaloka.igos-nusantara.or.id"
+          },
+          {
+            "label": "Packaging",
+            "href": "https://github.com/igos-nusantara"
+          }
+        ]
+      },
+      {
+        "head": "Community",
+        "items": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/igos-nusantara"
+          },
+          {
+            "label": "Report a bug",
+            "href": "https://github.com/igos-nusantara/bayu/issues"
+          },
+          {
+            "label": "Translate IGN 26",
+            "href": "https://github.com/igos-nusantara"
+          },
+          {
+            "label": "Contributors",
+            "href": "https://github.com/igos-nusantara"
+          }
+        ]
+      }
+    ],
+    "legal": "© 2026 IGOS Nusantara · Licensed under GPL-3.0 and BSD-3-Clause",
+    "links": [
+      {
+        "label": "github.com/igos-nusantara",
+        "href": "https://github.com/igos-nusantara"
+      },
+      {
+        "label": "pitaloka.igos-nusantara.or.id",
+        "href": "https://pitaloka.igos-nusantara.or.id"
+      }
+    ]
+  }
+}
