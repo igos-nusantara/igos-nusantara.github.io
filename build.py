@@ -22,7 +22,7 @@ import sys
 ROOT = pathlib.Path(__file__).parent
 ICONS = ROOT / "assets" / "icons"
 IMG = "assets/img"
-SITE = "https://igos-nusantara.github.io"
+SITE = "https://igos-nusantara.or.id"
 ISO_URL = "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
 
 _icon_cache: dict[str, str] = {}
@@ -532,7 +532,10 @@ def render(c: dict) -> str:
 <meta property="og:url" content="{canonical}" />
 <meta property="og:title" content="{e(m['title'])}" />
 <meta property="og:description" content="{e(m['description'])}" />
-<meta property="og:image" content="{SITE}/{IMG}/1.png" />
+<meta property="og:image" content="{SITE}/{IMG}/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="{SITE}/{IMG}/og.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
