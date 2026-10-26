@@ -1,0 +1,307 @@
+{
+  "lang": "id",
+  "dir": "docs/id/",
+  "labels": {
+    "site": "Dokumentasi IGN 26",
+    "menu": "Semua panduan",
+    "pager": "Panduan sebelum dan sesudahnya",
+    "prev": "Sebelumnya",
+    "next": "Berikutnya",
+    "copy": "Salin",
+    "copied": "Tersalin"
+  },
+  "pages": [
+    {
+      "slug": "index",
+      "nav": "Mulai di sini",
+      "title": "Mulai di sini",
+      "lede": "IGN 26 adalah distribusi Linux buatan Indonesia. Panduan ini menemani Anda dari mengunduh sampai memakainya sehari-hari.",
+      "blocks": [
+        {"p": "IGN 26 dibagikan sebagai image live. Anda menulisnya ke flashdisk, menyalakan komputer dari flashdisk itu, lalu bisa langsung memakai desktopnya tanpa menyentuh isi disk. Kalau cocok, pemasangnya menaruh IGN 26 ke disk dalam beberapa menit."},
+        {"h": "Yang Anda perlukan", "id": "kebutuhan"},
+        {"head": ["Bagian", "Minimal"], "table": [
+          ["Prosesor", "64-bit x86 (amd64)"],
+          ["Memori", "4 GB. 8 GB jika ingin memakai aplikasi Android."],
+          ["Disk", "20 GB ruang kosong"],
+          ["Firmware", "UEFI. Hampir semua komputer buatan 2012 ke atas sudah memilikinya."],
+          ["Flashdisk", "2 GB atau lebih. Semua isinya akan terhapus."]
+        ]},
+        {"h": "Panduan", "id": "panduan"},
+        {"cards": [
+          {"href": "download.html", "icon": "download", "color": "tile-blue", "title": "Unduh dan tulis ke flashdisk", "body": "Ambil image-nya dan buat flashdisk untuk menyalakan komputer."},
+          {"href": "live.html", "icon": "power", "color": "tile-indigo", "title": "Menjalankan sesi live", "body": "Nyalakan dari flashdisk dan coba IGN 26 tanpa memasangnya."},
+          {"href": "install.html", "icon": "hard-drive", "color": "tile-cyan", "title": "Memasang dengan Nabau", "body": "Pasang IGN 26 ke disk dalam delapan langkah."},
+          {"href": "desktop.html", "icon": "monitor", "color": "tile-purple", "title": "Memakai desktop", "body": "Bilah atas, dok, peluncur, dan Pengaturan."},
+          {"href": "apps.html", "icon": "shopping-bag", "color": "tile-orange", "title": "Memasang aplikasi", "body": "Cari, pasang, perbarui, dan hapus aplikasi lewat Bayu Store."},
+          {"href": "android.html", "icon": "smartphone", "color": "tile-green", "title": "Aplikasi Android", "body": "Jalankan aplikasi dari F-Droid di jendelanya sendiri."},
+          {"href": "agents.html", "icon": "bot", "color": "tile-pink", "title": "Bayu untuk agen", "body": "Izinkan agen AI memakai desktop, atas persetujuan Anda."},
+          {"href": "troubleshooting.html", "icon": "life-buoy", "color": "tile-gray", "title": "Pemecahan masalah", "body": "Yang perlu dilakukan kalau ada yang tidak berjalan."}
+        ]}
+      ]
+    },
+    {
+      "slug": "download",
+      "nav": "Unduh dan tulis ke flashdisk",
+      "title": "Unduh dan tulis ke flashdisk",
+      "lede": "Unduh image IGN 26, lalu tulis ke flashdisk supaya komputer bisa dinyalakan dari situ.",
+      "blocks": [
+        {"note": "Menulis image akan menghapus semua isi flashdisk. Pindahkan dulu berkas yang ingin Anda simpan.", "kind": "warn"},
+        {"h": "Unduh image", "id": "unduh"},
+        {"p": "IGN 26 dibangun ulang setiap malam. Tautan ini selalu mengarah ke versi terbaru. Ukurannya sekitar 1,3 GB."},
+        {"p": "Unduh lewat peramban: [ign26-bayu-harian-latest.iso](https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso). Atau lewat terminal:"},
+        {"cmd": ["curl -LO https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"]},
+        {"h": "Menulis di Linux", "id": "linux"},
+        {"p": "Colokkan flashdisk, lalu lihat daftar disk:"},
+        {"cmd": ["lsblk -d -o NAME,SIZE,MODEL"]},
+        {"p": "Kenali flashdisk dari ukuran dan modelnya, misalnya `sdb`. Pastikan itu bukan disk tempat sistem Anda berjalan."},
+        {"p": "Tulis image-nya. Ganti `sdX` dengan nama yang Anda temukan:"},
+        {"cmd": ["sudo dd if=ign26-bayu-harian-latest.iso of=/dev/sdX bs=4M status=progress oflag=sync"]},
+        {"p": "Flashdisk siap dipakai setelah prompt muncul lagi."},
+        {"h": "Menulis di Windows atau macOS", "id": "windows-macos"},
+        {"p": "Pakai [balenaEtcher](https://etcher.balena.io). Gratis, dan cara pakainya sama di kedua sistem."},
+        {"steps": [
+          "Buka balenaEtcher, klik **Flash from file**, lalu pilih berkas `.iso` yang sudah diunduh.",
+          "Klik **Select target** dan pilih flashdisk Anda.",
+          "Klik **Flash!** dan tunggu sampai muncul tulisan bahwa proses selesai."
+        ]},
+        {"note": "Di Windows Anda juga bisa memakai [Rufus](https://rufus.ie). Jika ditanya cara menulis image, pilih **DD Image mode**."},
+        {"h": "Atau coba di mesin virtual", "id": "vm"},
+        {"p": "Image ini juga bisa dijalankan di GNOME Boxes, virt-manager, atau VirtualBox. Beri mesinnya memori minimal 4 GB dan disk 25 GB, lalu aktifkan UEFI. Di VirtualBox, pengaturannya ada di **Settings → System → Enable EFI**."},
+        {"p": "Berikutnya: [menjalankan sesi live](live.html)."}
+      ]
+    },
+    {
+      "slug": "live",
+      "nav": "Menjalankan sesi live",
+      "title": "Menjalankan sesi live",
+      "lede": "Nyalakan komputer dari flashdisk dan coba IGN 26 tanpa memasangnya.",
+      "blocks": [
+        {"steps": [
+          "Colokkan flashdisk lalu nyalakan komputer. Segera tekan tombol untuk membuka menu boot. Biasanya **F12**, **F11**, **F9**, atau **Esc**. Layar pertama saat komputer menyala biasanya menyebutkan tombolnya.",
+          "Pilih flashdisk dari daftar.",
+          {"t": "Menu IGN 26 muncul. Tekan **Enter** pada **Start IGOS Nusantara 26**, atau tunggu tiga detik dan sistem berjalan sendiri.", "img": "docs/boot-menu.png", "alt": "Menu boot IGN 26 dengan Start IGOS Nusantara 26 terpilih"},
+          {"t": "Desktop terbuka dan langsung menjalankan pemasang, Nabau. Anda bisa memasang sekarang, atau menutup Nabau dan melihat-lihat dulu. Ikonnya tetap ada di dok.", "img": "docs/live-nabau.png", "alt": "Desktop live dengan pemasang Nabau terbuka di langkah 1"}
+        ]},
+        {"h": "Apa saja yang bisa dipakai", "id": "isi"},
+        {"p": "Semuanya: Berkas, Terminal, Pengaturan, Bayu Store, dan jaringan. Tidak ada yang disimpan ke disk. Berkas yang Anda buat dan aplikasi yang Anda pasang hilang setelah komputer dinyalakan ulang."},
+        {"h": "Jika layar tetap hitam", "id": "layar-hitam"},
+        {"p": "Nyalakan ulang, lalu pilih **Start IGOS Nusantara 26 (basic graphics)** di menu. Pilihan ini memakai driver tampilan yang lebih sederhana dan cocok untuk lebih banyak kartu grafis."},
+        {"h": "Menu Troubleshooting", "id": "menu-troubleshooting"},
+        {"p": "**Troubleshooting** di menu boot berisi dua cara menyalakan lainnya:"},
+        {"list": [
+          "**verbose** menampilkan setiap pesan saat sistem menyala, jadi Anda bisa melihat di mana prosesnya berhenti.",
+          "**without the Broadcom wl driver** untuk komputer dengan Wi-Fi Broadcom yang macet saat menyala."
+        ]},
+        {"p": "Berikutnya: [memasang dengan Nabau](install.html)."}
+      ]
+    },
+    {
+      "slug": "install",
+      "nav": "Memasang dengan Nabau",
+      "title": "Memasang dengan Nabau",
+      "lede": "Nabau memasang IGN 26 ke disk dalam delapan langkah. Tidak ada yang ditulis ke disk sebelum Anda mengeklik Mulai instalasi di langkah 7.",
+      "blocks": [
+        {"note": "Tata letak otomatis menghapus seluruh isi disk yang Anda pilih. Cadangkan berkas Anda sebelum mulai.", "kind": "warn"},
+        {"p": "Nabau terbuka sendiri di sesi live. Jika sudah Anda tutup, klik ikonnya di dok."},
+        {"h": "Delapan langkah", "id": "langkah"},
+        {"steps": [
+          {"t": "**Bahasa.** Pilih bahasa untuk sistem yang akan dipasang dan format regionalnya. Format regional menentukan cara tanggal, angka, dan uang ditampilkan. Kotak **Pratinjau** menampilkan contohnya. Klik **Lanjutkan**.", "img": "docs/id-nabau-01.png", "alt": "Langkah 1 Nabau, Bahasa, dengan Indonesia terpilih"},
+          {"t": "**Jaringan.** Koneksi tidak wajib, tetapi membantu Nabau mencocokkan jam. Koneksi kabel tersambung sendiri. **Nama host** adalah nama komputer Anda di jaringan; boleh dibiarkan.", "img": "docs/id-nabau-02.png", "alt": "Langkah 2 Nabau, Jaringan, dengan koneksi kabel"},
+          {"t": "**Lokalisasi.** Pilih tata letak papan ketik yang Anda pakai. Ketik beberapa huruf di **Uji tata letak** untuk mencobanya. Zona waktu ditebak dari jaringan; ubah **Wilayah** dan **Kota** jika keliru.", "img": "docs/id-nabau-03.png", "alt": "Langkah 3 Nabau, tata letak papan ketik dan zona waktu"},
+          {"t": "**Tujuan.** Pilih disk. Biarkan **Otomatis** kecuali Anda tahu partisi apa yang Anda inginkan. Aktifkan **Enkripsi data saya** jika komputer bisa hilang atau dicuri; Anda lalu perlu mengetik kata sandi setiap kali komputer menyala.", "img": "docs/id-nabau-04.png", "alt": "Langkah 4 Nabau, memilih disk dan tata letak otomatis"},
+          {"t": "**Perangkat lunak.** **IGN 26 Desktop** adalah desktop yang sedang Anda pakai. Tambahan di sebelah kanan tidak wajib dan bisa dipasang belakangan dengan `dnf`.", "img": "docs/id-nabau-05.png", "alt": "Langkah 5 Nabau, IGN 26 Desktop dan tambahan opsional"},
+          {"t": "**Akun.** Ketik nama lengkap Anda; nama pengguna terisi sendiri. Ketik kata sandi dua kali. Biarkan **Jadikan pengguna ini administrator** tetap aktif supaya Anda bisa memasang perangkat lunak dan mengubah pengaturan sistem.", "img": "docs/id-nabau-06.png", "alt": "Langkah 6 Nabau, membuat akun pengguna"},
+          {"t": "**Tinjauan.** Periksa ringkasannya. Klik **Edit** pada kartu yang ingin diubah. Jika sudah benar, klik **Mulai instalasi**. Pada saat inilah disk dihapus.", "img": "docs/id-nabau-07.png", "alt": "Langkah 7 Nabau, layar tinjauan dengan tombol Mulai instalasi"},
+          {"t": "**Pasang.** Tunggu sampai selesai. Di mesin uji kami prosesnya kurang dari dua menit; flashdisk atau disk yang lambat butuh waktu lebih lama.", "img": "docs/id-nabau-08.png", "alt": "Langkah 8 Nabau, proses pemasangan berjalan"}
+        ]},
+        {"h": "Selesai dan nyalakan ulang", "id": "selesai"},
+        {"steps": [
+          "Saat muncul **Semuanya siap.**, cabut flashdisk, lalu klik **Mulai ulang sekarang**.",
+          {"t": "Layar masuk menampilkan nama Anda. Ketik kata sandi lalu tekan **Enter**. Layar ini masih berbahasa Inggris (tertulis **Enter Password**).", "img": "docs/en-login.png", "alt": "Layar masuk dengan pengguna Sari Wulandari"},
+          {"t": "Jendela sambutan menawarkan tur singkat. Klik **Mulai tur**, atau **Lewati**.", "img": "docs/id-welcome.png", "alt": "Jendela Selamat datang di IGN 26"}
+        ]},
+        {"h": "Ambil pembaruan terbaru", "id": "pembaruan"},
+        {"p": "Image-nya bisa jadi sudah berumur beberapa hari. Buka **Terminal** dari dok lalu jalankan:"},
+        {"cmd": ["sudo dnf upgrade"]},
+        {"p": "Berikutnya: [memakai desktop](desktop.html)."}
+      ]
+    },
+    {
+      "slug": "desktop",
+      "nav": "Memakai desktop",
+      "title": "Memakai desktop",
+      "lede": "Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, dan Pengaturan.",
+      "blocks": [
+        {"img": "docs/id-desktop.png", "alt": "Desktop Bayu dengan bilah atas dan dok", "caption": "Bilah atas membentang di bagian atas layar. Dok ada di bawah."},
+        {"h": "Bilah atas", "id": "bilah-atas"},
+        {"p": "Di kiri ada logo IGN, lalu nama aplikasi yang sedang di depan dan menu aplikasi itu. Klik logonya untuk membuka **Pengaturan**, **Kunci layar**, **Keluar**, **Mulai Ulang**, dan **Matikan**."},
+        {"p": "Di kanan ada ikon jaringan, **Pusat Kontrol**, dan jam. Pusat Kontrol berisi sakelar cepat untuk Wi-Fi, **Mode Gelap**, **Jangan Ganggu**, kamera, dan mikrofon."},
+        {"h": "Dok", "id": "dok"},
+        {"p": "Dari kiri ke kanan: **Peluncur**, **Berkas**, **Terminal**, **Pengaturan**, **Tangkapan Layar**, dan **Tempat Sampah**. Aplikasi yang Anda buka mendapat ikonnya sendiri sampai ditutup. Titik di bawah ikon berarti aplikasinya sedang terbuka."},
+        {"h": "Peluncur", "id": "peluncur"},
+        {"p": "Klik ikon roket untuk melihat semua aplikasi yang terpasang. Klik salah satunya untuk membukanya. Tekan **Esc** untuk menutup peluncur."},
+        {"img": "docs/id-launcher.png", "alt": "Peluncur yang menampilkan semua aplikasi terpasang"},
+        {"h": "Pengaturan", "id": "pengaturan"},
+        {"p": "Buka **Pengaturan** dari dok. Halamannya dikelompokkan menjadi **Jaringan**, **Desktop**, **Perangkat**, dan **Sistem**."},
+        {"h": "Mengganti bahasa", "id": "bahasa"},
+        {"steps": [
+          {"t": "Di Pengaturan, buka **Bahasa**.", "img": "docs/id-settings-language.png", "alt": "Halaman Bahasa di Pengaturan"},
+          "Klik **Tambah bahasa…** lalu pilih bahasanya.",
+          "Seret bahasa itu ke paling atas daftar. Bahasa paling atas menjadi bahasa sistem.",
+          "Klik logo di pojok kiri atas, pilih **Keluar**, lalu masuk lagi. Setelah itu aplikasi memakai bahasa yang baru."
+        ]},
+        {"p": "Berikutnya: [memasang aplikasi](apps.html)."}
+      ]
+    },
+    {
+      "slug": "apps",
+      "nav": "Memasang aplikasi",
+      "title": "Memasang aplikasi",
+      "lede": "Bayu Store memasang aplikasi Linux dari Flathub dan aplikasi Android dari F-Droid, dari satu kotak pencarian.",
+      "blocks": [
+        {"p": "Buka **Bayu Store** dari peluncur. Saat pertama dibuka, Bayu Store mengunduh daftar aplikasi. Prosesnya satu sampai dua menit dan hanya sekali."},
+        {"img": "docs/id-store-discover.png", "alt": "Bayu Store di halaman Temukan"},
+        {"h": "Mencari aplikasi", "id": "cari"},
+        {"p": "Ketik di kotak pencarian di atas lalu tekan **Enter**. Hasil dari Flathub dan F-Droid tampil bersama. Klik **Flathub** atau **F-Droid** di bawah judul untuk menampilkan salah satunya saja."},
+        {"img": "docs/id-store-search.png", "alt": "Hasil pencarian calculator dari Flathub dan F-Droid"},
+        {"h": "Memasang", "id": "pasang"},
+        {"steps": [
+          {"t": "Klik nama aplikasi untuk membuka halamannya. Di sana tertulis pembuatnya, lisensinya, ukuran unduhan, dan apa saja yang boleh diakses aplikasi itu.", "img": "docs/id-store-app.png", "alt": "Halaman aplikasi Calculator di Bayu Store"},
+          "Klik **Pasang**. Tombolnya menampilkan kemajuan pemasangan.",
+          "Jika tombolnya berubah menjadi **Buka**, aplikasi sudah terpasang. Klik **Buka**, atau cari aplikasinya di peluncur."
+        ]},
+        {"p": "Aplikasi dari F-Droid adalah aplikasi Android. Saat pertama memasangnya, Anda diminta mengaktifkan Android. Lihat [Aplikasi Android](android.html)."},
+        {"h": "Pembaruan", "id": "pembaruan"},
+        {"p": "Bayu Store memasang pembaruan aplikasi di latar belakang. Untuk melihat apa saja yang berubah, buka **Pembaruan** di bilah samping. Untuk mematikannya, buka **Pengaturan toko** lalu matikan **Pasang pembaruan secara otomatis**."},
+        {"p": "Bayu Store hanya memperbarui aplikasi. Untuk memperbarui sistemnya, jalankan `sudo dnf upgrade` di Terminal."},
+        {"h": "Menghapus aplikasi", "id": "hapus"},
+        {"p": "Buka **Terpasang** di bilah samping, buka halaman aplikasinya, lalu klik tombol tempat sampah di sebelah **Buka**."},
+        {"p": "Berikutnya: [aplikasi Android](android.html)."}
+      ]
+    },
+    {
+      "slug": "android",
+      "nav": "Aplikasi Android",
+      "title": "Aplikasi Android",
+      "lede": "Aplikasi dari F-Droid berjalan di Lapis, sistem Android yang berjalan di samping desktop. Setiap aplikasi terbuka di jendelanya sendiri.",
+      "blocks": [
+        {"h": "Sebelum mulai", "id": "sebelum"},
+        {"list": [
+          "Disarankan memori 8 GB.",
+          "Mengaktifkan Android mengunduh sekitar 1,3 GB, sekali saja. Pakai koneksi yang cepat.",
+          "Anda perlu kata sandi administrator."
+        ]},
+        {"h": "Mengaktifkan Android", "id": "aktifkan"},
+        {"steps": [
+          "Di Bayu Store, klik **Pasang** pada aplikasi F-Droid mana pun. Bayu Store bertanya **Aktifkan aplikasi Android?** Klik **Aktifkan**.",
+          "Ketik kata sandi Anda lalu tekan **Enter**.",
+          "Tunggu unduhannya selesai. Unduhan berjalan di latar belakang, dan Bayu Store belum menampilkan kemajuannya. Dengan koneksi 10 Mbit/s butuh sekitar 20 menit.",
+          "Setelah itu Android menyala untuk pertama kali, sekitar satu menit. Lalu klik **Pasang** lagi pada aplikasinya.",
+          {"t": "Jika tombolnya berubah menjadi **Buka**, klik. Aplikasi Android terbuka di jendelanya sendiri, sama seperti aplikasi lain.", "img": "docs/android-running.png", "alt": "Aplikasi kalkulator Android berjalan di jendelanya sendiri di desktop Bayu"}
+        ]},
+        {"p": "Android juga bisa diaktifkan dari **Pengaturan toko**, di bagian **Aplikasi Android**."},
+        {"img": "docs/id-store-settings.png", "alt": "Pengaturan toko dengan bagian Aplikasi Android", "caption": "Pengaturan toko setelah Android aktif."},
+        {"h": "Jika unduhan berhenti", "id": "unduhan-berhenti"},
+        {"p": "Image Android diunduh dari mirror SourceForge, yang kadang lambat. Jika Bayu Store menampilkan **Aplikasi Android tidak dapat diaktifkan**, buka Terminal lalu jalankan:"},
+        {"cmd": ["sudo lapis init -type VANILLA"]},
+        {"p": "Perintah ini melanjutkan unduhan dari titik terakhir dan mencoba mirror lain dengan sendirinya. Setelah selesai, pasang lagi aplikasinya dari Bayu Store."},
+        {"h": "Jika tertulis Android tidak berjalan", "id": "tidak-berjalan"},
+        {"p": "Android butuh sekitar satu menit untuk menyala setelah Anda masuk atau mengaktifkannya. Jika Bayu Store menampilkan **Android container is not running** atau **Can't find service: package**, tunggu satu menit lalu klik **Pasang** lagi."},
+        {"h": "Aplikasi khusus ARM", "id": "arm"},
+        {"p": "Sebagian aplikasi Android hanya dibuat untuk prosesor ponsel (ARM). Aplikasi ini disembunyikan secara bawaan. Untuk menampilkannya, aktifkan **Tampilkan aplikasi yang hanya dibuat untuk ARM** di Pengaturan toko. Aplikasi ini berjalan lewat penerjemah, jadi lebih lambat dan sebagian tidak berjalan."},
+        {"p": "Berikutnya: [Bayu untuk agen](agents.html)."}
+      ]
+    },
+    {
+      "slug": "agents",
+      "nav": "Bayu untuk agen",
+      "title": "Bayu untuk agen",
+      "lede": "Bayu bisa mengizinkan agen AI melihat layar dan memakai tetikus serta papan ketik. Itu hanya terjadi setelah Anda mengizinkan, dan bisa dihentikan dengan satu klik.",
+      "blocks": [
+        {"h": "Cara kerjanya", "id": "cara-kerja"},
+        {"p": "Aplikasi agen, misalnya Claude Code, berbicara dengan `bayu-computer-use`, program kecil yang memakai MCP (Model Context Protocol). Saat agen pertama kali ingin melihat atau memakai desktop, Bayu bertanya kepada Anda:"},
+        {"img": "docs/id-consent.png", "alt": "Dialog Izinkan Agent mengendalikan komputer ini, dengan tombol Batal dan Izinkan"},
+        {"p": "Tidak ada yang terjadi sebelum Anda mengeklik **Izinkan**. Setelah itu:"},
+        {"list": [
+          "Tombol **Berhenti** muncul di bilah atas selama agen memegang kendali. Klik untuk menghentikan agen saat itu juga.",
+          "Saat Anda sendiri memakai tetikus atau papan ketik, agen berhenti sejenak.",
+          "Agen tidak bisa menjawab dialog sistem, seperti permintaan kata sandi atau dialog izin ini."
+        ]},
+        {"img": "docs/id-control.png", "alt": "Bilah atas dengan tombol Berhenti di sebelah ikon jaringan", "caption": "Selama agen memegang kendali, tombol Berhenti ada di sebelah kiri ikon jaringan."},
+        {"h": "Memasang bayu-computer-use", "id": "pasang"},
+        {"note": "`bayu-computer-use` belum ada di image IGN 26. Bangun dari kode sumber dengan perintah di bawah. Prosesnya sekitar satu menit."},
+        {"p": "Pasang alat untuk membangunnya:"},
+        {"cmd": ["sudo dnf install cargo git"]},
+        {"p": "Unduh bagian ini saja dari kode sumber Bayu, lalu bangun:"},
+        {"cmd": [
+          "git clone --depth 1 --filter=blob:none --sparse https://github.com/igos-nusantara/bayu.git",
+          "cd bayu",
+          "git sparse-checkout set components/bayu-computer-use",
+          "cd components/bayu-computer-use",
+          "rm .cargo/config.toml",
+          "cargo build --release",
+          "sudo install -m 755 target/release/bayu-computer-use /usr/bin/"
+        ]},
+        {"p": "Baris `rm` menghapus pengaturan khusus untuk build Debian. Tanpa baris itu, build tidak bisa mengunduh pustaka yang dibutuhkan."},
+        {"p": "Lalu **keluar dan masuk lagi** (klik logo di pojok kiri atas, lalu **Keluar**). Bayu mencari `/usr/bin/bayu-computer-use` saat Anda masuk, dan hanya memercayai program di lokasi itu."},
+        {"h": "Menghubungkan agen", "id": "hubungkan"},
+        {"p": "Untuk Claude Code:"},
+        {"cmd": ["claude mcp add bayu -- /usr/bin/bayu-computer-use"]},
+        {"p": "Untuk aplikasi agen lain, tambahkan server MCP yang menjalankan `/usr/bin/bayu-computer-use` lewat stdio, tanpa argumen. Banyak aplikasi memakai format ini:"},
+        {"code": ["{ \"mcpServers\": { \"bayu\": { \"command\": \"/usr/bin/bayu-computer-use\" } } }"]},
+        {"p": "Jalankan aplikasi agen dari desktop, misalnya di Terminal. Dialog izin menampilkan nama agen dan aplikasi tempat agen itu berjalan."},
+        {"h": "Yang bisa dilakukan agen", "id": "alat"},
+        {"p": "Berikut alat yang diberikan `bayu-computer-use` kepada agen:"},
+        {"head": ["Alat", "Fungsinya"], "table": [
+          ["`screenshot`", "Mengambil gambar seluruh layar, atau satu jendela"],
+          ["`zoom`", "Menampilkan satu bagian layar dengan resolusi penuh, untuk membaca teks kecil"],
+          ["`click`", "Memindahkan penunjuk ke satu titik lalu mengeklik"],
+          ["`move_pointer`", "Memindahkan penunjuk, misalnya untuk hover"],
+          ["`drag`", "Menekan di satu titik, bergeser ke titik lain, lalu melepas"],
+          ["`mouse_down`, `mouse_up`", "Menekan atau melepas tombol tetikus, untuk seretan yang tidak bisa dilakukan `drag`"],
+          ["`cursor_position`", "Memberi tahu posisi penunjuk"],
+          ["`scroll`", "Menggulir dengan roda tetikus"],
+          ["`type_text`", "Mengetik teks di tempat fokus papan ketik berada"],
+          ["`press_keys`", "Menekan tombol atau pintasan, misalnya `ctrl+s`"],
+          ["`hold_keys`", "Menahan tombol selama beberapa saat"],
+          ["`set_clipboard`", "Menaruh teks di papan klip"],
+          ["`keyboard_shortcuts`", "Menampilkan daftar pintasan sistem"],
+          ["`list_windows`", "Menampilkan daftar jendela yang terbuka"],
+          ["`activate_window`", "Membawa jendela ke depan"],
+          ["`close_window`", "Menutup jendela, sama seperti tombol tutupnya"],
+          ["`set_window_frame`", "Memindahkan dan mengubah ukuran jendela"],
+          ["`list_applications`", "Menampilkan daftar aplikasi terpasang"],
+          ["`open_application`", "Menjalankan aplikasi terpasang"],
+          ["`open`", "Membuka berkas, folder, atau alamat web"],
+          ["`actions`", "Menjalankan beberapa alat di atas berurutan"]
+        ]},
+        {"h": "Jika tidak berjalan", "id": "masalah"},
+        {"p": "Jika agen melaporkan **This session does not let bayu-computer-use control the computer**, berarti programnya tidak berada di tempat yang diharapkan Bayu, atau Anda belum keluar dan masuk lagi sejak memasangnya. Pastikan `/usr/bin/bayu-computer-use` ada, lalu keluar dan masuk lagi."}
+      ]
+    },
+    {
+      "slug": "troubleshooting",
+      "nav": "Pemecahan masalah",
+      "title": "Pemecahan masalah",
+      "lede": "Masalah yang sering muncul dan cara mengatasinya.",
+      "blocks": [
+        {"h": "Komputer tidak mau menyala dari flashdisk", "id": "flashdisk"},
+        {"list": [
+          "Buka menu boot dengan tombol yang tepat (biasanya **F12**, **F11**, **F9**, atau **Esc**) dan pilih flashdisk secara manual.",
+          "Coba port USB lain, sebaiknya yang langsung menempel di komputer.",
+          "Tulis ulang flashdisk. Di Windows, pakai **DD Image mode** di Rufus, atau pakai balenaEtcher."
+        ]},
+        {"h": "Layar tetap hitam", "id": "layar-hitam"},
+        {"p": "Nyalakan ulang dan pilih **Start IGOS Nusantara 26 (basic graphics)** di menu boot."},
+        {"h": "Proses menyala berhenti di tengah jalan", "id": "berhenti"},
+        {"p": "Di menu boot, buka **Troubleshooting** lalu pilih yang bertuliskan **verbose**. Baris terakhir di layar menunjukkan di mana prosesnya berhenti. Jika komputer Anda memakai Wi-Fi Broadcom, coba pilihan **without the Broadcom wl driver**."},
+        {"h": "Nabau tetap berbahasa Indonesia setelah memilih bahasa lain", "id": "bahasa-nabau"},
+        {"p": "Ini masalah yang sudah diketahui ([issue #42](https://github.com/igos-nusantara/bayu/issues/42)). Sistem yang terpasang tetap memakai bahasa yang Anda pilih. Letak tombol di setiap langkah sama di semua bahasa, jadi [Memasang dengan Nabau](install.html) tetap bisa diikuti."},
+        {"h": "Aplikasi Android tidak dapat diaktifkan", "id": "android"},
+        {"p": "Biasanya unduhan 1,3 GB terputus. Jalankan `sudo lapis init -type VANILLA` di Terminal; unduhan dilanjutkan dari titik terakhir. Lihat [Aplikasi Android](android.html#unduhan-berhenti)."},
+        {"h": "Melaporkan bug", "id": "lapor"},
+        {"p": "Buat issue di [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues). Ceritakan apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi, lalu lampirkan tangkapan layar jika bisa."}
+      ]
+    }
+  ]
+}

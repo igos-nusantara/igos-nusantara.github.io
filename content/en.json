@@ -28,6 +28,10 @@
       {
         "label": "Nabau",
         "href": "#nabau"
+      },
+      {
+        "label": "Docs",
+        "href": "docs/index.html"
       }
     ],
     "cta": "Download",
@@ -604,11 +608,15 @@
         "items": [
           {
             "label": "Installation guide",
-            "href": "#nabau"
+            "href": "docs/install.html"
           },
           {
-            "label": "Running Android apps",
-            "href": "https://github.com/igos-nusantara/lapis"
+            "label": "Android apps",
+            "href": "docs/android.html"
+          },
+          {
+            "label": "Bayu for agents",
+            "href": "docs/agents.html"
           },
           {
             "label": "Design tokens",

@@ -28,6 +28,10 @@
       {
         "label": "Nabau",
         "href": "#nabau"
+      },
+      {
+        "label": "Dokumentasi",
+        "href": "docs/id/index.html"
       }
     ],
     "cta": "Unduh",
@@ -604,11 +608,15 @@
         "items": [
           {
             "label": "Panduan pemasangan",
-            "href": "#nabau"
+            "href": "docs/id/install.html"
           },
           {
-            "label": "Menjalankan aplikasi Android",
-            "href": "https://github.com/igos-nusantara/lapis"
+            "label": "Aplikasi Android",
+            "href": "docs/id/android.html"
+          },
+          {
+            "label": "Bayu untuk agen",
+            "href": "docs/id/agents.html"
           },
           {
             "label": "Token desain",

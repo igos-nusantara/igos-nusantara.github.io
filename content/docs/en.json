@@ -1,0 +1,309 @@
+{
+  "lang": "en",
+  "dir": "docs/",
+  "labels": {
+    "site": "IGN 26 Docs",
+    "menu": "All guides",
+    "pager": "Previous and next guide",
+    "prev": "Previous",
+    "next": "Next",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "pages": [
+    {
+      "slug": "index",
+      "nav": "Getting started",
+      "title": "Getting started",
+      "lede": "IGN 26 is a Linux distribution built in Indonesia. These guides take you from downloading it to using it every day.",
+      "blocks": [
+        {"p": "IGN 26 comes as a live image. You write it to a USB stick, start your computer from it, and use the full desktop without touching your disk. If you want to keep it, the installer puts it on your disk in a few minutes."},
+        {"h": "What you need", "id": "requirements"},
+        {"head": ["Part", "Minimum"], "table": [
+          ["Processor", "64-bit x86 (amd64)"],
+          ["Memory", "4 GB. 8 GB if you want Android apps."],
+          ["Disk", "20 GB free"],
+          ["Firmware", "UEFI. Almost every computer made since 2012 has it."],
+          ["USB stick", "2 GB or larger. Everything on it will be erased."]
+        ]},
+        {"h": "Guides", "id": "guides"},
+        {"cards": [
+          {"href": "download.html", "icon": "download", "color": "tile-blue", "title": "Download and write to USB", "body": "Get the image and make a USB stick you can start from."},
+          {"href": "live.html", "icon": "power", "color": "tile-indigo", "title": "Start the live session", "body": "Start from the USB stick and try IGN 26 without installing."},
+          {"href": "install.html", "icon": "hard-drive", "color": "tile-cyan", "title": "Install with Nabau", "body": "Put IGN 26 on your disk in eight steps."},
+          {"href": "desktop.html", "icon": "monitor", "color": "tile-purple", "title": "Use the desktop", "body": "The top bar, the dock, the launcher and Settings."},
+          {"href": "apps.html", "icon": "shopping-bag", "color": "tile-orange", "title": "Install apps", "body": "Find, install, update and remove apps with Bayu Store."},
+          {"href": "android.html", "icon": "smartphone", "color": "tile-green", "title": "Android apps", "body": "Run apps from F-Droid in their own windows."},
+          {"href": "agents.html", "icon": "bot", "color": "tile-pink", "title": "Bayu for agents", "body": "Let an AI agent use the desktop, with your permission."},
+          {"href": "troubleshooting.html", "icon": "life-buoy", "color": "tile-gray", "title": "Troubleshooting", "body": "What to do when something does not work."}
+        ]}
+      ]
+    },
+    {
+      "slug": "download",
+      "nav": "Download and write to USB",
+      "title": "Download and write to USB",
+      "lede": "Download the IGN 26 image and put it on a USB stick you can start your computer from.",
+      "blocks": [
+        {"note": "Writing the image erases everything on the USB stick. Copy off anything you want to keep first.", "kind": "warn"},
+        {"h": "Download the image", "id": "download"},
+        {"p": "IGN 26 is built every night. The link always points to the newest build. The file is about 1.3 GB."},
+        {"p": "Download it in your browser: [ign26-bayu-harian-latest.iso](https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso). Or in a terminal:"},
+        {"cmd": ["curl -LO https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"]},
+        {"h": "Write it on Linux", "id": "linux"},
+        {"p": "Plug in the USB stick, then list your disks:"},
+        {"cmd": ["lsblk -d -o NAME,SIZE,MODEL"]},
+        {"p": "Find the stick by its size and model, for example `sdb`. Make sure it is not the disk your system runs from."},
+        {"p": "Write the image. Replace `sdX` with the name you found:"},
+        {"cmd": ["sudo dd if=ign26-bayu-harian-latest.iso of=/dev/sdX bs=4M status=progress oflag=sync"]},
+        {"p": "The stick is ready when the prompt comes back."},
+        {"h": "Write it on Windows or macOS", "id": "windows-macos"},
+        {"p": "Use [balenaEtcher](https://etcher.balena.io). It is free and works the same on both."},
+        {"steps": [
+          "Open balenaEtcher and click **Flash from file**. Choose the `.iso` file you downloaded.",
+          "Click **Select target** and choose your USB stick.",
+          "Click **Flash!** and wait until it says the flash is complete."
+        ]},
+        {"note": "On Windows you can also use [Rufus](https://rufus.ie). If it asks how to write the image, choose **DD Image mode**."},
+        {"h": "Or try it in a virtual machine", "id": "vm"},
+        {"p": "You can start the image in GNOME Boxes, virt-manager or VirtualBox instead of a USB stick. Give the machine at least 4 GB of memory and a 25 GB disk, and turn on UEFI. In VirtualBox that is **Settings → System → Enable EFI**."},
+        {"p": "Next: [start the live session](live.html)."}
+      ]
+    },
+    {
+      "slug": "live",
+      "nav": "Start the live session",
+      "title": "Start the live session",
+      "lede": "Start your computer from the USB stick and try IGN 26 without installing it.",
+      "blocks": [
+        {"steps": [
+          "Plug in the USB stick and turn the computer on. Straight away, press the key that opens the boot menu. It is often **F12**, **F11**, **F9** or **Esc**. The first screen usually tells you which one.",
+          "Choose the USB stick from the list.",
+          {"t": "The IGN 26 menu appears. Press **Enter** on **Start IGOS Nusantara 26**, or wait three seconds and it starts by itself.", "img": "docs/boot-menu.png", "alt": "The IGN 26 boot menu with Start IGOS Nusantara 26 selected"},
+          {"t": "The desktop starts and opens the installer, Nabau. You can install now, or close Nabau and look around first. Its icon stays in the dock.", "img": "docs/live-nabau.png", "alt": "The live desktop with the Nabau installer open at step 1"}
+        ]},
+        {"note": "The live session starts in Indonesian. You choose your language in the first step of Nabau, and the installed system uses it."},
+        {"h": "What works in the live session", "id": "what-works"},
+        {"p": "Everything: Files, Terminal, Settings, Bayu Store and the network. Nothing is saved to your disk. Files you create and apps you install are gone when you restart."},
+        {"h": "If the screen stays black", "id": "black-screen"},
+        {"p": "Restart, and in the menu choose **Start IGOS Nusantara 26 (basic graphics)**. It uses a simpler display driver that works on more graphics cards."},
+        {"h": "The Troubleshooting menu", "id": "troubleshooting-menu"},
+        {"p": "**Troubleshooting** in the boot menu has two more ways to start:"},
+        {"list": [
+          "**verbose** prints every message while the system starts, so you can see where it stops.",
+          "**without the Broadcom wl driver** is for computers with Broadcom Wi-Fi that stop while starting."
+        ]},
+        {"p": "Next: [install with Nabau](install.html)."}
+      ]
+    },
+    {
+      "slug": "install",
+      "nav": "Install with Nabau",
+      "title": "Install with Nabau",
+      "lede": "Nabau puts IGN 26 on your disk in eight steps. Nothing is written until you click Begin installation in step 7.",
+      "blocks": [
+        {"note": "The automatic layout erases the whole disk you choose. Back up your files before you start.", "kind": "warn"},
+        {"p": "Nabau opens by itself in the live session. If you closed it, click its icon in the dock."},
+        {"note": "The screenshots show Nabau in English. For now Nabau stays in Indonesian after step 1, even if you choose English ([issue #42](https://github.com/igos-nusantara/bayu/issues/42)). The buttons are in the same place, and the installed system uses the language you chose."},
+        {"h": "The eight steps", "id": "steps"},
+        {"steps": [
+          {"t": "**Language.** Choose the language for the installed system and a regional format. The format decides how dates, numbers and money look. The **Preview** box shows an example. Click **Continue**.", "img": "docs/en-nabau-01.png", "alt": "Nabau step 1, Language, with English selected"},
+          {"t": "**Network.** A connection is optional, but it lets Nabau set the clock. Wired connections connect by themselves. **Host name** is your computer's name on the network; you can leave it.", "img": "docs/en-nabau-02.png", "alt": "Nabau step 2, Network, showing a wired connection"},
+          {"t": "**Localization.** Choose the keyboard layout you type with. Type a few letters in **Test the layout** to check it. The time zone is found from your network; change **Region** and **City** if it is wrong.", "img": "docs/en-nabau-03.png", "alt": "Nabau step 3, keyboard layout and time zone"},
+          {"t": "**Destination.** Select the disk. Keep **Automatic** unless you know which partitions you want. Turn on **Encrypt my data** if the computer could be lost or stolen: you will then type a password every time it starts.", "img": "docs/en-nabau-04.png", "alt": "Nabau step 4, choosing the disk and the automatic layout"},
+          {"t": "**Software.** **IGN 26 Desktop** is the desktop you are using now. The add-ons on the right are optional, and you can install them later with `dnf`.", "img": "docs/en-nabau-05.png", "alt": "Nabau step 5, the IGN 26 Desktop and optional add-ons"},
+          {"t": "**Account.** Type your full name; the user name fills in by itself. Type a password twice. Leave **Make this user an administrator** on, so you can install software and change system settings.", "img": "docs/en-nabau-06.png", "alt": "Nabau step 6, creating the user account"},
+          {"t": "**Review.** Check the summary. Click **Edit** on a card to change it. When it is right, click **Begin installation**. This is the moment the disk is erased.", "img": "docs/en-nabau-07.png", "alt": "Nabau step 7, the review screen with the Begin installation button"},
+          {"t": "**Install.** Wait until it finishes. On our test machine it took under two minutes; a slow USB stick or disk takes longer.", "img": "docs/en-nabau-08.png", "alt": "Nabau step 8, installation at 72 percent"}
+        ]},
+        {"h": "Finish and restart", "id": "finish"},
+        {"steps": [
+          {"t": "When you see **You're all set**, take out the USB stick, then click **Restart now**.", "img": "docs/en-nabau-done.png", "alt": "Nabau showing You're all set after the installation"},
+          {"t": "The sign-in screen shows your name. Type your password and press **Enter**.", "img": "docs/en-login.png", "alt": "The sign-in screen with the user Sari Wulandari"},
+          {"t": "A welcome window offers a short tour of the desktop. Click **Start the tour**, or **Skip**.", "img": "docs/en-welcome.png", "alt": "The Welcome to IGN 26 window"}
+        ]},
+        {"h": "Get the latest updates", "id": "update"},
+        {"p": "The image can be a few days old. Open **Terminal** from the dock and run:"},
+        {"cmd": ["sudo dnf upgrade"]},
+        {"p": "Next: [use the desktop](desktop.html)."}
+      ]
+    },
+    {
+      "slug": "desktop",
+      "nav": "Use the desktop",
+      "title": "Use the desktop",
+      "lede": "Find your way around Bayu: the top bar, the dock, the launcher and Settings.",
+      "blocks": [
+        {"img": "docs/en-desktop.png", "alt": "The Bayu desktop with the top bar and the dock", "caption": "The top bar runs across the top. The dock sits at the bottom."},
+        {"h": "The top bar", "id": "top-bar"},
+        {"p": "On the left is the IGN logo, then the name of the app in front and that app's menus. Click the logo for **Settings**, **Lock screen**, **Log out**, **Restart** and **Shutdown**."},
+        {"p": "On the right are the network, **Control Center** and the clock. Control Center has quick switches for Wi-Fi, **Dark Mode**, **Do Not Disturb**, the camera and the microphone."},
+        {"h": "The dock", "id": "dock"},
+        {"p": "From left to right: **Launcher**, **Files**, **Terminal**, **Settings**, **Screenshot** and the **Trash**. An app you open gets its own icon until you close it. A dot under an icon means the app is open."},
+        {"h": "The launcher", "id": "launcher"},
+        {"p": "Click the rocket icon to see every installed app. Click one to open it. Press **Esc** to close the launcher."},
+        {"img": "docs/en-launcher.png", "alt": "The launcher showing all installed apps"},
+        {"h": "Settings", "id": "settings"},
+        {"p": "Open **Settings** from the dock. Pages are grouped into **Network**, **Desktop**, **Devices** and **System**."},
+        {"h": "Change the language", "id": "language"},
+        {"steps": [
+          {"t": "In Settings, open **Language**.", "img": "docs/en-settings-language.png", "alt": "The Language page in Settings"},
+          "Click **Add language…** and choose a language.",
+          "Drag it to the top of the list. The top language is the system language.",
+          "Click the logo in the top-left corner, choose **Log out**, and sign in again. Apps then use the new language."
+        ]},
+        {"p": "Next: [install apps](apps.html)."}
+      ]
+    },
+    {
+      "slug": "apps",
+      "nav": "Install apps",
+      "title": "Install apps",
+      "lede": "Bayu Store installs Linux apps from Flathub and Android apps from F-Droid, from one search.",
+      "blocks": [
+        {"p": "Open **Bayu Store** from the launcher. The first time, it downloads the list of apps. This takes a minute or two and happens once."},
+        {"img": "docs/en-store-discover.png", "alt": "Bayu Store showing the Discover page"},
+        {"h": "Find an app", "id": "find"},
+        {"p": "Type in the search box at the top and press **Enter**. Results from Flathub and F-Droid appear together. Use **Flathub** or **F-Droid** under the title to show only one of them."},
+        {"img": "docs/en-store-search.png", "alt": "Search results for calculator from Flathub and F-Droid"},
+        {"h": "Install it", "id": "install"},
+        {"steps": [
+          {"t": "Click the app's name to open its page. It shows who makes it, its licence, the download size and what the app may access.", "img": "docs/en-store-app.png", "alt": "The page for the GNOME Calculator app"},
+          "Click **Install**. The button shows the progress.",
+          "When the button says **Open**, the app is installed. Click **Open**, or find it in the launcher."
+        ]},
+        {"p": "Apps from F-Droid are Android apps. The first one you install asks to turn on Android. See [Android apps](android.html)."},
+        {"h": "Updates", "id": "updates"},
+        {"p": "Bayu Store installs app updates in the background. To see what changed, open **Updates** in the sidebar. To turn this off, open **Store settings** and switch off **Install updates automatically**."},
+        {"p": "Bayu Store updates apps only. To update the system itself, run `sudo dnf upgrade` in Terminal."},
+        {"h": "Remove an app", "id": "remove"},
+        {"p": "Open **Installed** in the sidebar, open the app's page and click the trash can button next to **Open**."},
+        {"p": "Next: [Android apps](android.html)."}
+      ]
+    },
+    {
+      "slug": "android",
+      "nav": "Android apps",
+      "title": "Android apps",
+      "lede": "Apps from F-Droid run in Lapis, an Android system that runs next to the desktop. Each app opens in its own window.",
+      "blocks": [
+        {"h": "Before you start", "id": "before"},
+        {"list": [
+          "8 GB of memory is recommended.",
+          "Turning Android on downloads about 1.3 GB, once. Use a fast connection.",
+          "You need the administrator password."
+        ]},
+        {"h": "Turn on Android", "id": "turn-on"},
+        {"steps": [
+          {"t": "In Bayu Store, click **Install** on any F-Droid app. Bayu Store asks **Turn on Android apps?** Click **Turn on**.", "img": "docs/en-android-setup.png", "alt": "The Turn on Android apps dialog in Bayu Store"},
+          {"t": "Type your password and click **Authenticate**.", "img": "docs/en-android-auth.png", "alt": "The password prompt for setting up Android apps"},
+          "Wait for the download to finish. It runs in the background, and Bayu Store does not show its progress yet. At 10 Mbit/s it takes about 20 minutes.",
+          "Android then starts for the first time, which takes about a minute. After that, click **Install** on the app again.",
+          {"t": "When the button says **Open**, click it. The Android app opens in its own window, like any other app.", "img": "docs/android-running.png", "alt": "An Android calculator app running in its own window on the Bayu desktop"}
+        ]},
+        {"p": "You can also turn Android on from **Store settings**, under **Android apps**."},
+        {"img": "docs/en-store-settings.png", "alt": "Store settings with the Android apps section", "caption": "Store settings, before Android is turned on."},
+        {"h": "If the download stops", "id": "download-stops"},
+        {"p": "The Android image comes from SourceForge mirrors, which are sometimes slow. If Bayu Store says **Android apps could not be turned on**, open Terminal and run:"},
+        {"cmd": ["sudo lapis init -type VANILLA"]},
+        {"p": "It continues where the download stopped and tries other mirrors by itself. When it finishes, install the app again from Bayu Store."},
+        {"h": "If it says Android is not running", "id": "not-running"},
+        {"p": "Android needs about a minute to start after you sign in or turn it on. If Bayu Store says **Android container is not running** or **Can't find service: package**, wait a minute and click **Install** again."},
+        {"h": "Apps built only for ARM", "id": "arm"},
+        {"p": "Some Android apps are built only for phone processors (ARM). They are hidden by default. To show them, turn on **Show apps built only for ARM** in Store settings. They run through translation, so they are slower and some do not work."},
+        {"p": "Next: [Bayu for agents](agents.html)."}
+      ]
+    },
+    {
+      "slug": "agents",
+      "nav": "Bayu for agents",
+      "title": "Bayu for agents",
+      "lede": "Bayu can let an AI agent see the screen and use the mouse and keyboard. It only happens after you allow it, and you can stop it with one click.",
+      "blocks": [
+        {"h": "How it works", "id": "how"},
+        {"p": "An agent app, such as Claude Code, talks to `bayu-computer-use`, a small program that speaks MCP (Model Context Protocol). When the agent first asks to see or touch the desktop, Bayu asks you:"},
+        {"img": "docs/en-consent.png", "alt": "The dialog Let Agent control this computer, with Cancel and Allow buttons"},
+        {"p": "Nothing happens until you click **Allow**. After that:"},
+        {"list": [
+          "A **Stop** button appears in the top bar while the agent is in control. Click it to stop the agent at once.",
+          "When you use the mouse or keyboard yourself, the agent pauses.",
+          "The agent cannot answer system dialogs, such as password prompts or this permission dialog."
+        ]},
+        {"img": "docs/en-control.png", "alt": "The top bar with the stop button next to the network icon", "caption": "While an agent is in control, the Stop button sits to the left of the network icon."},
+        {"h": "Install bayu-computer-use", "id": "install"},
+        {"note": "`bayu-computer-use` is not in the IGN 26 image yet. Build it from source with the commands below. It takes about a minute."},
+        {"p": "Install the build tools:"},
+        {"cmd": ["sudo dnf install cargo git"]},
+        {"p": "Download only this part of the Bayu source, and build it:"},
+        {"cmd": [
+          "git clone --depth 1 --filter=blob:none --sparse https://github.com/igos-nusantara/bayu.git",
+          "cd bayu",
+          "git sparse-checkout set components/bayu-computer-use",
+          "cd components/bayu-computer-use",
+          "rm .cargo/config.toml",
+          "cargo build --release",
+          "sudo install -m 755 target/release/bayu-computer-use /usr/bin/"
+        ]},
+        {"p": "The `rm` line removes a setting meant for Debian builds. Without it, the build cannot download what it needs."},
+        {"p": "Then **log out and sign in again** (click the logo in the top-left corner, then **Log out**). Bayu looks for `/usr/bin/bayu-computer-use` when you sign in, and trusts only the program at that exact path."},
+        {"h": "Connect your agent", "id": "connect"},
+        {"p": "For Claude Code:"},
+        {"cmd": ["claude mcp add bayu -- /usr/bin/bayu-computer-use"]},
+        {"p": "For other agent apps, add an MCP server that runs `/usr/bin/bayu-computer-use` over stdio, with no arguments. Many apps use this format:"},
+        {"code": ["{ \"mcpServers\": { \"bayu\": { \"command\": \"/usr/bin/bayu-computer-use\" } } }"]},
+        {"p": "Start the agent app from the desktop, for example in Terminal. The permission dialog shows the agent's name and the app it runs in."},
+        {"h": "What the agent can do", "id": "tools"},
+        {"p": "These are the tools `bayu-computer-use` gives the agent:"},
+        {"head": ["Tool", "What it does"], "table": [
+          ["`screenshot`", "Captures the whole screen, or one window"],
+          ["`zoom`", "Shows one area of the screen at full resolution, to read small text"],
+          ["`click`", "Moves the pointer to a point and clicks"],
+          ["`move_pointer`", "Moves the pointer, for example to hover"],
+          ["`drag`", "Presses at one point, moves to another and releases"],
+          ["`mouse_down`, `mouse_up`", "Presses or releases a mouse button, for drags `drag` cannot do"],
+          ["`cursor_position`", "Tells where the pointer is"],
+          ["`scroll`", "Scrolls with the mouse wheel"],
+          ["`type_text`", "Types text where the keyboard focus is"],
+          ["`press_keys`", "Presses a key or shortcut, such as `ctrl+s`"],
+          ["`hold_keys`", "Holds a key down for a while"],
+          ["`set_clipboard`", "Puts text on the clipboard"],
+          ["`keyboard_shortcuts`", "Lists the system shortcuts"],
+          ["`list_windows`", "Lists open windows"],
+          ["`activate_window`", "Brings a window to the front"],
+          ["`close_window`", "Closes a window, like its close button"],
+          ["`set_window_frame`", "Moves and resizes a window"],
+          ["`list_applications`", "Lists installed apps"],
+          ["`open_application`", "Starts an installed app"],
+          ["`open`", "Opens a file, folder or web address"],
+          ["`actions`", "Runs several of these in a row"]
+        ]},
+        {"h": "If it does not work", "id": "problems"},
+        {"p": "If the agent reports **This session does not let bayu-computer-use control the computer**, the program is not where Bayu expects it, or you have not logged out and back in since you installed it. Check that `/usr/bin/bayu-computer-use` exists, then log out and sign in again."}
+      ]
+    },
+    {
+      "slug": "troubleshooting",
+      "nav": "Troubleshooting",
+      "title": "Troubleshooting",
+      "lede": "Common problems and what to do about them.",
+      "blocks": [
+        {"h": "The computer does not start from the USB stick", "id": "usb"},
+        {"list": [
+          "Open the boot menu with the right key (often **F12**, **F11**, **F9** or **Esc**) and pick the stick by hand.",
+          "Try another USB port, preferably one directly on the computer.",
+          "Write the stick again. On Windows, use **DD Image mode** in Rufus, or use balenaEtcher."
+        ]},
+        {"h": "The screen stays black", "id": "black-screen"},
+        {"p": "Restart and choose **Start IGOS Nusantara 26 (basic graphics)** in the boot menu."},
+        {"h": "Starting stops partway", "id": "stops"},
+        {"p": "In the boot menu, open **Troubleshooting** and choose the **verbose** entry. The last lines on screen show where it stops. If your computer has Broadcom Wi-Fi, try the entry **without the Broadcom wl driver**."},
+        {"h": "Nabau stays in Indonesian after I choose English", "id": "nabau-language"},
+        {"p": "This is a known problem ([issue #42](https://github.com/igos-nusantara/bayu/issues/42)). The installed system still uses the language you chose. Every step has its buttons in the same place in every language, so you can follow [Install with Nabau](install.html) as it is."},
+        {"h": "Android apps could not be turned on", "id": "android"},
+        {"p": "Usually the 1.3 GB download stopped. Run `sudo lapis init -type VANILLA` in Terminal; it continues where it stopped. See [Android apps](android.html#download-stops)."},
+        {"h": "Reporting a bug", "id": "report"},
+        {"p": "Open an issue at [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues). Say what you did, what you expected and what happened instead, and attach a screenshot if you can."}
+      ]
+    }
+  ]
+}

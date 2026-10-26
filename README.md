@@ -13,6 +13,9 @@ id.html             generated — Indonesian
 build.py            renders both pages
 content/en.json     all English copy
 content/id.json     all Indonesian copy
+content/docs/*.json the docs (guides), one file per language
+docs/*.html         generated — English docs
+docs/id/*.html      generated — Indonesian docs
 assets/css/pitaloka.css   design tokens, generated from Pitaloka tokens.json
 assets/css/site.css       layout and components
 assets/js/site.js         hero slider, mobile nav, copy buttons
@@ -41,6 +44,18 @@ and make the page jump), and writes the two HTML files.
 Everything a translator needs is in `content/en.json` and `content/id.json`.
 The two files have identical shapes; if you add a key to one, add it to the
 other. Image filenames in the JSON are relative to `assets/img/`.
+
+## Docs
+
+The guides at `/docs/` and `/docs/id/` are built from `content/docs/en.json`
+and `content/docs/id.json`, which have the same pages in the same order. A page
+is a list of blocks: `p`, `h` (with an `id`), `list`, `steps`, `img`, `cmd`
+(shell lines, shown with a `$`), `code` (file content), `note` (`"kind": "warn"`
+for a warning), `table` and `cards`. Inline text may use `` `code` ``,
+`**bold**` and `[label](href)`.
+
+Screenshots live in `assets/img/docs/`. They were taken from the nightly ISO in
+a QEMU VM at 1280×800; retake them when the UI changes rather than editing them.
 
 ## Design system
 

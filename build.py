@@ -25,6 +25,10 @@ IMG = "assets/img"
 SITE = "https://igos-nusantara.or.id"
 ISO_URL = "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
 
+# Relative path from the page being rendered back to the site root: "" for the
+# landing pages, "../" for docs/, "../../" for docs/id/.
+_root = ""
+
 _icon_cache: dict[str, str] = {}
 _size_cache: dict[str, tuple[int, int]] = {}
 
@@ -42,7 +46,7 @@ def asset(path: str) -> str:
     a deploy. The query changes only when the file changes.
     """
     digest = hashlib.sha256((ROOT / path).read_bytes()).hexdigest()[:8]
-    return f"{path}?v={digest}"
+    return f"{_root}{path}?v={digest}"
 
 
 def image_size(name: str) -> tuple[int, int]:
@@ -85,7 +89,7 @@ def img(name: str, alt: str, *, lazy: bool = True, extra: str = "") -> str:
         else 'loading="eager" fetchpriority="high" decoding="async"'
     )
     return (
-        f'<img src="{IMG}/{name}" alt="{e(alt)}" width="{w}" height="{h}" '
+        f'<img src="{_root}{IMG}/{name}" alt="{e(alt)}" width="{w}" height="{h}" '
         f"{load}{(' ' + extra) if extra else ''} />"
     )
 
@@ -138,11 +142,11 @@ def header(c: dict) -> str:
     )
     en_cur = "true" if c["lang"] == "en" else "false"
     id_cur = "true" if c["lang"] == "id" else "false"
-    en_href = "index.html"
-    id_href = "id.html"
+    en_href = c.get("en_href", "index.html")
+    id_href = c.get("id_href", "id.html")
     return f"""<header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="{e(c['page'])}">
+    <a class="brand" href="{e(c.get('home', c['page']))}">
       {img("logo.jpg", "", lazy=False)}
       <span>IGOS Nusantara</span>
     </a>
@@ -491,7 +495,7 @@ def footer(c: dict) -> str:
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a class="brand" href="{e(c['page'])}">
+        <a class="brand" href="{e(c.get('home', c['page']))}">
           {img("logo.jpg", "")}
           <span>IGOS Nusantara<small>{e(d['tagline'])}</small></span>
         </a>
@@ -510,28 +514,26 @@ def footer(c: dict) -> str:
 # --------------------------------------------------------------------------
 
 
-def render(c: dict) -> str:
-    m = c["meta"]
-    canonical = f"{SITE}/{c['page']}" if c["page"] != "index.html" else f"{SITE}/"
-    other = f"{SITE}/{c['other_page']}" if c["other_page"] != "index.html" else f"{SITE}/"
-    other_lang = "id" if c["lang"] == "en" else "en"
+def head(lang: str, title: str, description: str, canonical: str, other: str) -> str:
+    """Everything from the doctype to the opening <body>."""
+    other_lang = "id" if lang == "en" else "en"
     return f"""<!doctype html>
-<html lang="{c['lang']}">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{e(m['title'])}</title>
-<meta name="description" content="{e(m['description'])}" />
+<title>{e(title)}</title>
+<meta name="description" content="{e(description)}" />
 <link rel="canonical" href="{canonical}" />
 <link rel="alternate" hreflang="{other_lang}" href="{other}" />
-<link rel="alternate" hreflang="{c['lang']}" href="{canonical}" />
-<link rel="icon" href="{IMG}/logo.jpg" />
+<link rel="alternate" hreflang="{lang}" href="{canonical}" />
+<link rel="icon" href="{_root}{IMG}/logo.jpg" />
 <meta name="theme-color" content="#07121f" />
 <meta property="og:type" content="website" />
-<meta property="og:locale" content="{'en_US' if c['lang'] == 'en' else 'id_ID'}" />
+<meta property="og:locale" content="{'en_US' if lang == 'en' else 'id_ID'}" />
 <meta property="og:url" content="{canonical}" />
-<meta property="og:title" content="{e(m['title'])}" />
-<meta property="og:description" content="{e(m['description'])}" />
+<meta property="og:title" content="{e(title)}" />
+<meta property="og:description" content="{e(description)}" />
 <meta property="og:image" content="{SITE}/{IMG}/og.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -543,7 +545,14 @@ def render(c: dict) -> str:
 <link rel="stylesheet" href="{asset("assets/css/pitaloka.css")}" />
 <link rel="stylesheet" href="{asset("assets/css/site.css")}" />
 </head>
-<body>
+<body>"""
+
+
+def render(c: dict) -> str:
+    m = c["meta"]
+    canonical = f"{SITE}/{c['page']}" if c["page"] != "index.html" else f"{SITE}/"
+    other = f"{SITE}/{c['other_page']}" if c["other_page"] != "index.html" else f"{SITE}/"
+    return f"""{head(c['lang'], m['title'], m['description'], canonical, other)}
 <a class="skip-link" href="#main">{e(c['skip'])}</a>
 {header(c)}
 <main id="main">
@@ -564,12 +573,162 @@ def render(c: dict) -> str:
 """
 
 
+# --------------------------------------------------------------------------
+# Docs: content/docs/{en,id}.json -> docs/*.html and docs/id/*.html
+# --------------------------------------------------------------------------
+
+
+def inline(text: str) -> str:
+    """Escape text, then allow `code`, **bold** and [label](href)."""
+    t = e(text)
+    t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
+    t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+    return re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', t)
+
+
+def plain(text: str) -> str:
+    """The same text with the inline markup removed, for meta tags."""
+    text = re.sub(r"\[([^\]]+)\]\([^)\s]+\)", r"\1", text)
+    return text.replace("`", "").replace("**", "")
+
+
+def shot(name: str, alt: str, caption: str = "") -> str:
+    """A screenshot that opens at full size when clicked."""
+    cap = f"<figcaption>{inline(caption)}</figcaption>" if caption else ""
+    return (
+        f'<figure class="doc-shot"><a href="{_root}{IMG}/{e(name)}">'
+        f"{img(name, alt)}</a>{cap}</figure>"
+    )
+
+
+def block(b: dict, n: int, L: dict) -> str:
+    """One content block. n numbers the copy buttons on the page."""
+    if "p" in b:
+        return f"<p>{inline(b['p'])}</p>"
+    if "h" in b:
+        return f'<h2 id="{e(b["id"])}">{e(b["h"])}</h2>'
+    if "list" in b:
+        return "<ul class=\"doc-list\">" + "".join(f"<li>{inline(x)}</li>" for x in b["list"]) + "</ul>"
+    if "steps" in b:
+        items = []
+        for s in b["steps"]:
+            s = {"t": s} if isinstance(s, str) else s
+            pic = shot(s["img"], s["alt"]) if "img" in s else ""
+            items.append(f"<li><p>{inline(s['t'])}</p>{pic}</li>")
+        return f'<ol class="doc-steps">{"".join(items)}</ol>'
+    if "img" in b:
+        return shot(b["img"], b["alt"], b.get("caption", ""))
+    if "cmd" in b or "code" in b:
+        # cmd lines get a "$" prompt; code is file content and gets none.
+        lines = "".join(f"<p>{e(x)}</p>" for x in b.get("cmd", b.get("code")))
+        cls = "term doc-term" if "cmd" in b else "term doc-term is-code"
+        return (
+            f'<div class="{cls}" id="cmd-{n}"><button class="copy" type="button" '
+            f'data-copy="cmd-{n}" data-copied="{e(L["copied"])}">{e(L["copy"])}</button>'
+            f"{lines}</div>"
+        )
+    if "note" in b:
+        warn = b.get("kind") == "warn"
+        ico = icon("triangle-alert" if warn else "info", 18)
+        return f'<aside class="note{" note-warn" if warn else ""}">{ico}<p>{inline(b["note"])}</p></aside>'
+    if "table" in b:
+        head = "".join(f"<th>{e(x)}</th>" for x in b["head"])
+        rows = "".join(
+            "<tr>" + "".join(f"<td>{inline(x)}</td>" for x in r) + "</tr>" for r in b["table"]
+        )
+        return f'<div class="doc-table"><table><thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div>'
+    if "cards" in b:
+        cards = "".join(
+            f'<a class="doc-card" href="{e(x["href"])}">{tile(x["icon"], x["color"], 18)}'
+            f'<span><b>{e(x["title"])}</b><small>{e(x["body"])}</small></span></a>'
+            for x in b["cards"]
+        )
+        return f'<div class="doc-cards">{cards}</div>'
+    raise SystemExit(f"unknown docs block: {sorted(b)}")
+
+
+def doc_page(d: dict, site: dict, i: int) -> str:
+    """One docs page. site is the landing content, for header and footer."""
+    pages, L = d["pages"], d["labels"]
+    p = pages[i]
+    out = lambda slug: f"{slug}.html"  # pages of one language share a folder
+    landing = site["page"]
+
+    def link(href: str) -> str:
+        if href.startswith("#"):
+            return f"{_root}{landing}{href}"
+        return href if href.startswith("http") else f"{_root}{href}"
+
+    # The landing page's header and footer, with links made relative to here.
+    c = json.loads(json.dumps(site))
+    for l in c["nav"]["links"]:
+        l["href"] = link(l["href"])
+    for col in c["footer"]["columns"]:
+        for it in col["items"]:
+            it["href"] = link(it["href"])
+    en_dir, id_dir = ("", "id/") if d["lang"] == "en" else ("../", "")
+    c.update(home=f"{_root}{landing}", en_href=f"{en_dir}{out(p['slug'])}", id_href=f"{id_dir}{out(p['slug'])}")
+
+    current = ' aria-current="page"'
+    nav = "".join(
+        f'<li><a href="{out(x["slug"])}"{current if j == i else ""}>{e(x["nav"])}</a></li>'
+        for j, x in enumerate(pages)
+    )
+    pager = ""
+    if i > 0:
+        pr = pages[i - 1]
+        pager += f'<a class="prev" href="{out(pr["slug"])}"><small>{icon("arrow-left", 14)}{e(L["prev"])}</small>{e(pr["nav"])}</a>'
+    if i + 1 < len(pages):
+        nx = pages[i + 1]
+        pager += f'<a class="next" href="{out(nx["slug"])}"><small>{e(L["next"])}{icon("arrow-right", 14)}</small>{e(nx["nav"])}</a>'
+    body = "".join(block(b, n, L) for n, b in enumerate(p["blocks"]))
+
+    path = f"{d['dir']}{'' if p['slug'] == 'index' else out(p['slug'])}"
+    other_dir = "docs/id/" if d["lang"] == "en" else "docs/"
+    other = f"{other_dir}{'' if p['slug'] == 'index' else out(p['slug'])}"
+    title = f"{p['title']} · {L['site']}"
+    return f"""{head(d['lang'], title, plain(p['lede']), f"{SITE}/{path}", f"{SITE}/{other}")}
+<a class="skip-link" href="#main">{e(site['skip'])}</a>
+{header(c)}
+<div class="wrap docs">
+  <details class="docs-nav">
+    <summary>{icon("book-open", 16)}{e(L['menu'])}</summary>
+    <p class="eyebrow">{e(L['site'])}</p>
+    <ul>{nav}</ul>
+  </details>
+  <main id="main" class="doc">
+    <p class="eyebrow">{e(L['site'])}</p>
+    <h1>{e(p['title'])}</h1>
+    <p class="lede">{inline(p['lede'])}</p>
+    {body}
+    <nav class="doc-pager" aria-label="{e(L['pager'])}">{pager}</nav>
+  </main>
+</div>
+{footer(c)}
+<script src="{asset("assets/js/site.js")}" defer></script>
+</body>
+</html>
+"""
+
+
 def main() -> int:
+    global _root
+    sites = {}
     for name in ("en", "id"):
         c = json.loads((ROOT / "content" / f"{name}.json").read_text(encoding="utf-8"))
+        sites[name] = c
         out = ROOT / c["page"]
         out.write_text(render(c), encoding="utf-8")
         print(f"wrote {out.name}  ({out.stat().st_size // 1024} KB)")
+    for name in ("en", "id"):
+        d = json.loads((ROOT / "content" / "docs" / f"{name}.json").read_text(encoding="utf-8"))
+        folder = ROOT / d["dir"]
+        folder.mkdir(parents=True, exist_ok=True)
+        _root = "../" * d["dir"].count("/")
+        for i, p in enumerate(d["pages"]):
+            (folder / f"{p['slug']}.html").write_text(doc_page(d, sites[name], i), encoding="utf-8")
+        print(f"wrote {d['dir']}  ({len(d['pages'])} pages)")
+        _root = ""
     return 0
 
 

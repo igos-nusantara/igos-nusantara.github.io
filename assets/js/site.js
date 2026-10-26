@@ -150,3 +150,9 @@
     });
   });
 })();
+
+/* ---- Docs sidebar: always open on wide screens, a menu on narrow ones ---- */
+(function () {
+  var nav = document.querySelector(".docs-nav");
+  if (nav && window.matchMedia("(min-width: 961px)").matches) nav.open = true;
+})();
