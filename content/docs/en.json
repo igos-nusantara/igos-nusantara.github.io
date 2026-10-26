@@ -47,7 +47,7 @@
       "blocks": [
         {"note": "Writing the image erases everything on the USB stick. Copy off anything you want to keep first.", "kind": "warn"},
         {"h": "Download the image", "id": "download"},
-        {"p": "IGN 26 is built every night. The link always points to the newest build. The file is about 1.3 GB."},
+        {"p": "The current image is **IGN 26 Beta 6**. The file is about 1.3 GB."},
         {"p": "Download it in your browser: [ign26-bayu-harian-latest.iso](https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso). Or in a terminal:"},
         {"cmd": ["curl -LO https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"]},
         {"h": "Write it on Linux", "id": "linux"},

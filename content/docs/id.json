@@ -47,7 +47,7 @@
       "blocks": [
         {"note": "Menulis image akan menghapus semua isi flashdisk. Pindahkan dulu berkas yang ingin Anda simpan.", "kind": "warn"},
         {"h": "Unduh image", "id": "unduh"},
-        {"p": "IGN 26 dibangun ulang setiap malam. Tautan ini selalu mengarah ke versi terbaru. Ukurannya sekitar 1,3 GB."},
+        {"p": "Image yang tersedia saat ini adalah **IGN 26 Beta 6**. Ukurannya sekitar 1,3 GB."},
         {"p": "Unduh lewat peramban: [ign26-bayu-harian-latest.iso](https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso). Atau lewat terminal:"},
         {"cmd": ["curl -LO https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"]},
         {"h": "Menulis di Linux", "id": "linux"},
