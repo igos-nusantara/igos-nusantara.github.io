@@ -152,6 +152,18 @@
           "Drag it to the top of the list. The top language is the system language.",
           "Click the logo in the top-left corner, choose **Log out**, and sign in again. Apps then use the new language."
         ]},
+        {"h": "Change the wallpaper", "id": "wallpaper"},
+        {"p": "Open **Wallpaper** in Settings. Pictures under **Dynamic** change through the day. Pictures under **System** and **Your wallpapers** stay the same."},
+        {"img": "docs/en-wallpaper-dynamic.png", "alt": "The Wallpaper page in Settings with the two dynamic sets and today's times", "caption": "The times shown are for today in your time zone."},
+        {"steps": [
+          "Under **Dynamic**, click the mountain or the forest. The mountain is the default.",
+          "Next to **Changes with**, choose **Time of day** or **Theme**."
+        ]},
+        {"head": ["Changes with", "What you see"], "table": [
+          ["Time of day", "The **Morning**, **Day**, **Evening** and **Night** pictures, each from the time shown next to it. The times follow sunrise and sunset in your time zone."],
+          ["Theme", "The day picture in light mode, the night picture in dark mode."]
+        ]},
+        {"p": "To use your own picture, click **Add wallpaper**. The login screen uses the same wallpaper as the desktop."},
         {"p": "Next: [install apps](apps.html)."}
       ]
     },

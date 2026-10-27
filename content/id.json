@@ -161,7 +161,37 @@
         "title": "Runtime Lapis",
         "body": "Aplikasi Android sebagai jendela Wayland sungguhan, ditenagai kernel dengan dukungan binder."
       }
-    ]
+    ],
+    "wallpaper": {
+      "title": "Wallpaper yang mengikuti waktu",
+      "body": "Wallpaper bawaan adalah empat gambar Gunung Bromo: pagi, siang, sore, dan malam. Gambarnya berganti sendiri mengikuti jam matahari terbit dan terbenam di zona waktu Anda, jadi WIB, WITA, dan WIT berganti pada jamnya masing-masing. Anda juga bisa membuatnya mengikuti mode terang dan gelap. Set kedua bergambar hutan ada di Pengaturan > Wallpaper.",
+      "phases": [
+        {
+          "img": "dynamic/bromo-morning.jpg",
+          "alt": "Wallpaper Gunung Bromo, gambar pagi",
+          "name": "Pagi",
+          "when": "Mulai setengah jam sebelum matahari terbit"
+        },
+        {
+          "img": "dynamic/bromo-day.jpg",
+          "alt": "Wallpaper Gunung Bromo, gambar siang",
+          "name": "Siang",
+          "when": "Mulai tiga jam setelah matahari terbit"
+        },
+        {
+          "img": "dynamic/bromo-evening.jpg",
+          "alt": "Wallpaper Gunung Bromo, gambar sore",
+          "name": "Sore",
+          "when": "Mulai dua jam sebelum matahari terbenam"
+        },
+        {
+          "img": "dynamic/bromo-night.jpg",
+          "alt": "Wallpaper Gunung Bromo, gambar malam",
+          "name": "Malam",
+          "when": "Mulai setengah jam setelah matahari terbenam"
+        }
+      ]
+    }
   },
   "pitaloka": {
     "eyebrow": "Sistem desain Pitaloka",

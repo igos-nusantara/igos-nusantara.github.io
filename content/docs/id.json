@@ -150,6 +150,18 @@
           "Seret bahasa itu ke paling atas daftar. Bahasa paling atas menjadi bahasa sistem.",
           "Klik logo di pojok kiri atas, pilih **Keluar**, lalu masuk lagi. Setelah itu aplikasi memakai bahasa yang baru."
         ]},
+        {"h": "Mengganti wallpaper", "id": "wallpaper"},
+        {"p": "Buka **Wallpaper** di Pengaturan. Gambar di bagian **Dinamis** berganti sepanjang hari. Gambar di bagian **Sistem** dan **Wallpaper Anda** tidak berganti."},
+        {"img": "docs/id-wallpaper-dynamic.png", "alt": "Halaman Wallpaper di Pengaturan dengan dua set dinamis dan jam hari ini", "caption": "Jam yang tampil adalah jam hari ini di zona waktu Anda."},
+        {"steps": [
+          "Di bagian **Dinamis**, klik gambar gunung atau hutan. Gunung adalah pilihan bawaan.",
+          "Di sebelah **Berubah mengikuti**, pilih **Waktu** atau **Tema**."
+        ]},
+        {"head": ["Berubah mengikuti", "Yang tampil"], "table": [
+          ["Waktu", "Gambar **Pagi**, **Siang**, **Sore**, dan **Malam**, masing-masing mulai dari jam yang tertera di sebelahnya. Jamnya mengikuti matahari terbit dan terbenam di zona waktu Anda."],
+          ["Tema", "Gambar siang saat mode terang, gambar malam saat mode gelap."]
+        ]},
+        {"p": "Untuk memakai gambar sendiri, klik **Tambah wallpaper**. Layar masuk memakai wallpaper yang sama dengan desktop."},
         {"p": "Berikutnya: [memasang aplikasi](apps.html)."}
       ]
     },

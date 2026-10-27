@@ -161,7 +161,37 @@
         "title": "Lapis runtime",
         "body": "Android apps as real Wayland windows, powered by a kernel with binder support."
       }
-    ]
+    ],
+    "wallpaper": {
+      "title": "A wallpaper that follows the day",
+      "body": "The default wallpaper is a set of four pictures of Mount Bromo: morning, day, evening and night. It changes by itself with sunrise and sunset in your time zone, so WIB, WITA and WIT each change at their own times. You can make it follow light and dark mode instead. A second set, a forest, is in Settings > Wallpaper.",
+      "phases": [
+        {
+          "img": "dynamic/bromo-morning.jpg",
+          "alt": "Mount Bromo wallpaper, morning picture",
+          "name": "Morning",
+          "when": "From half an hour before sunrise"
+        },
+        {
+          "img": "dynamic/bromo-day.jpg",
+          "alt": "Mount Bromo wallpaper, day picture",
+          "name": "Day",
+          "when": "From three hours after sunrise"
+        },
+        {
+          "img": "dynamic/bromo-evening.jpg",
+          "alt": "Mount Bromo wallpaper, evening picture",
+          "name": "Evening",
+          "when": "From two hours before sunset"
+        },
+        {
+          "img": "dynamic/bromo-night.jpg",
+          "alt": "Mount Bromo wallpaper, night picture",
+          "name": "Night",
+          "when": "From half an hour after sunset"
+        }
+      ]
+    }
   },
   "pitaloka": {
     "eyebrow": "Pitaloka design system",

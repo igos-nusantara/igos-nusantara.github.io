@@ -240,11 +240,20 @@ def bayu(c: dict) -> str:
         f'<h3>{e(x["title"])}</h3><p>{e(x["body"])}</p></article>'
         for x in d["components"]
     )
+    w = d["wallpaper"]
+    phases = "".join(
+        f'<figure class="cap"><div class="shot">{img(p["img"], p["alt"])}</div>'
+        f'<figcaption><strong>{e(p["name"])}</strong><br />{e(p["when"])}</figcaption></figure>'
+        for p in w["phases"]
+    )
     return f"""<section class="section band-light" id="bayu">
   <div class="wrap">
     {section_head(d)}
     <div class="grid g2" style="margin-top:48px">{shots}</div>
     <div class="grid g4" style="margin-top:48px">{cards}</div>
+    <h3 class="h-sec is-sm" style="margin-top:64px">{e(w["title"])}</h3>
+    <p class="lede">{e(w["body"])}</p>
+    <div class="grid g4" style="margin-top:28px">{phases}</div>
   </div>
 </section>"""
 
