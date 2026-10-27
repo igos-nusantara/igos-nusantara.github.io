@@ -1274,6 +1274,9 @@ figure.cap figcaption {
   width: 100%;
   padding-block: 16px;
 }
+.iso-action .btn-ghost {
+  margin-top: 18px;
+}
 .iso-action code {
   display: block;
   margin-top: 12px;

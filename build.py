@@ -23,7 +23,8 @@ ROOT = pathlib.Path(__file__).parent
 ICONS = ROOT / "assets" / "icons"
 IMG = "assets/img"
 SITE = "https://igos-nusantara.or.id"
-ISO_URL = "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
+ISO_URL = "https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso"
+NIGHTLY_URL = "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
 
 # Relative path from the page being rendered back to the site root: "" for the
 # landing pages, "../" for docs/, "../../" for docs/id/.
@@ -464,6 +465,10 @@ def download(c: dict) -> str:
           {icon('hard-drive-download', 18)}{e(d['button'])}
         </a>
         <code>{ISO_URL}</code>
+        <a class="btn btn-ghost" href="{NIGHTLY_URL}">
+          {icon('hard-drive-download', 18)}{e(d['nightly_button'])}
+        </a>
+        <small>{e(d['nightly_note'])}</small>
         <small>{e(d['host_note'])}</small>
       </div>
     </div>

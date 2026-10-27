@@ -530,15 +530,15 @@
     "sub": "Tulis ke flash disk lalu boot. Sesi live itulah sistem jadinya — Nabau tinggal menyalinnya ke disk saat Anda siap.",
     "name": "IGN 26 · Bayu Live",
     "tag": "BETA 6",
-    "body": "Desktop Bayu lengkap dengan Bayu Store, Lapis, dan pemasang Nabau. Boot, coba, lalu pasang ke disk dari sesi yang sama. Ini adalah IGN 26 Beta 6, satu-satunya image yang diterbitkan saat ini.",
+    "body": "Desktop Bayu lengkap dengan Bayu Store, Lapis, dan pemasang Nabau. Boot, coba, lalu pasang ke disk dari sesi yang sama. Unduhan utama adalah IGN 26 Beta 6. Image nightly dibangun dari kode terbaru setiap hari.",
     "facts": [
       {
         "k": "Berkas",
-        "v": "ign26-bayu-harian-latest.iso"
+        "v": "ign26-bayu-beta6.iso"
       },
       {
         "k": "Ukuran",
-        "v": "1,21 GB"
+        "v": "1,22 GB"
       },
       {
         "k": "Arsitektur",
@@ -546,17 +546,19 @@
       },
       {
         "k": "Dibangun",
-        "v": "25 Okt 2026"
+        "v": "27 Okt 2026"
       }
     ],
-    "button": "Unduh ISO live",
+    "button": "Unduh Beta 6",
+    "nightly_button": "Unduh nightly",
+    "nightly_note": "Nightly berisi perubahan terbaru, dan bisa saja ada bug baru.",
     "host_note": "r2.igos-nusantara.or.id · unduhan langsung, tanpa pilih cermin",
     "cmd_title": "Unduh dan tulis",
     "copy": "Salin",
     "copied": "Tersalin",
     "cmds": [
-      "curl -LO https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso",
-      "sudo dd if=ign26-bayu-harian-latest.iso of=/dev/sdX bs=4M status=progress oflag=sync"
+      "curl -LO https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso",
+      "sudo dd if=ign26-bayu-beta6.iso of=/dev/sdX bs=4M status=progress oflag=sync"
     ],
     "cmd_note": "Ganti /dev/sdX dengan perangkat USB Anda — dd tidak akan bertanya dua kali.",
     "sys_title": "Kebutuhan sistem",
@@ -617,6 +619,10 @@
         "items": [
           {
             "label": "ISO Live (Beta 6)",
+            "href": "https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso"
+          },
+          {
+            "label": "ISO Nightly",
             "href": "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
           },
           {
