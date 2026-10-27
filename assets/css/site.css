@@ -263,6 +263,19 @@ ul {
   color: var(--navy-800);
 }
 
+.nav-gh {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-pill);
+  color: #9fb3cc;
+}
+.nav-gh:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .nav-toggle {
   display: none;
   width: 40px;
