@@ -56,28 +56,28 @@
     "next": "Next screenshot",
     "slides": [
       {
-        "img": "1.png",
-        "label": "Welcome tour"
+        "img": "ign26/desktop.webp",
+        "label": "The desktop"
       },
       {
-        "img": "2.png",
-        "label": "Install your first app"
+        "img": "ign26/welcome.webp",
+        "label": "Choose Dock or Panel · nightly"
       },
       {
-        "img": "3.png",
-        "label": "Make it yours"
+        "img": "ign26/panel.webp",
+        "label": "The Panel layout · nightly"
       },
       {
-        "img": "4.png",
-        "label": "Bayu Store search"
+        "img": "ign26/store.webp",
+        "label": "Bayu Store"
       },
       {
-        "img": "5.png",
-        "label": "Library — installed apps"
+        "img": "ign26/launcher.webp",
+        "label": "The launcher"
       },
       {
-        "img": "6.png",
-        "label": "Settings — keyboard"
+        "img": "ign26/updates.webp",
+        "label": "System updates · nightly"
       }
     ]
   },
@@ -102,15 +102,15 @@
   "bayu": {
     "eyebrow": "Bayu desktop environment",
     "title": "One desktop. Two toolkits. No seams.",
-    "body": "BAYU is the Wayland desktop environment at the centre of IGN 26, built component by component — compositor, shell, session, file manager, settings and terminal — so that every window shares one visual language instead of three.",
+    "body": "BAYU is the Wayland desktop environment at the centre of IGN 26, built component by component — compositor, shell, session, file manager, settings and terminal — so that every window shares one visual language instead of three. In the nightly image you can also choose the layout: a Dock with a top bar for the menus, or one Panel along the bottom. Settings > Desktop switches between them at once.",
     "shots": [
       {
-        "img": "6.png",
-        "alt": "Bayu Settings showing the Keyboard pane in dark mode"
+        "img": "ign26/dock.webp",
+        "alt": "The Dock layout: a top bar with the menus of the app in front, and the dock"
       },
       {
-        "img": "3.png",
-        "alt": "The IGN 26 welcome tour on the appearance step"
+        "img": "ign26/panel.webp",
+        "alt": "The Panel layout: one bar along the bottom, with each app's menus in its window"
       }
     ],
     "components": [
@@ -293,13 +293,13 @@
       }
     ],
     "hero_shot": {
-      "img": "4.png",
-      "alt": "Bayu Store searching Flathub and F-Droid for Discord"
+      "img": "ign26/store.webp",
+      "alt": "Bayu Store's Discover page, with apps from Flathub and F-Droid"
     },
     "details": [
       {
-        "img": "store-light-02-app-detail.png",
-        "alt": "An app page in Bayu Store showing screenshots, licence and permissions",
+        "img": "ign26/app.webp",
+        "alt": "Firefox's page in Bayu Store, with screenshots, licence, size and source",
         "caption": "App pages with screenshots, release notes, licence and download size — for Flatpak and Android apps alike."
       },
       {
@@ -502,8 +502,8 @@
       {
         "icon": "wifi",
         "color": "tile-cyan",
-        "title": "Broadcom Wi-Fi out of the box",
-        "body": "Drivers for the Broadcom chipsets in older MacBooks are on the ISO — no cable needed to get online during install."
+        "title": "Wi-Fi out of the box",
+        "body": "Drivers for the Broadcom chipsets in older MacBooks, are on the ISO. The nightly image adds common Realtek, MediaTek, Ralink and Atheros USB adapters. No cable needed to get online during install."
       },
       {
         "icon": "container",
@@ -522,6 +522,24 @@
         "color": "tile-green",
         "title": "GPL-3.0 and BSD-3-Clause",
         "body": "Dual-licensed GPL-3.0 and BSD-3-Clause. Every component is free software, with the full source and build recipe published. Nothing is hidden."
+      },
+      {
+        "icon": "printer",
+        "color": "tile-cyan",
+        "title": "Printers found by themselves",
+        "body": "Network printers and driverless USB printers are set up as soon as they appear. Settings > Printers prints a test page, sets the default and shows the jobs. Scanners work too. In the nightly image now."
+      },
+      {
+        "icon": "refresh-cw",
+        "color": "tile-blue",
+        "title": "Updates at a restart",
+        "body": "Settings > System Update downloads the system's updates in the background and installs them when you restart. App updates are in Bayu Store. In the nightly image now."
+      },
+      {
+        "icon": "cpu",
+        "color": "tile-gray",
+        "title": "Hardware tools included",
+        "body": "lsusb, lspci, lshw, hwinfo, sensors, smartctl, nvme, iw and ethtool are there, so you can see what hardware you have and report a problem. In the nightly image now."
       }
     ]
   },

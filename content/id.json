@@ -56,28 +56,28 @@
     "next": "Tangkapan layar berikutnya",
     "slides": [
       {
-        "img": "1.png",
-        "label": "Tur selamat datang"
+        "img": "ign26/desktop.webp",
+        "label": "Desktop"
       },
       {
-        "img": "2.png",
-        "label": "Pasang aplikasi pertama"
+        "img": "ign26/welcome.webp",
+        "label": "Pilih Dock atau Panel · nightly"
       },
       {
-        "img": "3.png",
-        "label": "Sesuaikan tampilan"
+        "img": "ign26/panel.webp",
+        "label": "Tata letak Panel · nightly"
       },
       {
-        "img": "4.png",
-        "label": "Pencarian Bayu Store"
+        "img": "ign26/store.webp",
+        "label": "Bayu Store"
       },
       {
-        "img": "5.png",
-        "label": "Pustaka — aplikasi terpasang"
+        "img": "ign26/launcher.webp",
+        "label": "Peluncur"
       },
       {
-        "img": "6.png",
-        "label": "Pengaturan — papan ketik"
+        "img": "ign26/updates.webp",
+        "label": "Pembaruan sistem · nightly"
       }
     ]
   },
@@ -102,15 +102,15 @@
   "bayu": {
     "eyebrow": "Lingkungan desktop Bayu",
     "title": "Satu desktop. Dua toolkit. Tanpa sambungan.",
-    "body": "BAYU adalah lingkungan desktop Wayland yang menjadi inti IGN 26, dibangun komponen demi komponen — kompositor, shell, sesi, manajer berkas, pengaturan, dan terminal — sehingga setiap jendela berbicara dalam satu bahasa visual, bukan tiga.",
+    "body": "BAYU adalah lingkungan desktop Wayland yang menjadi inti IGN 26, dibangun komponen demi komponen — kompositor, shell, sesi, manajer berkas, pengaturan, dan terminal — sehingga setiap jendela berbicara dalam satu bahasa visual, bukan tiga. Di image nightly, Anda juga bisa memilih tata letak: Dock dengan bilah atas untuk menu, atau satu Panel di sepanjang bawah layar. Pengaturan > Desktop menggantinya saat itu juga.",
     "shots": [
       {
-        "img": "6.png",
-        "alt": "Pengaturan Bayu menampilkan panel Papan Ketik dalam mode gelap"
+        "img": "ign26/dock.webp",
+        "alt": "Tata letak Dock: bilah atas berisi menu aplikasi yang sedang di depan, dan dok"
       },
       {
-        "img": "3.png",
-        "alt": "Tur selamat datang IGN 26 pada langkah tampilan"
+        "img": "ign26/panel.webp",
+        "alt": "Tata letak Panel: satu bilah di bawah, menu tiap aplikasi ada di jendelanya"
       }
     ],
     "components": [
@@ -293,13 +293,13 @@
       }
     ],
     "hero_shot": {
-      "img": "4.png",
-      "alt": "Bayu Store mencari Discord di Flathub dan F-Droid"
+      "img": "ign26/store.webp",
+      "alt": "Halaman Temukan di Bayu Store, berisi aplikasi dari Flathub dan F-Droid"
     },
     "details": [
       {
-        "img": "store-light-02-app-detail.png",
-        "alt": "Halaman aplikasi di Bayu Store dengan tangkapan layar, lisensi, dan izin",
+        "img": "ign26/app.webp",
+        "alt": "Halaman Firefox di Bayu Store, dengan tangkapan layar, lisensi, ukuran, dan sumber",
         "caption": "Halaman aplikasi lengkap dengan tangkapan layar, catatan rilis, lisensi, dan ukuran unduhan — untuk aplikasi Flatpak maupun Android."
       },
       {
@@ -502,8 +502,8 @@
       {
         "icon": "wifi",
         "color": "tile-cyan",
-        "title": "Wi-Fi Broadcom langsung jalan",
-        "body": "Driver untuk chipset Broadcom di MacBook lawas sudah ada di dalam ISO — tidak perlu kabel untuk terhubung saat pemasangan."
+        "title": "Wi-Fi langsung jalan",
+        "body": "Driver untuk chipset Broadcom di MacBook lawas, sudah ada di ISO. Image nightly menambahkan adaptor USB Realtek, MediaTek, Ralink, dan Atheros yang umum. Tidak perlu kabel untuk terhubung saat pemasangan."
       },
       {
         "icon": "container",
@@ -522,6 +522,24 @@
         "color": "tile-green",
         "title": "GPL-3.0 dan BSD-3-Clause",
         "body": "Berlisensi ganda GPL-3.0 dan BSD-3-Clause. Setiap komponen adalah perangkat lunak bebas, dengan sumber dan resep build yang diterbitkan lengkap. Tidak ada yang disembunyikan."
+      },
+      {
+        "icon": "printer",
+        "color": "tile-cyan",
+        "title": "Printer dikenali sendiri",
+        "body": "Printer jaringan dan printer USB tanpa driver langsung disiapkan begitu terhubung. Pengaturan > Printer bisa mencetak halaman uji, memilih printer utama, dan menampilkan antrean cetak. Pemindai juga bisa dipakai. Sudah ada di image nightly."
+      },
+      {
+        "icon": "refresh-cw",
+        "color": "tile-blue",
+        "title": "Pembaruan saat mulai ulang",
+        "body": "Pengaturan > Pembaruan Sistem mengunduh pembaruan sistem di latar belakang dan memasangnya saat komputer dimulai ulang. Pembaruan aplikasi ada di Bayu Store. Sudah ada di image nightly."
+      },
+      {
+        "icon": "cpu",
+        "color": "tile-gray",
+        "title": "Alat cek perangkat keras",
+        "body": "lsusb, lspci, lshw, hwinfo, sensors, smartctl, nvme, iw, dan ethtool sudah tersedia, jadi Anda bisa melihat perangkat keras yang ada dan melaporkan masalah. Sudah ada di image nightly."
       }
     ]
   },

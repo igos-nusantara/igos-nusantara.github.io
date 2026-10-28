@@ -76,6 +76,17 @@ def image_size(name: str) -> tuple[int, int]:
             i += 2 + seglen
         if not w:
             raise SystemExit(f"could not read JPEG size: {name}")
+    elif data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        kind = data[12:16]
+        if kind == b"VP8 ":
+            w, h = (x & 0x3FFF for x in struct.unpack("<HH", data[26:30]))
+        elif kind == b"VP8L":
+            b = int.from_bytes(data[21:25], "little")
+            w, h = (b & 0x3FFF) + 1, ((b >> 14) & 0x3FFF) + 1
+        elif kind == b"VP8X":
+            w, h = int.from_bytes(data[24:27], "little") + 1, int.from_bytes(data[27:30], "little") + 1
+        else:
+            raise SystemExit(f"could not read WebP size: {name}")
     else:
         raise SystemExit(f"unsupported image: {name}")
     _size_cache[name] = (w, h)
