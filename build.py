@@ -246,7 +246,7 @@ def stats(c: dict) -> str:
 
 def codename(c: dict) -> str:
     d = c["codename"]
-    return f"""<section class="section band-navy" id="ciremai">
+    return f"""<section class="section band-navy" id="codename">
   <div class="wrap">
     {section_head(d)}
     <div class="video">
