@@ -39,7 +39,7 @@
     "menu_label": "Open menu"
   },
   "hero": {
-    "badge": "IGN 26 BETA 6 · Live ISO · Bayu desktop built in",
+    "badge": "IGN 26 Ciremai · Beta 6 · Live ISO · Bayu desktop built in",
     "h1": "The Indonesian desktop, rebuilt from the ground up.",
     "sub": "IGN 26 ships BAYU — a Wayland desktop environment where GTK 4 and Qt 6 finally look the same. Install Linux apps with Flatpak, run Android apps with Lapis, and manage both from one store.",
     "cta_primary": "Download IGN 26",
@@ -99,6 +99,12 @@
       "label": "One design system, both toolkits"
     }
   ],
+  "codename": {
+    "eyebrow": "Codename",
+    "title": "IGN 26 is called Ciremai",
+    "body": "IGN 26 now has a codename: Ciremai, after Mount Ciremai, the highest mountain in West Java. Bayu is the desktop of this release. Watch the video to meet both.",
+    "video_title": "IGN 26 Ciremai"
+  },
   "bayu": {
     "eyebrow": "Bayu desktop environment",
     "title": "One desktop. Two toolkits. No seams.",

@@ -25,6 +25,7 @@ IMG = "assets/img"
 SITE = "https://igos-nusantara.or.id"
 ISO_URL = "https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso"
 GITHUB_URL = "https://github.com/igos-nusantara/bayu/issues"
+VIDEO_ID = "-EVUW16QUBw"
 NIGHTLY_URL = "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
 
 # Relative path from the page being rendered back to the site root: "" for the
@@ -241,6 +242,20 @@ def stats(c: dict) -> str:
         for s in c["stats"]
     )
     return f'<section class="stats"><div class="wrap"><ul>{items}</ul></div></section>'
+
+
+def codename(c: dict) -> str:
+    d = c["codename"]
+    return f"""<section class="section band-navy" id="ciremai">
+  <div class="wrap">
+    {section_head(d)}
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/{VIDEO_ID}" title="{e(d['video_title'])}"
+        loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</section>"""
 
 
 def bayu(c: dict) -> str:
@@ -585,6 +600,7 @@ def render(c: dict) -> str:
 <main id="main">
 {hero(c)}
 {stats(c)}
+{codename(c)}
 {bayu(c)}
 {pitaloka(c)}
 {store(c)}

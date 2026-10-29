@@ -39,7 +39,7 @@
     "menu_label": "Buka menu"
   },
   "hero": {
-    "badge": "IGN 26 BETA 6 · ISO live · Sudah dengan desktop Bayu",
+    "badge": "IGN 26 Ciremai · Beta 6 · ISO live · Sudah dengan desktop Bayu",
     "h1": "Desktop Indonesia, dibangun ulang dari nol.",
     "sub": "IGN 26 hadir dengan BAYU — lingkungan desktop Wayland tempat GTK 4 dan Qt 6 akhirnya tampak sama. Pasang aplikasi Linux lewat Flatpak, jalankan aplikasi Android lewat Lapis, dan kelola keduanya dari satu toko.",
     "cta_primary": "Unduh IGN 26",
@@ -99,6 +99,12 @@
       "label": "Satu sistem desain, dua toolkit"
     }
   ],
+  "codename": {
+    "eyebrow": "Nama sandi",
+    "title": "IGN 26 bernama Ciremai",
+    "body": "IGN 26 sekarang punya nama sandi: Ciremai, dari Gunung Ciremai, gunung tertinggi di Jawa Barat. Bayu adalah desktop rilis ini. Tonton videonya untuk berkenalan dengan keduanya.",
+    "video_title": "IGN 26 Ciremai"
+  },
   "bayu": {
     "eyebrow": "Lingkungan desktop Bayu",
     "title": "Satu desktop. Dua toolkit. Tanpa sambungan.",

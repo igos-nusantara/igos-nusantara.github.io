@@ -1819,3 +1819,17 @@ figure.cap figcaption {
 .doc-term.is-code p::before {
   content: none;
 }
+
+.video {
+  margin-top: 40px;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+}
+.video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
