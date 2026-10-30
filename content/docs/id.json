@@ -31,7 +31,9 @@
           {"href": "download.html", "icon": "download", "color": "tile-blue", "title": "Unduh dan tulis ke flashdisk", "body": "Ambil image-nya dan buat flashdisk untuk menyalakan komputer."},
           {"href": "live.html", "icon": "power", "color": "tile-indigo", "title": "Menjalankan sesi live", "body": "Nyalakan dari flashdisk dan coba IGN 26 tanpa memasangnya."},
           {"href": "install.html", "icon": "hard-drive", "color": "tile-cyan", "title": "Memasang dengan Nabau", "body": "Pasang IGN 26 ke disk dalam delapan langkah."},
-          {"href": "desktop.html", "icon": "monitor", "color": "tile-purple", "title": "Memakai desktop", "body": "Bilah atas, dok, peluncur, dan Pengaturan."},
+          {"href": "desktop.html", "icon": "monitor", "color": "tile-purple", "title": "Memakai desktop", "body": "Bilah atas, dok, peluncur, Pengaturan, dan pembaruan."},
+          {"href": "files.html", "icon": "folder", "color": "tile-blue", "title": "Berkas dan Terminal", "body": "Buka folder sistem sebagai administrator, bagi terminal, dan alat yang sudah tersedia."},
+          {"href": "hardware.html", "icon": "cpu", "color": "tile-gray", "title": "Perangkat keras", "body": "Wi-Fi, printer, pemindai, touchpad, dan MacBook."},
           {"href": "apps.html", "icon": "shopping-bag", "color": "tile-orange", "title": "Memasang aplikasi", "body": "Cari, pasang, perbarui, dan hapus aplikasi lewat Bayu Store."},
           {"href": "android.html", "icon": "smartphone", "color": "tile-green", "title": "Aplikasi Android", "body": "Jalankan aplikasi dari F-Droid di jendelanya sendiri."},
           {"href": "agents.html", "icon": "bot", "color": "tile-pink", "title": "Bayu untuk agen", "body": "Izinkan agen AI memakai desktop, atas persetujuan Anda."},
@@ -104,6 +106,7 @@
       "blocks": [
         {"note": "Tata letak otomatis menghapus seluruh isi disk yang Anda pilih. Cadangkan berkas Anda sebelum mulai.", "kind": "warn"},
         {"p": "Nabau terbuka sendiri di sesi live. Jika sudah Anda tutup, klik ikonnya di dok."},
+        {"note": "Di image nightly, Nabau memeriksa flashdisk lebih dulu saat Anda mengeklik **Mulai instalasi**. Jika flashdisk rusak, Nabau berhenti sebelum mengubah disk apa pun. Lihat [Pemecahan masalah](troubleshooting.html#media)."},
         {"h": "Delapan langkah", "id": "langkah"},
         {"steps": [
           {"t": "**Bahasa.** Pilih bahasa untuk sistem yang akan dipasang dan format regionalnya. Format regional menentukan cara tanggal, angka, dan uang ditampilkan. Kotak **Pratinjau** menampilkan contohnya. Klik **Lanjutkan**.", "img": "docs/id-nabau-01.png", "alt": "Langkah 1 Nabau, Bahasa, dengan Indonesia terpilih"},
@@ -118,12 +121,13 @@
         {"h": "Selesai dan nyalakan ulang", "id": "selesai"},
         {"steps": [
           "Saat muncul **Semuanya siap.**, cabut flashdisk, lalu klik **Mulai ulang sekarang**.",
-          {"t": "Layar masuk menampilkan nama Anda. Ketik kata sandi lalu tekan **Enter**. Layar ini masih berbahasa Inggris (tertulis **Enter Password**).", "img": "docs/en-login.png", "alt": "Layar masuk dengan pengguna Sari Wulandari"},
+          {"t": "Layar masuk menampilkan nama Anda. Ketik kata sandi lalu tekan **Enter**..", "img": "docs/en-login.png", "alt": "Layar masuk dengan pengguna Sari Wulandari"},
           {"t": "Jendela sambutan menawarkan tur singkat. Klik **Mulai tur**, atau **Lewati**.", "img": "docs/id-welcome.png", "alt": "Jendela Selamat datang di IGN 26"}
         ]},
         {"h": "Ambil pembaruan terbaru", "id": "pembaruan"},
         {"p": "Image-nya bisa jadi sudah berumur beberapa hari. Buka **Terminal** dari dok lalu jalankan:"},
         {"cmd": ["sudo dnf upgrade"]},
+        {"p": "Di image nightly Anda juga bisa memperbarui dari Pengaturan, lihat [Pembaruan](desktop.html#pembaruan)."},
         {"p": "Berikutnya: [memakai desktop](desktop.html)."}
       ]
     },
@@ -131,7 +135,7 @@
       "slug": "desktop",
       "nav": "Memakai desktop",
       "title": "Memakai desktop",
-      "lede": "Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, dan Pengaturan.",
+      "lede": "Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, Pengaturan, pembaruan, dan layar masuk.",
       "blocks": [
         {"img": "docs/id-desktop.png", "alt": "Desktop Bayu dengan bilah atas dan dok", "caption": "Bilah atas membentang di bagian atas layar. Dok ada di bawah."},
         {"h": "Bilah atas", "id": "bilah-atas"},
@@ -170,6 +174,80 @@
           ["Tema", "Gambar siang saat mode terang, gambar malam saat mode gelap."]
         ]},
         {"p": "Untuk memakai gambar sendiri, klik **Tambah wallpaper**. Layar masuk memakai wallpaper yang sama dengan desktop."},
+        {"h": "Pembaruan", "id": "pembaruan"},
+        {"note": "Pembaruan Sistem dan ikon pembaruan ada di image nightly. Di Beta 6, jalankan `sudo dnf upgrade` di Terminal."},
+        {"p": "Bayu memeriksa pembaruan satu menit setelah Anda masuk, lalu setiap enam jam. Jika ada, ikon pembaruan muncul di bilah atas, atau di bilah bawah pada tata letak Panel. Titik merah pada ikon berarti ada pembaruan keamanan."},
+        {"img": "ign26/updates.webp", "alt": "Halaman Pembaruan Sistem di Pengaturan dengan daftar pembaruan", "caption": "Pengaturan > Pembaruan Sistem."},
+        {"steps": ["Klik ikon pembaruan lalu pilih **Pembaruan Sistem**, atau buka **Pembaruan Sistem** di Pengaturan.", "Klik **Unduh**. Unduhan bisa dibatalkan selama berjalan.", "Klik **Mulai Ulang dan Pasang**. Komputer menyala ulang, memasang pembaruan, lalu menyala seperti biasa."]},
+        {"p": "Tidak ada yang dipasang tanpa persetujuan Anda. Nyalakan **Unduh pembaruan secara otomatis** agar pembaruan diunduh di latar belakang; setelah itu Bayu meminta Anda menyalakan ulang. Pembaruan aplikasi ada di Bayu Store, lihat [Memasang aplikasi](apps.html#pembaruan)."},
+        {"h": "Layar masuk", "id": "layar-masuk"},
+        {"note": "Tombol daya dan sesi X11 ada di image nightly."},
+        {"p": "Di bawah kotak masuk ada tombol daya berisi **Tangguhkan**, **Mulai Ulang**, dan **Matikan**. Mulai Ulang dan Matikan meminta konfirmasi dulu."},
+        {"p": "Jika Anda memasang desktop atau window manager lain, misalnya IceWM dengan `sudo dnf install icewm`, pilih di menu sesi sebelum masuk. Sesi yang berjalan di X11 diberi tanda **(X11)** di belakang namanya. Layar masuk mengingat sesi terakhir yang Anda pakai."},
+        {"p": "Berikutnya: [Berkas dan Terminal](files.html)."}
+      ]
+    },
+    {
+      "slug": "files",
+      "nav": "Berkas dan Terminal",
+      "title": "Berkas dan Terminal",
+      "lede": "Mengelola berkas, membuka folder sistem sebagai administrator, serta memakai terminal dan alat yang sudah tersedia.",
+      "blocks": [
+        {"note": "Buka sebagai Administrator, tombol menu Terminal, alat baris perintah, dan pintasan shell ada di image nightly."},
+        {"h": "Berkas", "id": "berkas"},
+        {"p": "Buka **Berkas** dari dok. Bilah samping menampilkan folder dan drive Anda. Saat Android aktif, **Android** di bilah samping berisi berkas aplikasi Android Anda, misalnya unduhan dan foto."},
+        {"p": "Menyalin dan memindahkan ke drive Windows (NTFS) sama saja seperti ke drive lain."},
+        {"h": "Buka sebagai Administrator", "id": "admin"},
+        {"p": "Folder sistem seperti `/etc` hanya bisa diubah oleh administrator."},
+        {"steps": ["Buka foldernya.", "Klik tombol menu di bilah judul, di sebelah tombol cari, lalu pilih **Buka sebagai Administrator**.", "Ketik kata sandi Anda.", "Jendela kedua terbuka dengan judul **Berkas (Administrator)**. Perubahan di jendela ini dilakukan sebagai administrator. Anda bisa menyalin dan memindahkan berkas antara jendela ini dan jendela lain seperti biasa."]},
+        {"p": "Mengeklik folder di bilah samping yang hanya boleh dibuka administrator juga membuka jendela yang sama. Akses administrator berakhir saat Berkas ditutup."},
+        {"note": "Di jendela administrator Anda bisa menghapus atau mengubah berkas sistem. Berhati-hatilah.", "kind": "warn"},
+        {"h": "Terminal", "id": "terminal"},
+        {"p": "Buka **Terminal** dari dok. Klik **+** di bilah judul untuk tab baru."},
+        {"p": "Untuk membagi tab, klik tombol menu di sebelah **+**, atau klik kanan bilah judul, lalu pilih **Split Right** atau **Split Down**. Cara ini tetap bisa dipakai saat program seperti htop atau mc sedang memakai mouse. Untuk menutup satu panel, klik kanan di dalamnya lalu pilih **Close Pane**. Menu ini belum diterjemahkan."},
+        {"h": "Alat baris perintah", "id": "alat"},
+        {"p": "Alat berikut sudah terpasang:"},
+        {"head": ["Untuk", "Perintah"], "table": [["Kode", "`git`"], ["Menyunting berkas", "`vim`, `nano`"], ["Mengunduh", "`wget`, `curl`"], ["Proses dan pemakaian disk", "`htop`, `btop`, `iotop`, `ncdu`, `tree`"], ["Jaringan", "`dig`, `host`, `traceroute`, `mtr`, `whois`"], ["Perangkat keras", "`lsusb`, `lspci`, `lshw`, `sensors`, `smartctl`, dan lainnya, lihat [Perangkat keras](hardware.html#alat)"], ["Lainnya", "`tmux`, `fastfetch`, `7z`, `bc`, `pip`, `strace`"]]},
+        {"p": "Halaman manual juga terpasang: jalankan `man` diikuti nama perintahnya, misalnya `man tar`."},
+        {"h": "Pintasan di shell", "id": "pintasan"},
+        {"p": "Terminal sudah memakai prompt berwarna dan perintah pendek berikut:"},
+        {"head": ["Ketik", "Untuk"], "table": [["`ll`", "Menampilkan berkas beserta rinciannya, folder di atas"], ["`..` dan `...`", "Naik satu atau dua folder"], ["`ex berkas`", "Mengekstrak arsip: zip, tar.gz, tar.xz, 7z, rar, dan lainnya"], ["`update`", "Memperbarui sistem (`sudo dnf update`)"], ["`install nama`", "Memasang paket (`sudo dnf install`)"], ["`search kata`", "Mencari paket (`dnf search`)"], ["`myip`", "Menampilkan alamat IP publik Anda"], ["`fastfetch`", "Menampilkan ringkasan sistem dengan logo IGN"]]},
+        {"p": "`rm`, `cp`, dan `mv` bertanya dulu sebelum menghapus atau menimpa berkas. Untuk mengubah semua ini, tambahkan baris Anda sendiri di `~/.bashrc`."},
+        {"h": "tmux", "id": "tmux"},
+        {"p": "Jalankan `tmux` untuk memakai beberapa shell dalam satu jendela. Tombol prefiksnya **Ctrl+A**: tekan, lepas, lalu tekan tombol berikutnya."},
+        {"head": ["Tombol", "Untuk"], "table": [["**Ctrl+A**, lalu **v**", "Membagi kiri dan kanan"], ["**Ctrl+A**, lalu **h**", "Membagi atas dan bawah"], ["**Alt+tombol panah**", "Berpindah antarpanel"], ["**Ctrl+A**, lalu **r**", "Memuat ulang konfigurasi"]]},
+        {"p": "Mouse bisa dipakai di tmux: klik panel, seret batasnya, gulir ke atas. Berkas `~/.tmux.conf` milik Anda dibaca setelah konfigurasi sistem."},
+        {"p": "Berikutnya: [perangkat keras](hardware.html)."}
+      ]
+    },
+    {
+      "slug": "hardware",
+      "nav": "Perangkat keras",
+      "title": "Perangkat keras",
+      "lede": "Wi-Fi, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.",
+      "blocks": [
+        {"note": "Wi-Fi USB, printer, pengaturan bawaan touchpad, dan dukungan MacBook ada di image nightly. Beta 6 sudah punya driver kartu Wi-Fi bawaan laptop."},
+        {"h": "Wi-Fi", "id": "wifi"},
+        {"p": "Sebagian besar kartu bawaan langsung jalan: Intel, Realtek, Qualcomm Atheros, MediaTek, dan Broadcom, termasuk kartu Broadcom di MacBook lama."},
+        {"p": "Adaptor Wi-Fi USB juga jalan. Drivernya dimuat saat adaptor dicolokkan:"},
+        {"list": ["Realtek RTL8811CU dan RTL8821CU (adaptor AC600 yang umum), RTL8822CU, RTL8723DU, RTL8812AU, RTL8821AU, RTL8814AU, RTL8852BU, dan RTL8851BU", "MediaTek MT7921AU, MT7925U, dan MT7663U", "Ralink RT2500 dan RT73, Atheros AR9170, serta ath10k lewat USB"]},
+        {"p": "Beberapa adaptor awalnya terbaca sebagai CD berisi driver Windows. IGN mengubahnya menjadi Wi-Fi dengan sendirinya."},
+        {"h": "Printer", "id": "printer"},
+        {"p": "Printer di jaringan Anda ditemukan dan disiapkan dengan sendirinya, dan semua aplikasi bisa mencetak ke printer itu. Printer USB disiapkan saat dicolokkan. Driver printer HP, Gutenprint, dan Samsung (SpliX) sudah tersedia."},
+        {"img": "ign26/printers.webp", "alt": "Halaman Printer di Pengaturan dengan sebuah printer dan tugas cetaknya", "caption": "Pengaturan > Printer."},
+        {"steps": ["Buka **Printer** di Pengaturan.", "Di bagian atas ada printer yang sudah siap, beserta status dan tugas cetaknya. Di bawahnya, pada **Printer yang Ditemukan**, ada printer yang ditemukan tapi belum disiapkan. Klik **Tambah** di sebelahnya.", "Pilih printer lalu klik **Cetak Halaman Uji** untuk mengeceknya. **Jadikan Bawaan** membuat aplikasi memilih printer itu lebih dulu."]},
+        {"p": "Jika printer Anda tidak ada di daftar, klik **Tambah Printer dengan Alamat** lalu ketik alamatnya, misalnya `ipp://192.168.1.20`."},
+        {"h": "Pemindai", "id": "pemindai"},
+        {"p": "Pemindai dan printer multifungsi yang bisa memindai lewat jaringan atau USB tanpa driver (AirScan atau eSCL) didukung. Pasang aplikasi pemindai seperti **Document Scanner** dari Bayu Store."},
+        {"h": "Touchpad", "id": "touchpad"},
+        {"p": "Ketuk untuk mengeklik sudah aktif. Untuk klik kanan, ketuk dengan dua jari atau tekan sudut kanan bawah touchpad."},
+        {"p": "Untuk mengubahnya, buka **Touchpad** di Pengaturan. Di sana ada **Ketuk untuk mengeklik**, **Ketuk dan seret**, dan **Pengguliran alami**."},
+        {"h": "MacBook", "id": "macbook"},
+        {"list": ["Keyboard dan touchpad MacBook dan MacBook Pro tahun 2015 sampai 2017 berfungsi, termasuk MacBook Pro 13 inci tahun 2017 (A1708).", "Keyboard juga berfungsi saat komputer menyala, jadi Anda bisa mengetik kata sandi enkripsi disk.", "Suara berfungsi di MacBook Pro tahun 2016 dan 2017.", "Wi-Fi BCM43602 di model-model ini tidak lagi putus-putus."]},
+        {"h": "Isi komputer Anda", "id": "alat"},
+        {"p": "Jalankan perintah berikut di Terminal:"},
+        {"head": ["Perintah", "Menampilkan"], "table": [["`lsusb`", "Perangkat USB"], ["`lspci`", "Kartu di dalam komputer: grafis, Wi-Fi, suara"], ["`sudo lshw -short`", "Semua perangkat keras dalam satu daftar"], ["`sensors`", "Suhu dan kecepatan kipas"], ["`sudo smartctl -a /dev/sda`", "Kesehatan disk. Untuk disk NVMe, pakai `/dev/nvme0n1`."], ["`iw dev`", "Antarmuka Wi-Fi"]]},
+        {"p": "Saat melaporkan masalah perangkat keras, sertakan keluaran `lspci -nn` atau `lsusb`."},
         {"p": "Berikutnya: [memasang aplikasi](apps.html)."}
       ]
     },
@@ -315,12 +393,14 @@
         {"p": "Nyalakan ulang dan pilih **Start IGOS Nusantara 26 (basic graphics)** di menu boot."},
         {"h": "Proses menyala berhenti di tengah jalan", "id": "berhenti"},
         {"p": "Di menu boot, buka **Troubleshooting** lalu pilih yang bertuliskan **verbose**. Baris terakhir di layar menunjukkan di mana prosesnya berhenti. Jika komputer Anda memakai Wi-Fi Broadcom, coba pilihan **without the Broadcom wl driver**."},
-        {"h": "Nabau tetap berbahasa Indonesia setelah memilih bahasa lain", "id": "bahasa-nabau"},
-        {"p": "Ini masalah yang sudah diketahui ([issue #42](https://github.com/igos-nusantara/bayu/issues/42)). Sistem yang terpasang tetap memakai bahasa yang Anda pilih. Letak tombol di setiap langkah sama di semua bahasa, jadi [Memasang dengan Nabau](install.html) tetap bisa diikuti."},
+        {"h": "Nabau mengatakan media instalasi rusak", "id": "media"},
+        {"p": "Sebagian isi flashdisk tidak terbaca seperti saat ditulis. Belum ada yang berubah pada disk Anda. Periksa SHA-256 image-nya (lihat [Unduh](download.html)), tulis ulang ke flashdisk, atau pakai flashdisk lain. Jika Anda memakai Ventoy, coba tulis image-nya langsung dengan Fedora Media Writer, Rufus, atau balenaEtcher."},
+        {"h": "Wi-Fi tidak jalan", "id": "wifi"},
+        {"p": "Pastikan kartu atau adaptor Anda ada di [Perangkat keras](hardware.html#wifi), dan coba image nightly yang punya lebih banyak driver. Jika masih tidak jalan, laporkan bug dan sertakan keluaran `lspci -nn` dan `lsusb`."},
         {"h": "Aplikasi Android tidak dapat diaktifkan", "id": "android"},
         {"p": "Biasanya unduhan 1,3 GB terputus. Jalankan `sudo lapis init -type VANILLA` di Terminal; unduhan dilanjutkan dari titik terakhir. Lihat [Aplikasi Android](android.html#unduhan-berhenti)."},
         {"h": "Melaporkan bug", "id": "lapor"},
-        {"p": "Buat issue di [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues). Ceritakan apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi, lalu lampirkan tangkapan layar jika bisa."}
+        {"p": "Buat issue di [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) lalu pilih **Laporan Bug**. Formulirnya berbahasa Indonesia. Ceritakan apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi, lalu lampirkan tangkapan layar jika bisa."}
       ]
     }
   ]

@@ -1,0 +1,54 @@
+# IGOS Nusantara 26 (IGN 26) "Ciremai"
+
+> IGOS Nusantara 26 Ciremai is a free Linux distribution made in Indonesia, with the Bayu Wayland desktop, apps from Flathub and Android apps through Lapis. Download the live ISO.
+
+IGOS Nusantara 26 (IGN 26), codename Ciremai, is a free Linux distribution made in Indonesia. It is built on AlmaLinux 10 and comes with Bayu, its own Wayland desktop, the Bayu Store for apps, Lapis for Android apps and the Nabau installer.
+
+## Key facts
+
+- File: ign26-bayu-beta6.iso
+- Size: 1.22 GB
+- Architecture: x86_64 · UEFI
+- Built: 27 Oct 2026
+- Processor: 64-bit x86 (amd64)
+- Memory: 4 GB minimum · 8 GB for Lapis
+- Storage: 20 GB free
+- Firmware: UEFI · Secure Boot supported
+- Graphics: Any Mesa-supported GPU
+- Beta 6 ISO: https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso
+- Nightly ISO (built daily from the newest code): https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso
+- Source code: https://github.com/igos-nusantara/bayu
+- Bug reports: https://github.com/igos-nusantara/bayu/issues
+- Codename video: https://www.youtube.com/watch?v=-EVUW16QUBw
+
+## Docs (English)
+
+- [Getting started](https://igos-nusantara.or.id/docs/): IGN 26 is a Linux distribution built in Indonesia. These guides take you from downloading it to using it every day.
+- [Download and write to USB](https://igos-nusantara.or.id/docs/download.html): Download the IGN 26 image and put it on a USB stick you can start your computer from.
+- [Start the live session](https://igos-nusantara.or.id/docs/live.html): Start your computer from the USB stick and try IGN 26 without installing it.
+- [Install with Nabau](https://igos-nusantara.or.id/docs/install.html): Nabau puts IGN 26 on your disk in eight steps. Nothing is written until you click Begin installation in step 7.
+- [Use the desktop](https://igos-nusantara.or.id/docs/desktop.html): Find your way around Bayu: the top bar, the dock, the launcher, Settings, updates and the sign-in screen.
+- [Files and Terminal](https://igos-nusantara.or.id/docs/files.html): Work with files, open system folders as an administrator, and use the terminal and the tools that come with it.
+- [Hardware](https://igos-nusantara.or.id/docs/hardware.html): Wi-Fi, printers, scanners, the touchpad and MacBooks: what works and where to change it.
+- [Install apps](https://igos-nusantara.or.id/docs/apps.html): Bayu Store installs Linux apps from Flathub and Android apps from F-Droid, from one search.
+- [Android apps](https://igos-nusantara.or.id/docs/android.html): Apps from F-Droid run in Lapis, an Android system that runs next to the desktop. Each app opens in its own window.
+- [Bayu for agents](https://igos-nusantara.or.id/docs/agents.html): Bayu can let an AI agent see the screen and use the mouse and keyboard. It only happens after you allow it, and you can stop it with one click.
+- [Troubleshooting](https://igos-nusantara.or.id/docs/troubleshooting.html): Common problems and what to do about them.
+
+## Dokumentasi (Bahasa Indonesia)
+
+- [Mulai di sini](https://igos-nusantara.or.id/docs/id/): IGN 26 adalah distribusi Linux buatan Indonesia. Panduan ini menemani Anda dari mengunduh sampai memakainya sehari-hari.
+- [Unduh dan tulis ke flashdisk](https://igos-nusantara.or.id/docs/id/download.html): Unduh image IGN 26, lalu tulis ke flashdisk supaya komputer bisa dinyalakan dari situ.
+- [Menjalankan sesi live](https://igos-nusantara.or.id/docs/id/live.html): Nyalakan komputer dari flashdisk dan coba IGN 26 tanpa memasangnya.
+- [Memasang dengan Nabau](https://igos-nusantara.or.id/docs/id/install.html): Nabau memasang IGN 26 ke disk dalam delapan langkah. Tidak ada yang ditulis ke disk sebelum Anda mengeklik Mulai instalasi di langkah 7.
+- [Memakai desktop](https://igos-nusantara.or.id/docs/id/desktop.html): Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, Pengaturan, pembaruan, dan layar masuk.
+- [Berkas dan Terminal](https://igos-nusantara.or.id/docs/id/files.html): Mengelola berkas, membuka folder sistem sebagai administrator, serta memakai terminal dan alat yang sudah tersedia.
+- [Perangkat keras](https://igos-nusantara.or.id/docs/id/hardware.html): Wi-Fi, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.
+- [Memasang aplikasi](https://igos-nusantara.or.id/docs/id/apps.html): Bayu Store memasang aplikasi Linux dari Flathub dan aplikasi Android dari F-Droid, dari satu kotak pencarian.
+- [Aplikasi Android](https://igos-nusantara.or.id/docs/id/android.html): Aplikasi dari F-Droid berjalan di Lapis, sistem Android yang berjalan di samping desktop. Setiap aplikasi terbuka di jendelanya sendiri.
+- [Bayu untuk agen](https://igos-nusantara.or.id/docs/id/agents.html): Bayu bisa mengizinkan agen AI melihat layar dan memakai tetikus serta papan ketik. Itu hanya terjadi setelah Anda mengizinkan, dan bisa dihentikan dengan satu klik.
+- [Pemecahan masalah](https://igos-nusantara.or.id/docs/id/troubleshooting.html): Masalah yang sering muncul dan cara mengatasinya.
+
+## Optional
+
+- [Full text of the docs and FAQ](https://igos-nusantara.or.id/llms-full.txt)

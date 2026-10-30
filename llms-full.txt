@@ -1,0 +1,1276 @@
+# IGOS Nusantara 26 (IGN 26) "Ciremai"
+
+> IGOS Nusantara 26 Ciremai is a free Linux distribution made in Indonesia, with the Bayu Wayland desktop, apps from Flathub and Android apps through Lapis. Download the live ISO.
+
+IGOS Nusantara 26 (IGN 26), codename Ciremai, is a free Linux distribution made in Indonesia. It is built on AlmaLinux 10 and comes with Bayu, its own Wayland desktop, the Bayu Store for apps, Lapis for Android apps and the Nabau installer.
+
+## Key facts
+
+- File: ign26-bayu-beta6.iso
+- Size: 1.22 GB
+- Architecture: x86_64 · UEFI
+- Built: 27 Oct 2026
+- Processor: 64-bit x86 (amd64)
+- Memory: 4 GB minimum · 8 GB for Lapis
+- Storage: 20 GB free
+- Firmware: UEFI · Secure Boot supported
+- Graphics: Any Mesa-supported GPU
+- Beta 6 ISO: https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso
+- Nightly ISO (built daily from the newest code): https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso
+- Source code: https://github.com/igos-nusantara/bayu
+- Bug reports: https://github.com/igos-nusantara/bayu/issues
+- Codename video: https://www.youtube.com/watch?v=-EVUW16QUBw
+
+## Docs (English)
+
+## Getting started
+
+Source: https://igos-nusantara.or.id/docs/
+
+IGN 26 is a Linux distribution built in Indonesia. These guides take you from downloading it to using it every day.
+
+IGN 26 comes as a live image. You write it to a USB stick, start your computer from it, and use the full desktop without touching your disk. If you want to keep it, the installer puts it on your disk in a few minutes.
+
+### What you need
+
+| Part | Minimum |
+| --- | --- |
+| Processor | 64-bit x86 (amd64) |
+| Memory | 4 GB. 8 GB if you want Android apps. |
+| Disk | 20 GB free |
+| Firmware | UEFI. Almost every computer made since 2012 has it. |
+| USB stick | 2 GB or larger. Everything on it will be erased. |
+
+### Guides
+
+- [Download and write to USB](download.html): Get the image and make a USB stick you can start from.
+- [Start the live session](live.html): Start from the USB stick and try IGN 26 without installing.
+- [Install with Nabau](install.html): Put IGN 26 on your disk in eight steps.
+- [Use the desktop](desktop.html): The top bar, the dock, the launcher, Settings and updates.
+- [Files and Terminal](files.html): Open system folders as an administrator, split the terminal, and the tools that come with it.
+- [Hardware](hardware.html): Wi-Fi, printers, scanners, the touchpad and MacBooks.
+- [Install apps](apps.html): Find, install, update and remove apps with Bayu Store.
+- [Android apps](android.html): Run apps from F-Droid in their own windows.
+- [Bayu for agents](agents.html): Let an AI agent use the desktop, with your permission.
+- [Troubleshooting](troubleshooting.html): What to do when something does not work.
+
+## Download and write to USB
+
+Source: https://igos-nusantara.or.id/docs/download.html
+
+Download the IGN 26 image and put it on a USB stick you can start your computer from.
+
+> Writing the image erases everything on the USB stick. Copy off anything you want to keep first.
+
+### Download the image
+
+The current image is **IGN 26 Beta 6**. The file is about 1.3 GB.
+
+Download it in your browser: [ign26-bayu-beta6.iso](https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso). Or in a terminal:
+
+```
+curl -LO https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso
+```
+
+There is also a nightly image, built every day from the newest code: [ign26-bayu-harian-latest.iso](https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso). Use it to try changes before the next beta. It may have new bugs.
+
+### Write it on Linux
+
+Plug in the USB stick, then list your disks:
+
+```
+lsblk -d -o NAME,SIZE,MODEL
+```
+
+Find the stick by its size and model, for example `sdb`. Make sure it is not the disk your system runs from.
+
+Write the image. Replace `sdX` with the name you found:
+
+```
+sudo dd if=ign26-bayu-beta6.iso of=/dev/sdX bs=4M status=progress oflag=sync
+```
+
+The stick is ready when the prompt comes back.
+
+### Write it on Windows or macOS
+
+Use [balenaEtcher](https://etcher.balena.io). It is free and works the same on both.
+
+1. Open balenaEtcher and click **Flash from file**. Choose the `.iso` file you downloaded.
+2. Click **Select target** and choose your USB stick.
+3. Click **Flash!** and wait until it says the flash is complete.
+
+> On Windows you can also use [Rufus](https://rufus.ie). If it asks how to write the image, choose **DD Image mode**.
+
+### Or try it in a virtual machine
+
+You can start the image in GNOME Boxes, virt-manager or VirtualBox instead of a USB stick. Give the machine at least 4 GB of memory and a 25 GB disk, and turn on UEFI. In VirtualBox that is **Settings → System → Enable EFI**.
+
+Next: [start the live session](live.html).
+
+## Start the live session
+
+Source: https://igos-nusantara.or.id/docs/live.html
+
+Start your computer from the USB stick and try IGN 26 without installing it.
+
+1. Plug in the USB stick and turn the computer on. Straight away, press the key that opens the boot menu. It is often **F12**, **F11**, **F9** or **Esc**. The first screen usually tells you which one.
+2. Choose the USB stick from the list.
+3. The IGN 26 menu appears. Press **Enter** on **Start IGOS Nusantara 26**, or wait three seconds and it starts by itself.
+4. The desktop starts and opens the installer, Nabau. You can install now, or close Nabau and look around first. Its icon stays in the dock.
+
+> The live session starts in Indonesian. You choose your language in the first step of Nabau, and the installed system uses it.
+
+### What works in the live session
+
+Everything: Files, Terminal, Settings, Bayu Store and the network. Nothing is saved to your disk. Files you create and apps you install are gone when you restart.
+
+### If the screen stays black
+
+Restart, and in the menu choose **Start IGOS Nusantara 26 (basic graphics)**. It uses a simpler display driver that works on more graphics cards.
+
+### The Troubleshooting menu
+
+**Troubleshooting** in the boot menu has two more ways to start:
+
+- **verbose** prints every message while the system starts, so you can see where it stops.
+- **without the Broadcom wl driver** is for computers with Broadcom Wi-Fi that stop while starting.
+
+Next: [install with Nabau](install.html).
+
+## Install with Nabau
+
+Source: https://igos-nusantara.or.id/docs/install.html
+
+Nabau puts IGN 26 on your disk in eight steps. Nothing is written until you click Begin installation in step 7.
+
+> The automatic layout erases the whole disk you choose. Back up your files before you start.
+
+Nabau opens by itself in the live session. If you closed it, click its icon in the dock.
+
+> In the nightly image, Nabau first checks the USB stick when you click **Start installation**. If the stick is damaged, it stops before changing any disk. See [Troubleshooting](troubleshooting.html#medium).
+
+### The eight steps
+
+1. **Language.** Choose the language for the installed system and a regional format. The format decides how dates, numbers and money look. The **Preview** box shows an example. Click **Continue**.
+2. **Network.** A connection is optional, but it lets Nabau set the clock. Wired connections connect by themselves. **Host name** is your computer's name on the network; you can leave it.
+3. **Localization.** Choose the keyboard layout you type with. Type a few letters in **Test the layout** to check it. The time zone is found from your network; change **Region** and **City** if it is wrong.
+4. **Destination.** Select the disk. Keep **Automatic** unless you know which partitions you want. Turn on **Encrypt my data** if the computer could be lost or stolen: you will then type a password every time it starts.
+5. **Software.** **IGN 26 Desktop** is the desktop you are using now. The add-ons on the right are optional, and you can install them later with `dnf`.
+6. **Account.** Type your full name; the user name fills in by itself. Type a password twice. Leave **Make this user an administrator** on, so you can install software and change system settings.
+7. **Review.** Check the summary. Click **Edit** on a card to change it. When it is right, click **Begin installation**. This is the moment the disk is erased.
+8. **Install.** Wait until it finishes. On our test machine it took under two minutes; a slow USB stick or disk takes longer.
+
+### Finish and restart
+
+1. When you see **You're all set**, take out the USB stick, then click **Restart now**.
+2. The sign-in screen shows your name. Type your password and press **Enter**.
+3. A welcome window offers a short tour of the desktop. Click **Start the tour**, or **Skip**.
+
+### Get the latest updates
+
+The image can be a few days old. Open **Terminal** from the dock and run:
+
+```
+sudo dnf upgrade
+```
+
+In the nightly image you can also update from Settings, see [Updates](desktop.html#updates).
+
+Next: [use the desktop](desktop.html).
+
+## Use the desktop
+
+Source: https://igos-nusantara.or.id/docs/desktop.html
+
+Find your way around Bayu: the top bar, the dock, the launcher, Settings, updates and the sign-in screen.
+
+### The top bar
+
+On the left is the IGN logo, then the name of the app in front and that app's menus. Click the logo for **Settings**, **Lock screen**, **Log out**, **Restart** and **Shutdown**.
+
+On the right are the network, **Control Center** and the clock. Control Center has quick switches for Wi-Fi, **Dark Mode**, **Do Not Disturb**, the camera and the microphone.
+
+### The dock
+
+From left to right: **Launcher**, **Files**, **Terminal**, **Settings**, **Screenshot** and the **Trash**. An app you open gets its own icon until you close it. A dot under an icon means the app is open.
+
+### The launcher
+
+Click the rocket icon to see every installed app. Click one to open it. Press **Esc** to close the launcher.
+
+### Dock or Panel
+
+Bayu has two layouts. You can switch at any time, and the desktop changes at once.
+
+> The Panel layout is in the nightly image. Beta 6 has the Dock only.
+
+| Layout | What you get |
+| --- | --- |
+| **Dock** | A top bar with the menus of the app in front, the clock and the status icons, and a dock at the bottom. This is the default. |
+| **Panel** | One bar along the bottom with the start button, your open apps, the status icons and the clock. Each app shows its menus in its own window. Restart, Shutdown and Log out are in Control Center. |
+
+1. In Settings, open **Desktop**.
+2. Under **Layout**, click **Dock** or **Panel**.
+
+The welcome tour that opens after you sign in for the first time also asks which layout you want.
+
+### Settings
+
+Open **Settings** from the dock. Pages are grouped into **Network**, **Desktop**, **Devices** and **System**.
+
+### Change the language
+
+1. In Settings, open **Language**.
+2. Click **Add language…** and choose a language.
+3. Drag it to the top of the list. The top language is the system language.
+4. Click the logo in the top-left corner, choose **Log out**, and sign in again. Apps then use the new language.
+
+### Change the wallpaper
+
+Open **Wallpaper** in Settings. Pictures under **Dynamic** change through the day. Pictures under **System** and **Your wallpapers** stay the same.
+
+1. Under **Dynamic**, click the mountain or the forest. The mountain is the default.
+2. Next to **Changes with**, choose **Time of day** or **Theme**.
+
+| Changes with | What you see |
+| --- | --- |
+| Time of day | The **Morning**, **Day**, **Evening** and **Night** pictures, each from the time shown next to it. The times follow sunrise and sunset in your time zone. |
+| Theme | The day picture in light mode, the night picture in dark mode. |
+
+To use your own picture, click **Add wallpaper**. The login screen uses the same wallpaper as the desktop.
+
+### Updates
+
+> System Update and the update icon are in the nightly image. On Beta 6, run `sudo dnf upgrade` in Terminal.
+
+Bayu looks for updates a minute after you sign in, then every six hours. When there are some, an update icon appears in the top bar, or in the bottom bar in the Panel layout. A red dot on it means a security update.
+
+1. Click the update icon and choose **System Update**, or open **System Update** in Settings.
+2. Click **Download**. You can cancel while it downloads.
+3. Click **Restart and Install**. The computer restarts, installs the updates, then starts as usual.
+
+Nothing is installed without asking you. Turn on **Download updates automatically** to download updates in the background; Bayu then asks you to restart. Updates for apps are in Bayu Store, see [Install apps](apps.html#updates).
+
+### The sign-in screen
+
+> The power button and X11 sessions are in the nightly image.
+
+Below the sign-in box is a power button with **Suspend**, **Restart** and **Shut Down**. Restart and Shut Down ask you first.
+
+If you install another desktop or window manager, for example IceWM with `sudo dnf install icewm`, choose it in the session menu before you sign in. Sessions that run on X11 have **(X11)** after their name. The sign-in screen remembers the last one you used.
+
+Next: [Files and Terminal](files.html).
+
+## Files and Terminal
+
+Source: https://igos-nusantara.or.id/docs/files.html
+
+Work with files, open system folders as an administrator, and use the terminal and the tools that come with it.
+
+> Open as Administrator, the Terminal menu button, the command-line tools and the shell shortcuts are in the nightly image.
+
+### Files
+
+Open **Files** from the dock. The sidebar shows your folders and drives. When Android is on, **Android** in the sidebar holds the files of your Android apps, such as downloads and photos.
+
+Copying and moving to a Windows drive (NTFS) works the same as on any other drive.
+
+### Open as Administrator
+
+Only an administrator can change system folders such as `/etc`.
+
+1. Go to the folder.
+2. Click the menu button in the title bar, next to the search button, and choose **Open as Administrator**.
+3. Type your password.
+4. A second window opens, titled **Files (Administrator)**. Changes made there are made as the administrator. You can copy and move between it and your other windows as usual.
+
+Clicking a folder in the sidebar that only an administrator may open does the same. Administrator access ends when you close Files.
+
+> In the administrator window you can delete or change system files. Be careful.
+
+### Terminal
+
+Open **Terminal** from the dock. Click **+** in the title bar for a new tab.
+
+To split a tab, click the menu button next to **+**, or right-click the title bar, and choose **Split Right** or **Split Down**. This also works while a program such as htop or mc is using the mouse. To close a pane, right-click inside it and choose **Close Pane**.
+
+### Command-line tools
+
+These tools are already installed:
+
+| For | Commands |
+| --- | --- |
+| Code | `git` |
+| Editing files | `vim`, `nano` |
+| Downloading | `wget`, `curl` |
+| Processes and disk use | `htop`, `btop`, `iotop`, `ncdu`, `tree` |
+| Network | `dig`, `host`, `traceroute`, `mtr`, `whois` |
+| Hardware | `lsusb`, `lspci`, `lshw`, `sensors`, `smartctl` and more, see [Hardware](hardware.html#tools) |
+| Other | `tmux`, `fastfetch`, `7z`, `bc`, `pip`, `strace` |
+
+Manual pages are installed too: run `man` followed by the command, for example `man tar`.
+
+### Shortcuts in the shell
+
+The terminal comes with a colored prompt and these short commands:
+
+| Type | To |
+| --- | --- |
+| `ll` | List files with details, folders first |
+| `..` and `...` | Go up one or two folders |
+| `ex file` | Extract an archive: zip, tar.gz, tar.xz, 7z, rar and more |
+| `update` | Update the system (`sudo dnf update`) |
+| `install name` | Install a package (`sudo dnf install`) |
+| `search word` | Look for a package (`dnf search`) |
+| `myip` | Show your public IP address |
+| `fastfetch` | Show the system summary with the IGN logo |
+
+`rm`, `cp` and `mv` ask before they delete or overwrite a file. To change any of this, add your own lines to `~/.bashrc`.
+
+### tmux
+
+Run `tmux` to keep several shells in one window. The prefix key is **Ctrl+A**: press it, let go, then press the next key.
+
+| Keys | To |
+| --- | --- |
+| **Ctrl+A**, then **v** | Split side by side |
+| **Ctrl+A**, then **h** | Split top and bottom |
+| **Alt+arrow keys** | Move between panes |
+| **Ctrl+A**, then **r** | Load the configuration again |
+
+The mouse works in tmux: click a pane, drag a border, scroll back. Your own `~/.tmux.conf` is read after the system one.
+
+Next: [hardware](hardware.html).
+
+## Hardware
+
+Source: https://igos-nusantara.or.id/docs/hardware.html
+
+Wi-Fi, printers, scanners, the touchpad and MacBooks: what works and where to change it.
+
+> USB Wi-Fi, printers, the touchpad defaults and MacBook support are in the nightly image. Beta 6 has the drivers for built-in Wi-Fi cards.
+
+### Wi-Fi
+
+Most built-in cards work right away: Intel, Realtek, Qualcomm Atheros, MediaTek and Broadcom, including the Broadcom cards of older MacBooks.
+
+USB Wi-Fi adapters work too. Their driver loads when you plug one in:
+
+- Realtek RTL8811CU and RTL8821CU (the common AC600 adapters), RTL8822CU, RTL8723DU, RTL8812AU, RTL8821AU, RTL8814AU, RTL8852BU and RTL8851BU
+- MediaTek MT7921AU, MT7925U and MT7663U
+- Ralink RT2500 and RT73, Atheros AR9170 and ath10k on USB
+
+Some adapters first show up as a CD drive with a Windows driver on it. IGN switches them to Wi-Fi by itself.
+
+### Printers
+
+Printers on your network are found and set up by themselves, and every app can print to them. A USB printer is set up when you plug it in. Drivers for HP, Gutenprint and Samsung (SpliX) printers are included.
+
+1. Open **Printers** in Settings.
+2. At the top are the printers that are set up, with their state and print jobs. Below them, under **Printers Found**, are printers that were found but are not set up yet. Click **Add** next to one.
+3. Select a printer and click **Print Test Page** to check it. **Set as Default** makes apps choose it first.
+
+If your printer is not listed, click **Add a Printer by Address** and type its address, for example `ipp://192.168.1.20`.
+
+### Scanners
+
+Scanners and multifunction printers that scan over the network or USB without a driver (AirScan or eSCL) work. Install a scanning app such as **Document Scanner** from Bayu Store.
+
+### Touchpad
+
+Tap to click is on. To right-click, tap with two fingers or press the bottom-right corner of the touchpad.
+
+To change this, open **Touchpad** in Settings. There you find **Tap to click**, **Tap and drag** and **Natural scrolling**.
+
+### MacBooks
+
+- The keyboard and touchpad of MacBook and MacBook Pro models from 2015 to 2017 work, including the 13-inch MacBook Pro of 2017 (A1708).
+- The keyboard works at start-up too, so you can type a disk encryption password.
+- Sound works on the MacBook Pro of 2016 and 2017.
+- The BCM43602 Wi-Fi of these models stays connected.
+
+### What is in your computer
+
+Run these in Terminal:
+
+| Command | Shows |
+| --- | --- |
+| `lsusb` | USB devices |
+| `lspci` | Cards inside the computer: graphics, Wi-Fi, sound |
+| `sudo lshw -short` | All hardware in one list |
+| `sensors` | Temperatures and fan speeds |
+| `sudo smartctl -a /dev/sda` | The health of a disk. For an NVMe disk, use `/dev/nvme0n1`. |
+| `iw dev` | Wi-Fi interfaces |
+
+When you report a hardware problem, include the output of `lspci -nn` or `lsusb`.
+
+Next: [install apps](apps.html).
+
+## Install apps
+
+Source: https://igos-nusantara.or.id/docs/apps.html
+
+Bayu Store installs Linux apps from Flathub and Android apps from F-Droid, from one search.
+
+Open **Bayu Store** from the launcher. The first time, it downloads the list of apps. This takes a minute or two and happens once.
+
+### Find an app
+
+Type in the search box at the top and press **Enter**. Results from Flathub and F-Droid appear together. Use **Flathub** or **F-Droid** under the title to show only one of them.
+
+### Install it
+
+1. Click the app's name to open its page. It shows who makes it, its licence, the download size and what the app may access.
+2. Click **Install**. The button shows the progress.
+3. When the button says **Open**, the app is installed. Click **Open**, or find it in the launcher.
+
+Apps from F-Droid are Android apps. The first one you install asks to turn on Android. See [Android apps](android.html).
+
+### Updates
+
+Bayu Store installs app updates in the background. To see what changed, open **Updates** in the sidebar. To turn this off, open **Store settings** and switch off **Install updates automatically**.
+
+Bayu Store updates apps only. To update the system itself, run `sudo dnf upgrade` in Terminal.
+
+### Remove an app
+
+Open **Installed** in the sidebar, open the app's page and click the trash can button next to **Open**.
+
+Next: [Android apps](android.html).
+
+## Android apps
+
+Source: https://igos-nusantara.or.id/docs/android.html
+
+Apps from F-Droid run in Lapis, an Android system that runs next to the desktop. Each app opens in its own window.
+
+### Before you start
+
+- 8 GB of memory is recommended.
+- Turning Android on downloads about 1.3 GB, once. Use a fast connection.
+- You need the administrator password.
+
+### Turn on Android
+
+1. In Bayu Store, click **Install** on any F-Droid app. Bayu Store asks **Turn on Android apps?** Click **Turn on**.
+2. Type your password and click **Authenticate**.
+3. Wait for the download to finish. It runs in the background, and Bayu Store does not show its progress yet. At 10 Mbit/s it takes about 20 minutes.
+4. Android then starts for the first time, which takes about a minute. After that, click **Install** on the app again.
+5. When the button says **Open**, click it. The Android app opens in its own window, like any other app.
+
+You can also turn Android on from **Store settings**, under **Android apps**.
+
+### If the download stops
+
+The Android image comes from SourceForge mirrors, which are sometimes slow. If Bayu Store says **Android apps could not be turned on**, open Terminal and run:
+
+```
+sudo lapis init -type VANILLA
+```
+
+It continues where the download stopped and tries other mirrors by itself. When it finishes, install the app again from Bayu Store.
+
+### If it says Android is not running
+
+Android needs about a minute to start after you sign in or turn it on. If Bayu Store says **Android container is not running** or **Can't find service: package**, wait a minute and click **Install** again.
+
+### Apps built only for ARM
+
+Some Android apps are built only for phone processors (ARM). They are hidden by default. To show them, turn on **Show apps built only for ARM** in Store settings. They run through translation, so they are slower and some do not work.
+
+Next: [Bayu for agents](agents.html).
+
+## Bayu for agents
+
+Source: https://igos-nusantara.or.id/docs/agents.html
+
+Bayu can let an AI agent see the screen and use the mouse and keyboard. It only happens after you allow it, and you can stop it with one click.
+
+### How it works
+
+An agent app, such as Claude Code, talks to `bayu-computer-use`, a small program that speaks MCP (Model Context Protocol). When the agent first asks to see or touch the desktop, Bayu asks you:
+
+Nothing happens until you click **Allow**. After that:
+
+- A **Stop** button appears in the top bar while the agent is in control. Click it to stop the agent at once.
+- When you use the mouse or keyboard yourself, the agent pauses.
+- The agent cannot answer system dialogs, such as password prompts or this permission dialog.
+
+### Install bayu-computer-use
+
+> `bayu-computer-use` is not in the IGN 26 image yet. Build it from source with the commands below. It takes about a minute.
+
+Install the build tools:
+
+```
+sudo dnf install cargo git
+```
+
+Download only this part of the Bayu source, and build it:
+
+```
+git clone --depth 1 --filter=blob:none --sparse https://github.com/igos-nusantara/bayu.git
+cd bayu
+git sparse-checkout set components/bayu-computer-use
+cd components/bayu-computer-use
+rm .cargo/config.toml
+cargo build --release
+sudo install -m 755 target/release/bayu-computer-use /usr/bin/
+```
+
+The `rm` line removes a setting meant for Debian builds. Without it, the build cannot download what it needs.
+
+Then **log out and sign in again** (click the logo in the top-left corner, then **Log out**). Bayu looks for `/usr/bin/bayu-computer-use` when you sign in, and trusts only the program at that exact path.
+
+### Connect your agent
+
+For Claude Code:
+
+```
+claude mcp add bayu -- /usr/bin/bayu-computer-use
+```
+
+For other agent apps, add an MCP server that runs `/usr/bin/bayu-computer-use` over stdio, with no arguments. Many apps use this format:
+
+```
+{ "mcpServers": { "bayu": { "command": "/usr/bin/bayu-computer-use" } } }
+```
+
+Start the agent app from the desktop, for example in Terminal. The permission dialog shows the agent's name and the app it runs in.
+
+### What the agent can do
+
+These are the tools `bayu-computer-use` gives the agent:
+
+| Tool | What it does |
+| --- | --- |
+| `screenshot` | Captures the whole screen, or one window |
+| `zoom` | Shows one area of the screen at full resolution, to read small text |
+| `click` | Moves the pointer to a point and clicks |
+| `move_pointer` | Moves the pointer, for example to hover |
+| `drag` | Presses at one point, moves to another and releases |
+| `mouse_down`, `mouse_up` | Presses or releases a mouse button, for drags `drag` cannot do |
+| `cursor_position` | Tells where the pointer is |
+| `scroll` | Scrolls with the mouse wheel |
+| `type_text` | Types text where the keyboard focus is |
+| `press_keys` | Presses a key or shortcut, such as `ctrl+s` |
+| `hold_keys` | Holds a key down for a while |
+| `set_clipboard` | Puts text on the clipboard |
+| `keyboard_shortcuts` | Lists the system shortcuts |
+| `list_windows` | Lists open windows |
+| `activate_window` | Brings a window to the front |
+| `close_window` | Closes a window, like its close button |
+| `set_window_frame` | Moves and resizes a window |
+| `list_applications` | Lists installed apps |
+| `open_application` | Starts an installed app |
+| `open` | Opens a file, folder or web address |
+| `actions` | Runs several of these in a row |
+
+### If it does not work
+
+If the agent reports **This session does not let bayu-computer-use control the computer**, the program is not where Bayu expects it, or you have not logged out and back in since you installed it. Check that `/usr/bin/bayu-computer-use` exists, then log out and sign in again.
+
+## Troubleshooting
+
+Source: https://igos-nusantara.or.id/docs/troubleshooting.html
+
+Common problems and what to do about them.
+
+### The computer does not start from the USB stick
+
+- Open the boot menu with the right key (often **F12**, **F11**, **F9** or **Esc**) and pick the stick by hand.
+- Try another USB port, preferably one directly on the computer.
+- Write the stick again. On Windows, use **DD Image mode** in Rufus, or use balenaEtcher.
+
+### The screen stays black
+
+Restart and choose **Start IGOS Nusantara 26 (basic graphics)** in the boot menu.
+
+### Starting stops partway
+
+In the boot menu, open **Troubleshooting** and choose the **verbose** entry. The last lines on screen show where it stops. If your computer has Broadcom Wi-Fi, try the entry **without the Broadcom wl driver**.
+
+### Nabau says the installation medium is damaged
+
+Part of the USB stick cannot be read as it was written. Nothing on your disks has changed. Check the image's SHA-256 (see [Download](download.html)), write it to the stick again, or use another stick. If you used Ventoy, try writing the image directly with Fedora Media Writer, Rufus or balenaEtcher.
+
+### Wi-Fi does not work
+
+Check that your card or adapter is listed in [Hardware](hardware.html#wifi), and try the nightly image, which has more drivers. If it still does not work, report a bug and include the output of `lspci -nn` and `lsusb`.
+
+### Android apps could not be turned on
+
+Usually the 1.3 GB download stopped. Run `sudo lapis init -type VANILLA` in Terminal; it continues where it stopped. See [Android apps](android.html#download-stops).
+
+### Reporting a bug
+
+Open an issue at [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) and choose **Laporan Bug**. The form is in Indonesian, and you may answer in English. Say what you did, what you expected and what happened instead, and attach a screenshot if you can.
+
+## Dokumentasi (Bahasa Indonesia)
+
+## Mulai di sini
+
+Source: https://igos-nusantara.or.id/docs/id/
+
+IGN 26 adalah distribusi Linux buatan Indonesia. Panduan ini menemani Anda dari mengunduh sampai memakainya sehari-hari.
+
+IGN 26 dibagikan sebagai image live. Anda menulisnya ke flashdisk, menyalakan komputer dari flashdisk itu, lalu bisa langsung memakai desktopnya tanpa menyentuh isi disk. Kalau cocok, pemasangnya menaruh IGN 26 ke disk dalam beberapa menit.
+
+### Yang Anda perlukan
+
+| Bagian | Minimal |
+| --- | --- |
+| Prosesor | 64-bit x86 (amd64) |
+| Memori | 4 GB. 8 GB jika ingin memakai aplikasi Android. |
+| Disk | 20 GB ruang kosong |
+| Firmware | UEFI. Hampir semua komputer buatan 2012 ke atas sudah memilikinya. |
+| Flashdisk | 2 GB atau lebih. Semua isinya akan terhapus. |
+
+### Panduan
+
+- [Unduh dan tulis ke flashdisk](download.html): Ambil image-nya dan buat flashdisk untuk menyalakan komputer.
+- [Menjalankan sesi live](live.html): Nyalakan dari flashdisk dan coba IGN 26 tanpa memasangnya.
+- [Memasang dengan Nabau](install.html): Pasang IGN 26 ke disk dalam delapan langkah.
+- [Memakai desktop](desktop.html): Bilah atas, dok, peluncur, Pengaturan, dan pembaruan.
+- [Berkas dan Terminal](files.html): Buka folder sistem sebagai administrator, bagi terminal, dan alat yang sudah tersedia.
+- [Perangkat keras](hardware.html): Wi-Fi, printer, pemindai, touchpad, dan MacBook.
+- [Memasang aplikasi](apps.html): Cari, pasang, perbarui, dan hapus aplikasi lewat Bayu Store.
+- [Aplikasi Android](android.html): Jalankan aplikasi dari F-Droid di jendelanya sendiri.
+- [Bayu untuk agen](agents.html): Izinkan agen AI memakai desktop, atas persetujuan Anda.
+- [Pemecahan masalah](troubleshooting.html): Yang perlu dilakukan kalau ada yang tidak berjalan.
+
+## Unduh dan tulis ke flashdisk
+
+Source: https://igos-nusantara.or.id/docs/id/download.html
+
+Unduh image IGN 26, lalu tulis ke flashdisk supaya komputer bisa dinyalakan dari situ.
+
+> Menulis image akan menghapus semua isi flashdisk. Pindahkan dulu berkas yang ingin Anda simpan.
+
+### Unduh image
+
+Image yang tersedia saat ini adalah **IGN 26 Beta 6**. Ukurannya sekitar 1,3 GB.
+
+Unduh lewat peramban: [ign26-bayu-beta6.iso](https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso). Atau lewat terminal:
+
+```
+curl -LO https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso
+```
+
+Ada juga image nightly yang dibangun setiap hari dari kode terbaru: [ign26-bayu-harian-latest.iso](https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso). Pakai ini untuk mencoba perubahan sebelum beta berikutnya. Bisa saja ada bug baru.
+
+### Menulis di Linux
+
+Colokkan flashdisk, lalu lihat daftar disk:
+
+```
+lsblk -d -o NAME,SIZE,MODEL
+```
+
+Kenali flashdisk dari ukuran dan modelnya, misalnya `sdb`. Pastikan itu bukan disk tempat sistem Anda berjalan.
+
+Tulis image-nya. Ganti `sdX` dengan nama yang Anda temukan:
+
+```
+sudo dd if=ign26-bayu-beta6.iso of=/dev/sdX bs=4M status=progress oflag=sync
+```
+
+Flashdisk siap dipakai setelah prompt muncul lagi.
+
+### Menulis di Windows atau macOS
+
+Pakai [balenaEtcher](https://etcher.balena.io). Gratis, dan cara pakainya sama di kedua sistem.
+
+1. Buka balenaEtcher, klik **Flash from file**, lalu pilih berkas `.iso` yang sudah diunduh.
+2. Klik **Select target** dan pilih flashdisk Anda.
+3. Klik **Flash!** dan tunggu sampai muncul tulisan bahwa proses selesai.
+
+> Di Windows Anda juga bisa memakai [Rufus](https://rufus.ie). Jika ditanya cara menulis image, pilih **DD Image mode**.
+
+### Atau coba di mesin virtual
+
+Image ini juga bisa dijalankan di GNOME Boxes, virt-manager, atau VirtualBox. Beri mesinnya memori minimal 4 GB dan disk 25 GB, lalu aktifkan UEFI. Di VirtualBox, pengaturannya ada di **Settings → System → Enable EFI**.
+
+Berikutnya: [menjalankan sesi live](live.html).
+
+## Menjalankan sesi live
+
+Source: https://igos-nusantara.or.id/docs/id/live.html
+
+Nyalakan komputer dari flashdisk dan coba IGN 26 tanpa memasangnya.
+
+1. Colokkan flashdisk lalu nyalakan komputer. Segera tekan tombol untuk membuka menu boot. Biasanya **F12**, **F11**, **F9**, atau **Esc**. Layar pertama saat komputer menyala biasanya menyebutkan tombolnya.
+2. Pilih flashdisk dari daftar.
+3. Menu IGN 26 muncul. Tekan **Enter** pada **Start IGOS Nusantara 26**, atau tunggu tiga detik dan sistem berjalan sendiri.
+4. Desktop terbuka dan langsung menjalankan pemasang, Nabau. Anda bisa memasang sekarang, atau menutup Nabau dan melihat-lihat dulu. Ikonnya tetap ada di dok.
+
+### Apa saja yang bisa dipakai
+
+Semuanya: Berkas, Terminal, Pengaturan, Bayu Store, dan jaringan. Tidak ada yang disimpan ke disk. Berkas yang Anda buat dan aplikasi yang Anda pasang hilang setelah komputer dinyalakan ulang.
+
+### Jika layar tetap hitam
+
+Nyalakan ulang, lalu pilih **Start IGOS Nusantara 26 (basic graphics)** di menu. Pilihan ini memakai driver tampilan yang lebih sederhana dan cocok untuk lebih banyak kartu grafis.
+
+### Menu Troubleshooting
+
+**Troubleshooting** di menu boot berisi dua cara menyalakan lainnya:
+
+- **verbose** menampilkan setiap pesan saat sistem menyala, jadi Anda bisa melihat di mana prosesnya berhenti.
+- **without the Broadcom wl driver** untuk komputer dengan Wi-Fi Broadcom yang macet saat menyala.
+
+Berikutnya: [memasang dengan Nabau](install.html).
+
+## Memasang dengan Nabau
+
+Source: https://igos-nusantara.or.id/docs/id/install.html
+
+Nabau memasang IGN 26 ke disk dalam delapan langkah. Tidak ada yang ditulis ke disk sebelum Anda mengeklik Mulai instalasi di langkah 7.
+
+> Tata letak otomatis menghapus seluruh isi disk yang Anda pilih. Cadangkan berkas Anda sebelum mulai.
+
+Nabau terbuka sendiri di sesi live. Jika sudah Anda tutup, klik ikonnya di dok.
+
+> Di image nightly, Nabau memeriksa flashdisk lebih dulu saat Anda mengeklik **Mulai instalasi**. Jika flashdisk rusak, Nabau berhenti sebelum mengubah disk apa pun. Lihat [Pemecahan masalah](troubleshooting.html#media).
+
+### Delapan langkah
+
+1. **Bahasa.** Pilih bahasa untuk sistem yang akan dipasang dan format regionalnya. Format regional menentukan cara tanggal, angka, dan uang ditampilkan. Kotak **Pratinjau** menampilkan contohnya. Klik **Lanjutkan**.
+2. **Jaringan.** Koneksi tidak wajib, tetapi membantu Nabau mencocokkan jam. Koneksi kabel tersambung sendiri. **Nama host** adalah nama komputer Anda di jaringan; boleh dibiarkan.
+3. **Lokalisasi.** Pilih tata letak papan ketik yang Anda pakai. Ketik beberapa huruf di **Uji tata letak** untuk mencobanya. Zona waktu ditebak dari jaringan; ubah **Wilayah** dan **Kota** jika keliru.
+4. **Tujuan.** Pilih disk. Biarkan **Otomatis** kecuali Anda tahu partisi apa yang Anda inginkan. Aktifkan **Enkripsi data saya** jika komputer bisa hilang atau dicuri; Anda lalu perlu mengetik kata sandi setiap kali komputer menyala.
+5. **Perangkat lunak.** **IGN 26 Desktop** adalah desktop yang sedang Anda pakai. Tambahan di sebelah kanan tidak wajib dan bisa dipasang belakangan dengan `dnf`.
+6. **Akun.** Ketik nama lengkap Anda; nama pengguna terisi sendiri. Ketik kata sandi dua kali. Biarkan **Jadikan pengguna ini administrator** tetap aktif supaya Anda bisa memasang perangkat lunak dan mengubah pengaturan sistem.
+7. **Tinjauan.** Periksa ringkasannya. Klik **Edit** pada kartu yang ingin diubah. Jika sudah benar, klik **Mulai instalasi**. Pada saat inilah disk dihapus.
+8. **Pasang.** Tunggu sampai selesai. Di mesin uji kami prosesnya kurang dari dua menit; flashdisk atau disk yang lambat butuh waktu lebih lama.
+
+### Selesai dan nyalakan ulang
+
+1. Saat muncul **Semuanya siap.**, cabut flashdisk, lalu klik **Mulai ulang sekarang**.
+2. Layar masuk menampilkan nama Anda. Ketik kata sandi lalu tekan **Enter**..
+3. Jendela sambutan menawarkan tur singkat. Klik **Mulai tur**, atau **Lewati**.
+
+### Ambil pembaruan terbaru
+
+Image-nya bisa jadi sudah berumur beberapa hari. Buka **Terminal** dari dok lalu jalankan:
+
+```
+sudo dnf upgrade
+```
+
+Di image nightly Anda juga bisa memperbarui dari Pengaturan, lihat [Pembaruan](desktop.html#pembaruan).
+
+Berikutnya: [memakai desktop](desktop.html).
+
+## Memakai desktop
+
+Source: https://igos-nusantara.or.id/docs/id/desktop.html
+
+Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, Pengaturan, pembaruan, dan layar masuk.
+
+### Bilah atas
+
+Di kiri ada logo IGN, lalu nama aplikasi yang sedang di depan dan menu aplikasi itu. Klik logonya untuk membuka **Pengaturan**, **Kunci layar**, **Keluar**, **Mulai Ulang**, dan **Matikan**.
+
+Di kanan ada ikon jaringan, **Pusat Kontrol**, dan jam. Pusat Kontrol berisi sakelar cepat untuk Wi-Fi, **Mode Gelap**, **Jangan Ganggu**, kamera, dan mikrofon.
+
+### Dok
+
+Dari kiri ke kanan: **Peluncur**, **Berkas**, **Terminal**, **Pengaturan**, **Tangkapan Layar**, dan **Tempat Sampah**. Aplikasi yang Anda buka mendapat ikonnya sendiri sampai ditutup. Titik di bawah ikon berarti aplikasinya sedang terbuka.
+
+### Peluncur
+
+Klik ikon roket untuk melihat semua aplikasi yang terpasang. Klik salah satunya untuk membukanya. Tekan **Esc** untuk menutup peluncur.
+
+### Dock atau Panel
+
+Bayu punya dua tata letak. Anda bisa menggantinya kapan saja, dan desktop langsung berubah.
+
+> Tata letak Panel ada di image nightly. Beta 6 baru punya Dock.
+
+| Tata letak | Isinya |
+| --- | --- |
+| **Dock** | Bilah atas berisi menu aplikasi yang sedang di depan, jam, dan ikon status, lalu dok di bawah. Ini pilihan bawaan. |
+| **Panel** | Satu bilah di sepanjang bawah layar berisi tombol mulai, aplikasi yang terbuka, ikon status, dan jam. Menu tiap aplikasi ada di jendelanya sendiri. Mulai Ulang, Matikan, dan Keluar ada di Pusat Kontrol. |
+
+1. Di Pengaturan, buka **Desktop**.
+2. Di bagian **Tata letak**, klik **Dock** atau **Panel**.
+
+Tur selamat datang yang terbuka setelah Anda masuk pertama kali juga menanyakan tata letak yang Anda inginkan.
+
+### Pengaturan
+
+Buka **Pengaturan** dari dok. Halamannya dikelompokkan menjadi **Jaringan**, **Desktop**, **Perangkat**, dan **Sistem**.
+
+### Mengganti bahasa
+
+1. Di Pengaturan, buka **Bahasa**.
+2. Klik **Tambah bahasa…** lalu pilih bahasanya.
+3. Seret bahasa itu ke paling atas daftar. Bahasa paling atas menjadi bahasa sistem.
+4. Klik logo di pojok kiri atas, pilih **Keluar**, lalu masuk lagi. Setelah itu aplikasi memakai bahasa yang baru.
+
+### Mengganti wallpaper
+
+Buka **Wallpaper** di Pengaturan. Gambar di bagian **Dinamis** berganti sepanjang hari. Gambar di bagian **Sistem** dan **Wallpaper Anda** tidak berganti.
+
+1. Di bagian **Dinamis**, klik gambar gunung atau hutan. Gunung adalah pilihan bawaan.
+2. Di sebelah **Berubah mengikuti**, pilih **Waktu** atau **Tema**.
+
+| Berubah mengikuti | Yang tampil |
+| --- | --- |
+| Waktu | Gambar **Pagi**, **Siang**, **Sore**, dan **Malam**, masing-masing mulai dari jam yang tertera di sebelahnya. Jamnya mengikuti matahari terbit dan terbenam di zona waktu Anda. |
+| Tema | Gambar siang saat mode terang, gambar malam saat mode gelap. |
+
+Untuk memakai gambar sendiri, klik **Tambah wallpaper**. Layar masuk memakai wallpaper yang sama dengan desktop.
+
+### Pembaruan
+
+> Pembaruan Sistem dan ikon pembaruan ada di image nightly. Di Beta 6, jalankan `sudo dnf upgrade` di Terminal.
+
+Bayu memeriksa pembaruan satu menit setelah Anda masuk, lalu setiap enam jam. Jika ada, ikon pembaruan muncul di bilah atas, atau di bilah bawah pada tata letak Panel. Titik merah pada ikon berarti ada pembaruan keamanan.
+
+1. Klik ikon pembaruan lalu pilih **Pembaruan Sistem**, atau buka **Pembaruan Sistem** di Pengaturan.
+2. Klik **Unduh**. Unduhan bisa dibatalkan selama berjalan.
+3. Klik **Mulai Ulang dan Pasang**. Komputer menyala ulang, memasang pembaruan, lalu menyala seperti biasa.
+
+Tidak ada yang dipasang tanpa persetujuan Anda. Nyalakan **Unduh pembaruan secara otomatis** agar pembaruan diunduh di latar belakang; setelah itu Bayu meminta Anda menyalakan ulang. Pembaruan aplikasi ada di Bayu Store, lihat [Memasang aplikasi](apps.html#pembaruan).
+
+### Layar masuk
+
+> Tombol daya dan sesi X11 ada di image nightly.
+
+Di bawah kotak masuk ada tombol daya berisi **Tangguhkan**, **Mulai Ulang**, dan **Matikan**. Mulai Ulang dan Matikan meminta konfirmasi dulu.
+
+Jika Anda memasang desktop atau window manager lain, misalnya IceWM dengan `sudo dnf install icewm`, pilih di menu sesi sebelum masuk. Sesi yang berjalan di X11 diberi tanda **(X11)** di belakang namanya. Layar masuk mengingat sesi terakhir yang Anda pakai.
+
+Berikutnya: [Berkas dan Terminal](files.html).
+
+## Berkas dan Terminal
+
+Source: https://igos-nusantara.or.id/docs/id/files.html
+
+Mengelola berkas, membuka folder sistem sebagai administrator, serta memakai terminal dan alat yang sudah tersedia.
+
+> Buka sebagai Administrator, tombol menu Terminal, alat baris perintah, dan pintasan shell ada di image nightly.
+
+### Berkas
+
+Buka **Berkas** dari dok. Bilah samping menampilkan folder dan drive Anda. Saat Android aktif, **Android** di bilah samping berisi berkas aplikasi Android Anda, misalnya unduhan dan foto.
+
+Menyalin dan memindahkan ke drive Windows (NTFS) sama saja seperti ke drive lain.
+
+### Buka sebagai Administrator
+
+Folder sistem seperti `/etc` hanya bisa diubah oleh administrator.
+
+1. Buka foldernya.
+2. Klik tombol menu di bilah judul, di sebelah tombol cari, lalu pilih **Buka sebagai Administrator**.
+3. Ketik kata sandi Anda.
+4. Jendela kedua terbuka dengan judul **Berkas (Administrator)**. Perubahan di jendela ini dilakukan sebagai administrator. Anda bisa menyalin dan memindahkan berkas antara jendela ini dan jendela lain seperti biasa.
+
+Mengeklik folder di bilah samping yang hanya boleh dibuka administrator juga membuka jendela yang sama. Akses administrator berakhir saat Berkas ditutup.
+
+> Di jendela administrator Anda bisa menghapus atau mengubah berkas sistem. Berhati-hatilah.
+
+### Terminal
+
+Buka **Terminal** dari dok. Klik **+** di bilah judul untuk tab baru.
+
+Untuk membagi tab, klik tombol menu di sebelah **+**, atau klik kanan bilah judul, lalu pilih **Split Right** atau **Split Down**. Cara ini tetap bisa dipakai saat program seperti htop atau mc sedang memakai mouse. Untuk menutup satu panel, klik kanan di dalamnya lalu pilih **Close Pane**. Menu ini belum diterjemahkan.
+
+### Alat baris perintah
+
+Alat berikut sudah terpasang:
+
+| Untuk | Perintah |
+| --- | --- |
+| Kode | `git` |
+| Menyunting berkas | `vim`, `nano` |
+| Mengunduh | `wget`, `curl` |
+| Proses dan pemakaian disk | `htop`, `btop`, `iotop`, `ncdu`, `tree` |
+| Jaringan | `dig`, `host`, `traceroute`, `mtr`, `whois` |
+| Perangkat keras | `lsusb`, `lspci`, `lshw`, `sensors`, `smartctl`, dan lainnya, lihat [Perangkat keras](hardware.html#alat) |
+| Lainnya | `tmux`, `fastfetch`, `7z`, `bc`, `pip`, `strace` |
+
+Halaman manual juga terpasang: jalankan `man` diikuti nama perintahnya, misalnya `man tar`.
+
+### Pintasan di shell
+
+Terminal sudah memakai prompt berwarna dan perintah pendek berikut:
+
+| Ketik | Untuk |
+| --- | --- |
+| `ll` | Menampilkan berkas beserta rinciannya, folder di atas |
+| `..` dan `...` | Naik satu atau dua folder |
+| `ex berkas` | Mengekstrak arsip: zip, tar.gz, tar.xz, 7z, rar, dan lainnya |
+| `update` | Memperbarui sistem (`sudo dnf update`) |
+| `install nama` | Memasang paket (`sudo dnf install`) |
+| `search kata` | Mencari paket (`dnf search`) |
+| `myip` | Menampilkan alamat IP publik Anda |
+| `fastfetch` | Menampilkan ringkasan sistem dengan logo IGN |
+
+`rm`, `cp`, dan `mv` bertanya dulu sebelum menghapus atau menimpa berkas. Untuk mengubah semua ini, tambahkan baris Anda sendiri di `~/.bashrc`.
+
+### tmux
+
+Jalankan `tmux` untuk memakai beberapa shell dalam satu jendela. Tombol prefiksnya **Ctrl+A**: tekan, lepas, lalu tekan tombol berikutnya.
+
+| Tombol | Untuk |
+| --- | --- |
+| **Ctrl+A**, lalu **v** | Membagi kiri dan kanan |
+| **Ctrl+A**, lalu **h** | Membagi atas dan bawah |
+| **Alt+tombol panah** | Berpindah antarpanel |
+| **Ctrl+A**, lalu **r** | Memuat ulang konfigurasi |
+
+Mouse bisa dipakai di tmux: klik panel, seret batasnya, gulir ke atas. Berkas `~/.tmux.conf` milik Anda dibaca setelah konfigurasi sistem.
+
+Berikutnya: [perangkat keras](hardware.html).
+
+## Perangkat keras
+
+Source: https://igos-nusantara.or.id/docs/id/hardware.html
+
+Wi-Fi, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.
+
+> Wi-Fi USB, printer, pengaturan bawaan touchpad, dan dukungan MacBook ada di image nightly. Beta 6 sudah punya driver kartu Wi-Fi bawaan laptop.
+
+### Wi-Fi
+
+Sebagian besar kartu bawaan langsung jalan: Intel, Realtek, Qualcomm Atheros, MediaTek, dan Broadcom, termasuk kartu Broadcom di MacBook lama.
+
+Adaptor Wi-Fi USB juga jalan. Drivernya dimuat saat adaptor dicolokkan:
+
+- Realtek RTL8811CU dan RTL8821CU (adaptor AC600 yang umum), RTL8822CU, RTL8723DU, RTL8812AU, RTL8821AU, RTL8814AU, RTL8852BU, dan RTL8851BU
+- MediaTek MT7921AU, MT7925U, dan MT7663U
+- Ralink RT2500 dan RT73, Atheros AR9170, serta ath10k lewat USB
+
+Beberapa adaptor awalnya terbaca sebagai CD berisi driver Windows. IGN mengubahnya menjadi Wi-Fi dengan sendirinya.
+
+### Printer
+
+Printer di jaringan Anda ditemukan dan disiapkan dengan sendirinya, dan semua aplikasi bisa mencetak ke printer itu. Printer USB disiapkan saat dicolokkan. Driver printer HP, Gutenprint, dan Samsung (SpliX) sudah tersedia.
+
+1. Buka **Printer** di Pengaturan.
+2. Di bagian atas ada printer yang sudah siap, beserta status dan tugas cetaknya. Di bawahnya, pada **Printer yang Ditemukan**, ada printer yang ditemukan tapi belum disiapkan. Klik **Tambah** di sebelahnya.
+3. Pilih printer lalu klik **Cetak Halaman Uji** untuk mengeceknya. **Jadikan Bawaan** membuat aplikasi memilih printer itu lebih dulu.
+
+Jika printer Anda tidak ada di daftar, klik **Tambah Printer dengan Alamat** lalu ketik alamatnya, misalnya `ipp://192.168.1.20`.
+
+### Pemindai
+
+Pemindai dan printer multifungsi yang bisa memindai lewat jaringan atau USB tanpa driver (AirScan atau eSCL) didukung. Pasang aplikasi pemindai seperti **Document Scanner** dari Bayu Store.
+
+### Touchpad
+
+Ketuk untuk mengeklik sudah aktif. Untuk klik kanan, ketuk dengan dua jari atau tekan sudut kanan bawah touchpad.
+
+Untuk mengubahnya, buka **Touchpad** di Pengaturan. Di sana ada **Ketuk untuk mengeklik**, **Ketuk dan seret**, dan **Pengguliran alami**.
+
+### MacBook
+
+- Keyboard dan touchpad MacBook dan MacBook Pro tahun 2015 sampai 2017 berfungsi, termasuk MacBook Pro 13 inci tahun 2017 (A1708).
+- Keyboard juga berfungsi saat komputer menyala, jadi Anda bisa mengetik kata sandi enkripsi disk.
+- Suara berfungsi di MacBook Pro tahun 2016 dan 2017.
+- Wi-Fi BCM43602 di model-model ini tidak lagi putus-putus.
+
+### Isi komputer Anda
+
+Jalankan perintah berikut di Terminal:
+
+| Perintah | Menampilkan |
+| --- | --- |
+| `lsusb` | Perangkat USB |
+| `lspci` | Kartu di dalam komputer: grafis, Wi-Fi, suara |
+| `sudo lshw -short` | Semua perangkat keras dalam satu daftar |
+| `sensors` | Suhu dan kecepatan kipas |
+| `sudo smartctl -a /dev/sda` | Kesehatan disk. Untuk disk NVMe, pakai `/dev/nvme0n1`. |
+| `iw dev` | Antarmuka Wi-Fi |
+
+Saat melaporkan masalah perangkat keras, sertakan keluaran `lspci -nn` atau `lsusb`.
+
+Berikutnya: [memasang aplikasi](apps.html).
+
+## Memasang aplikasi
+
+Source: https://igos-nusantara.or.id/docs/id/apps.html
+
+Bayu Store memasang aplikasi Linux dari Flathub dan aplikasi Android dari F-Droid, dari satu kotak pencarian.
+
+Buka **Bayu Store** dari peluncur. Saat pertama dibuka, Bayu Store mengunduh daftar aplikasi. Prosesnya satu sampai dua menit dan hanya sekali.
+
+### Mencari aplikasi
+
+Ketik di kotak pencarian di atas lalu tekan **Enter**. Hasil dari Flathub dan F-Droid tampil bersama. Klik **Flathub** atau **F-Droid** di bawah judul untuk menampilkan salah satunya saja.
+
+### Memasang
+
+1. Klik nama aplikasi untuk membuka halamannya. Di sana tertulis pembuatnya, lisensinya, ukuran unduhan, dan apa saja yang boleh diakses aplikasi itu.
+2. Klik **Pasang**. Tombolnya menampilkan kemajuan pemasangan.
+3. Jika tombolnya berubah menjadi **Buka**, aplikasi sudah terpasang. Klik **Buka**, atau cari aplikasinya di peluncur.
+
+Aplikasi dari F-Droid adalah aplikasi Android. Saat pertama memasangnya, Anda diminta mengaktifkan Android. Lihat [Aplikasi Android](android.html).
+
+### Pembaruan
+
+Bayu Store memasang pembaruan aplikasi di latar belakang. Untuk melihat apa saja yang berubah, buka **Pembaruan** di bilah samping. Untuk mematikannya, buka **Pengaturan toko** lalu matikan **Pasang pembaruan secara otomatis**.
+
+Bayu Store hanya memperbarui aplikasi. Untuk memperbarui sistemnya, jalankan `sudo dnf upgrade` di Terminal.
+
+### Menghapus aplikasi
+
+Buka **Terpasang** di bilah samping, buka halaman aplikasinya, lalu klik tombol tempat sampah di sebelah **Buka**.
+
+Berikutnya: [aplikasi Android](android.html).
+
+## Aplikasi Android
+
+Source: https://igos-nusantara.or.id/docs/id/android.html
+
+Aplikasi dari F-Droid berjalan di Lapis, sistem Android yang berjalan di samping desktop. Setiap aplikasi terbuka di jendelanya sendiri.
+
+### Sebelum mulai
+
+- Disarankan memori 8 GB.
+- Mengaktifkan Android mengunduh sekitar 1,3 GB, sekali saja. Pakai koneksi yang cepat.
+- Anda perlu kata sandi administrator.
+
+### Mengaktifkan Android
+
+1. Di Bayu Store, klik **Pasang** pada aplikasi F-Droid mana pun. Bayu Store bertanya **Aktifkan aplikasi Android?** Klik **Aktifkan**.
+2. Ketik kata sandi Anda lalu tekan **Enter**.
+3. Tunggu unduhannya selesai. Unduhan berjalan di latar belakang, dan Bayu Store belum menampilkan kemajuannya. Dengan koneksi 10 Mbit/s butuh sekitar 20 menit.
+4. Setelah itu Android menyala untuk pertama kali, sekitar satu menit. Lalu klik **Pasang** lagi pada aplikasinya.
+5. Jika tombolnya berubah menjadi **Buka**, klik. Aplikasi Android terbuka di jendelanya sendiri, sama seperti aplikasi lain.
+
+Android juga bisa diaktifkan dari **Pengaturan toko**, di bagian **Aplikasi Android**.
+
+### Jika unduhan berhenti
+
+Image Android diunduh dari mirror SourceForge, yang kadang lambat. Jika Bayu Store menampilkan **Aplikasi Android tidak dapat diaktifkan**, buka Terminal lalu jalankan:
+
+```
+sudo lapis init -type VANILLA
+```
+
+Perintah ini melanjutkan unduhan dari titik terakhir dan mencoba mirror lain dengan sendirinya. Setelah selesai, pasang lagi aplikasinya dari Bayu Store.
+
+### Jika tertulis Android tidak berjalan
+
+Android butuh sekitar satu menit untuk menyala setelah Anda masuk atau mengaktifkannya. Jika Bayu Store menampilkan **Android container is not running** atau **Can't find service: package**, tunggu satu menit lalu klik **Pasang** lagi.
+
+### Aplikasi khusus ARM
+
+Sebagian aplikasi Android hanya dibuat untuk prosesor ponsel (ARM). Aplikasi ini disembunyikan secara bawaan. Untuk menampilkannya, aktifkan **Tampilkan aplikasi yang hanya dibuat untuk ARM** di Pengaturan toko. Aplikasi ini berjalan lewat penerjemah, jadi lebih lambat dan sebagian tidak berjalan.
+
+Berikutnya: [Bayu untuk agen](agents.html).
+
+## Bayu untuk agen
+
+Source: https://igos-nusantara.or.id/docs/id/agents.html
+
+Bayu bisa mengizinkan agen AI melihat layar dan memakai tetikus serta papan ketik. Itu hanya terjadi setelah Anda mengizinkan, dan bisa dihentikan dengan satu klik.
+
+### Cara kerjanya
+
+Aplikasi agen, misalnya Claude Code, berbicara dengan `bayu-computer-use`, program kecil yang memakai MCP (Model Context Protocol). Saat agen pertama kali ingin melihat atau memakai desktop, Bayu bertanya kepada Anda:
+
+Tidak ada yang terjadi sebelum Anda mengeklik **Izinkan**. Setelah itu:
+
+- Tombol **Berhenti** muncul di bilah atas selama agen memegang kendali. Klik untuk menghentikan agen saat itu juga.
+- Saat Anda sendiri memakai tetikus atau papan ketik, agen berhenti sejenak.
+- Agen tidak bisa menjawab dialog sistem, seperti permintaan kata sandi atau dialog izin ini.
+
+### Memasang bayu-computer-use
+
+> `bayu-computer-use` belum ada di image IGN 26. Bangun dari kode sumber dengan perintah di bawah. Prosesnya sekitar satu menit.
+
+Pasang alat untuk membangunnya:
+
+```
+sudo dnf install cargo git
+```
+
+Unduh bagian ini saja dari kode sumber Bayu, lalu bangun:
+
+```
+git clone --depth 1 --filter=blob:none --sparse https://github.com/igos-nusantara/bayu.git
+cd bayu
+git sparse-checkout set components/bayu-computer-use
+cd components/bayu-computer-use
+rm .cargo/config.toml
+cargo build --release
+sudo install -m 755 target/release/bayu-computer-use /usr/bin/
+```
+
+Baris `rm` menghapus pengaturan khusus untuk build Debian. Tanpa baris itu, build tidak bisa mengunduh pustaka yang dibutuhkan.
+
+Lalu **keluar dan masuk lagi** (klik logo di pojok kiri atas, lalu **Keluar**). Bayu mencari `/usr/bin/bayu-computer-use` saat Anda masuk, dan hanya memercayai program di lokasi itu.
+
+### Menghubungkan agen
+
+Untuk Claude Code:
+
+```
+claude mcp add bayu -- /usr/bin/bayu-computer-use
+```
+
+Untuk aplikasi agen lain, tambahkan server MCP yang menjalankan `/usr/bin/bayu-computer-use` lewat stdio, tanpa argumen. Banyak aplikasi memakai format ini:
+
+```
+{ "mcpServers": { "bayu": { "command": "/usr/bin/bayu-computer-use" } } }
+```
+
+Jalankan aplikasi agen dari desktop, misalnya di Terminal. Dialog izin menampilkan nama agen dan aplikasi tempat agen itu berjalan.
+
+### Yang bisa dilakukan agen
+
+Berikut alat yang diberikan `bayu-computer-use` kepada agen:
+
+| Alat | Fungsinya |
+| --- | --- |
+| `screenshot` | Mengambil gambar seluruh layar, atau satu jendela |
+| `zoom` | Menampilkan satu bagian layar dengan resolusi penuh, untuk membaca teks kecil |
+| `click` | Memindahkan penunjuk ke satu titik lalu mengeklik |
+| `move_pointer` | Memindahkan penunjuk, misalnya untuk hover |
+| `drag` | Menekan di satu titik, bergeser ke titik lain, lalu melepas |
+| `mouse_down`, `mouse_up` | Menekan atau melepas tombol tetikus, untuk seretan yang tidak bisa dilakukan `drag` |
+| `cursor_position` | Memberi tahu posisi penunjuk |
+| `scroll` | Menggulir dengan roda tetikus |
+| `type_text` | Mengetik teks di tempat fokus papan ketik berada |
+| `press_keys` | Menekan tombol atau pintasan, misalnya `ctrl+s` |
+| `hold_keys` | Menahan tombol selama beberapa saat |
+| `set_clipboard` | Menaruh teks di papan klip |
+| `keyboard_shortcuts` | Menampilkan daftar pintasan sistem |
+| `list_windows` | Menampilkan daftar jendela yang terbuka |
+| `activate_window` | Membawa jendela ke depan |
+| `close_window` | Menutup jendela, sama seperti tombol tutupnya |
+| `set_window_frame` | Memindahkan dan mengubah ukuran jendela |
+| `list_applications` | Menampilkan daftar aplikasi terpasang |
+| `open_application` | Menjalankan aplikasi terpasang |
+| `open` | Membuka berkas, folder, atau alamat web |
+| `actions` | Menjalankan beberapa alat di atas berurutan |
+
+### Jika tidak berjalan
+
+Jika agen melaporkan **This session does not let bayu-computer-use control the computer**, berarti programnya tidak berada di tempat yang diharapkan Bayu, atau Anda belum keluar dan masuk lagi sejak memasangnya. Pastikan `/usr/bin/bayu-computer-use` ada, lalu keluar dan masuk lagi.
+
+## Pemecahan masalah
+
+Source: https://igos-nusantara.or.id/docs/id/troubleshooting.html
+
+Masalah yang sering muncul dan cara mengatasinya.
+
+### Komputer tidak mau menyala dari flashdisk
+
+- Buka menu boot dengan tombol yang tepat (biasanya **F12**, **F11**, **F9**, atau **Esc**) dan pilih flashdisk secara manual.
+- Coba port USB lain, sebaiknya yang langsung menempel di komputer.
+- Tulis ulang flashdisk. Di Windows, pakai **DD Image mode** di Rufus, atau pakai balenaEtcher.
+
+### Layar tetap hitam
+
+Nyalakan ulang dan pilih **Start IGOS Nusantara 26 (basic graphics)** di menu boot.
+
+### Proses menyala berhenti di tengah jalan
+
+Di menu boot, buka **Troubleshooting** lalu pilih yang bertuliskan **verbose**. Baris terakhir di layar menunjukkan di mana prosesnya berhenti. Jika komputer Anda memakai Wi-Fi Broadcom, coba pilihan **without the Broadcom wl driver**.
+
+### Nabau mengatakan media instalasi rusak
+
+Sebagian isi flashdisk tidak terbaca seperti saat ditulis. Belum ada yang berubah pada disk Anda. Periksa SHA-256 image-nya (lihat [Unduh](download.html)), tulis ulang ke flashdisk, atau pakai flashdisk lain. Jika Anda memakai Ventoy, coba tulis image-nya langsung dengan Fedora Media Writer, Rufus, atau balenaEtcher.
+
+### Wi-Fi tidak jalan
+
+Pastikan kartu atau adaptor Anda ada di [Perangkat keras](hardware.html#wifi), dan coba image nightly yang punya lebih banyak driver. Jika masih tidak jalan, laporkan bug dan sertakan keluaran `lspci -nn` dan `lsusb`.
+
+### Aplikasi Android tidak dapat diaktifkan
+
+Biasanya unduhan 1,3 GB terputus. Jalankan `sudo lapis init -type VANILLA` di Terminal; unduhan dilanjutkan dari titik terakhir. Lihat [Aplikasi Android](android.html#unduhan-berhenti).
+
+### Melaporkan bug
+
+Buat issue di [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) lalu pilih **Laporan Bug**. Formulirnya berbahasa Indonesia. Ceritakan apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi, lalu lampirkan tangkapan layar jika bisa.
+
+## Questions people ask
+
+### What is IGOS Nusantara 26?
+
+IGOS Nusantara 26 (IGN 26), codename Ciremai, is a free Linux distribution made in Indonesia. It is built on AlmaLinux 10 and comes with Bayu, its own Wayland desktop, the Bayu Store for apps, Lapis for Android apps and the Nabau installer.
+
+### Is IGN 26 free?
+
+Yes. You can download, use, change and share it at no cost. The source code is open under GPL-3.0 and BSD-3-Clause on GitHub.
+
+### What does my computer need?
+
+A 64-bit x86 processor, UEFI firmware, 4 GB of memory (8 GB for Android apps) and 20 GB of free disk space. Secure Boot is supported.
+
+### Can I try it without installing?
+
+Yes. Write the ISO to a USB stick of 2 GB or more and start your computer from it. The live session runs the full desktop without touching your disk, and the Nabau installer is there when you want to keep it.
+
+### Can it run Android apps?
+
+Yes. Lapis runs Android apps from F-Droid in their own windows, next to your Linux apps. It is off until you turn it on, and needs 8 GB of memory.
+
+### Where do I get apps?
+
+From Bayu Store, which installs Linux apps from Flathub and Android apps from F-Droid, and keeps them up to date.
+
+### Should I download Beta 6 or the nightly image?
+
+Beta 6 is the tested release. The nightly image is built every day from the newest code: it has the newest features and fixes, such as the Panel layout, System Update and printer support, but may also have new bugs.
+
+### Why is it called Ciremai?
+
+Each IGN release has a codename. IGN 26 is named after Mount Ciremai, the highest mountain in West Java.
+
+### Which languages does it speak?
+
+The desktop comes in 12 languages, including Indonesian, Javanese, Sundanese, Malay and English.
+
+### Where do I report a bug?
+
+Open an issue at github.com/igos-nusantara/bayu/issues. There is a bug report form in Indonesian.
+
+## Pertanyaan yang sering diajukan
+
+### Apa itu IGOS Nusantara 26?
+
+IGOS Nusantara 26 (IGN 26), dengan nama sandi Ciremai, adalah distribusi Linux gratis buatan Indonesia. IGN 26 dibangun di atas AlmaLinux 10 dan hadir dengan Bayu, desktop Wayland buatannya sendiri, Bayu Store untuk aplikasi, Lapis untuk aplikasi Android, dan pemasang Nabau.
+
+### Apakah IGN 26 gratis?
+
+Ya. Anda bebas mengunduh, memakai, mengubah, dan membagikannya tanpa biaya. Kode sumbernya terbuka di GitHub dengan lisensi GPL-3.0 dan BSD-3-Clause.
+
+### Apa yang dibutuhkan komputer saya?
+
+Prosesor x86 64-bit, firmware UEFI, memori 4 GB (8 GB untuk aplikasi Android), dan ruang disk kosong 20 GB. Secure Boot didukung.
+
+### Bisakah dicoba tanpa dipasang?
+
+Bisa. Tulis ISO ke flashdisk minimal 2 GB lalu nyalakan komputer dari flashdisk itu. Sesi live menjalankan desktop lengkap tanpa menyentuh disk Anda, dan pemasang Nabau tersedia kalau Anda ingin memasangnya.
+
+### Bisakah menjalankan aplikasi Android?
+
+Bisa. Lapis menjalankan aplikasi Android dari F-Droid di jendelanya sendiri, berdampingan dengan aplikasi Linux. Lapis mati sampai Anda menyalakannya, dan butuh memori 8 GB.
+
+### Dari mana saya mendapat aplikasi?
+
+Dari Bayu Store, yang memasang aplikasi Linux dari Flathub dan aplikasi Android dari F-Droid, lalu menjaga semuanya tetap terbaru.
+
+### Sebaiknya unduh Beta 6 atau image nightly?
+
+Beta 6 adalah rilis yang sudah diuji. Image nightly dibangun setiap hari dari kode terbaru: fitur dan perbaikannya paling baru, seperti tata letak Panel, Pembaruan Sistem, dan dukungan printer, tetapi bisa juga membawa bug baru.
+
+### Kenapa namanya Ciremai?
+
+Setiap rilis IGN punya nama sandi. IGN 26 diberi nama dari Gunung Ciremai, gunung tertinggi di Jawa Barat.
+
+### Bahasa apa saja yang tersedia?
+
+Desktopnya tersedia dalam 12 bahasa, termasuk bahasa Indonesia, Jawa, Sunda, Melayu, dan Inggris.
+
+### Di mana saya melaporkan bug?
+
+Buat issue di github.com/igos-nusantara/bayu/issues. Tersedia formulir laporan bug berbahasa Indonesia.

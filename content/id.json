@@ -3,8 +3,8 @@
   "page": "id.html",
   "other_page": "index.html",
   "meta": {
-    "title": "IGN 26 — desktop Indonesia, dibangun ulang dari nol",
-    "description": "IGN 26 hadir dengan BAYU, desktop Wayland tempat GTK 4 dan Qt 6 tampak sama. Pasang aplikasi Linux lewat Flatpak, jalankan aplikasi Android lewat Lapis, dan kelola keduanya dari Bayu Store. Unduh ISO live."
+    "title": "IGN 26 Ciremai — Linux Indonesia dengan desktop Bayu",
+    "description": "IGOS Nusantara 26 Ciremai adalah distribusi Linux gratis buatan Indonesia, dengan desktop Wayland Bayu, aplikasi dari Flathub, dan aplikasi Android lewat Lapis. Unduh ISO live-nya."
   },
   "skip": "Lewati ke konten",
   "nav": {
@@ -546,6 +546,52 @@
         "color": "tile-gray",
         "title": "Alat cek perangkat keras",
         "body": "lsusb, lspci, lshw, hwinfo, sensors, smartctl, nvme, iw, dan ethtool sudah tersedia, jadi Anda bisa melihat perangkat keras yang ada dan melaporkan masalah. Sudah ada di image nightly."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Tanya jawab",
+    "title": "Pertanyaan yang sering diajukan",
+    "items": [
+      {
+        "q": "Apa itu IGOS Nusantara 26?",
+        "a": "IGOS Nusantara 26 (IGN 26), dengan nama sandi Ciremai, adalah distribusi Linux gratis buatan Indonesia. IGN 26 dibangun di atas AlmaLinux 10 dan hadir dengan Bayu, desktop Wayland buatannya sendiri, Bayu Store untuk aplikasi, Lapis untuk aplikasi Android, dan pemasang Nabau."
+      },
+      {
+        "q": "Apakah IGN 26 gratis?",
+        "a": "Ya. Anda bebas mengunduh, memakai, mengubah, dan membagikannya tanpa biaya. Kode sumbernya terbuka di GitHub dengan lisensi GPL-3.0 dan BSD-3-Clause."
+      },
+      {
+        "q": "Apa yang dibutuhkan komputer saya?",
+        "a": "Prosesor x86 64-bit, firmware UEFI, memori 4 GB (8 GB untuk aplikasi Android), dan ruang disk kosong 20 GB. Secure Boot didukung."
+      },
+      {
+        "q": "Bisakah dicoba tanpa dipasang?",
+        "a": "Bisa. Tulis ISO ke flashdisk minimal 2 GB lalu nyalakan komputer dari flashdisk itu. Sesi live menjalankan desktop lengkap tanpa menyentuh disk Anda, dan pemasang Nabau tersedia kalau Anda ingin memasangnya."
+      },
+      {
+        "q": "Bisakah menjalankan aplikasi Android?",
+        "a": "Bisa. Lapis menjalankan aplikasi Android dari F-Droid di jendelanya sendiri, berdampingan dengan aplikasi Linux. Lapis mati sampai Anda menyalakannya, dan butuh memori 8 GB."
+      },
+      {
+        "q": "Dari mana saya mendapat aplikasi?",
+        "a": "Dari Bayu Store, yang memasang aplikasi Linux dari Flathub dan aplikasi Android dari F-Droid, lalu menjaga semuanya tetap terbaru."
+      },
+      {
+        "q": "Sebaiknya unduh Beta 6 atau image nightly?",
+        "a": "Beta 6 adalah rilis yang sudah diuji. Image nightly dibangun setiap hari dari kode terbaru: fitur dan perbaikannya paling baru, seperti tata letak Panel, Pembaruan Sistem, dan dukungan printer, tetapi bisa juga membawa bug baru."
+      },
+      {
+        "q": "Kenapa namanya Ciremai?",
+        "a": "Setiap rilis IGN punya nama sandi. IGN 26 diberi nama dari Gunung Ciremai, gunung tertinggi di Jawa Barat."
+      },
+      {
+        "q": "Bahasa apa saja yang tersedia?",
+        "a": "Desktopnya tersedia dalam 12 bahasa, termasuk bahasa Indonesia, Jawa, Sunda, Melayu, dan Inggris."
+      },
+      {
+        "q": "Di mana saya melaporkan bug?",
+        "a": "Buat issue di github.com/igos-nusantara/bayu/issues. Tersedia formulir laporan bug berbahasa Indonesia."
       }
     ]
   },

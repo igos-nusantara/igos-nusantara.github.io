@@ -18,6 +18,7 @@ import pathlib
 import re
 import struct
 import sys
+from datetime import date
 
 ROOT = pathlib.Path(__file__).parent
 ICONS = ROOT / "assets" / "icons"
@@ -26,6 +27,20 @@ SITE = "https://igos-nusantara.or.id"
 ISO_URL = "https://r2.igos-nusantara.or.id/iso/beta/ign26-bayu-beta6.iso"
 GITHUB_URL = "https://github.com/igos-nusantara/bayu/issues"
 VIDEO_ID = "-EVUW16QUBw"
+VIDEO_DATE = "2026-10-29T02:23:58-07:00"
+VIDEO_DURATION = "PT2M3S"
+ORG = {
+    "@type": "Organization",
+    "@id": f"{SITE}/#org",
+    "name": "IGOS Nusantara",
+    "alternateName": "IGN",
+    "url": f"{SITE}/",
+    "logo": f"{SITE}/{IMG}/logo.jpg",
+    "sameAs": [
+        "https://github.com/igos-nusantara",
+        "https://www.youtube.com/@monitibnu",
+    ],
+}
 NIGHTLY_URL = "https://r2.igos-nusantara.or.id/iso/nightly/ign26-bayu-harian-latest.iso"
 
 # Relative path from the page being rendered back to the site root: "" for the
@@ -469,6 +484,78 @@ def more(c: dict) -> str:
 </section>"""
 
 
+def faq(c: dict) -> str:
+    d = c["faq"]
+    items = "".join(
+        f"<details><summary>{e(q['q'])}</summary><p>{e(q['a'])}</p></details>"
+        for q in d["items"]
+    )
+    return f"""<section class="section band-light" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">{e(d['eyebrow'])}</p>
+      <h2 class="h-sec is-sm">{e(d['title'])}</h2>
+    </div>
+    <div class="faq">{items}</div>
+  </div>
+</section>"""
+
+
+def landing_graph(c: dict, url: str) -> list:
+    """schema.org data for search engines and AI answers."""
+    m, d, cn = c["meta"], c["download"], c["codename"]
+    return [
+        ORG,
+        {
+            "@type": "WebSite",
+            "@id": f"{SITE}/#website",
+            "url": f"{SITE}/",
+            "name": "IGOS Nusantara",
+            "inLanguage": ["en", "id"],
+            "publisher": {"@id": f"{SITE}/#org"},
+        },
+        {
+            "@type": "SoftwareApplication",
+            "@id": f"{SITE}/#ign26",
+            "name": "IGOS Nusantara 26",
+            "alternateName": ["IGN 26", "IGN 26 Ciremai", "Ciremai"],
+            "description": m["description"],
+            "url": url,
+            "applicationCategory": "OperatingSystem",
+            "operatingSystem": "Linux (x86_64, UEFI)",
+            "softwareVersion": "26 Beta 6",
+            "downloadUrl": ISO_URL,
+            "fileSize": next(x["v"] for x in d["sys"] + d["facts"] if x["k"] in ("Size", "Ukuran")),
+            "screenshot": f"{SITE}/{IMG}/{c['slider']['slides'][0]['img']}",
+            "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+            "isAccessibleForFree": True,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "IDR"},
+            "author": {"@id": f"{SITE}/#org"},
+            "inLanguage": c["lang"],
+        },
+        {
+            "@type": "VideoObject",
+            "name": cn["video_title"],
+            "description": cn["body"],
+            "thumbnailUrl": f"https://i.ytimg.com/vi/{VIDEO_ID}/hqdefault.jpg",
+            "uploadDate": VIDEO_DATE,
+            "duration": VIDEO_DURATION,
+            "embedUrl": f"https://www.youtube.com/embed/{VIDEO_ID}",
+            "contentUrl": f"https://www.youtube.com/watch?v={VIDEO_ID}",
+            "publisher": {"@id": f"{SITE}/#org"},
+        },
+        {
+            "@type": "FAQPage",
+            "inLanguage": c["lang"],
+            "mainEntity": [
+                {"@type": "Question", "name": q["q"],
+                 "acceptedAnswer": {"@type": "Answer", "text": q["a"]}}
+                for q in c["faq"]["items"]
+            ],
+        },
+    ]
+
+
 def download(c: dict) -> str:
     d = c["download"]
     facts = "".join(f"<div><dt>{e(x['k'])}</dt><dd>{e(x['v'])}</dd></div>" for x in d["facts"])
@@ -556,9 +643,16 @@ def footer(c: dict) -> str:
 # --------------------------------------------------------------------------
 
 
-def head(lang: str, title: str, description: str, canonical: str, other: str) -> str:
+def head(lang: str, title: str, description: str, canonical: str, other: str,
+         graph: list | None = None) -> str:
     """Everything from the doctype to the opening <body>."""
     other_lang = "id" if lang == "en" else "en"
+    english = canonical if lang == "en" else other
+    ld = ""
+    if graph:
+        data = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
+        data = data.replace("</", "<\\/")
+        ld = f'<script type="application/ld+json">{data}</script>\n'
     return f"""<!doctype html>
 <html lang="{lang}">
 <head>
@@ -569,9 +663,12 @@ def head(lang: str, title: str, description: str, canonical: str, other: str) ->
 <link rel="canonical" href="{canonical}" />
 <link rel="alternate" hreflang="{other_lang}" href="{other}" />
 <link rel="alternate" hreflang="{lang}" href="{canonical}" />
+<link rel="alternate" hreflang="x-default" href="{english}" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <link rel="icon" href="{_root}{IMG}/logo.jpg" />
 <meta name="theme-color" content="#07121f" />
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="IGOS Nusantara" />
 <meta property="og:locale" content="{'en_US' if lang == 'en' else 'id_ID'}" />
 <meta property="og:url" content="{canonical}" />
 <meta property="og:title" content="{e(title)}" />
@@ -581,12 +678,14 @@ def head(lang: str, title: str, description: str, canonical: str, other: str) ->
 <meta property="og:image:height" content="630" />
 <meta name="twitter:image" content="{SITE}/{IMG}/og.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{e(title)}" />
+<meta name="twitter:description" content="{e(description)}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="{asset("assets/css/pitaloka.css")}" />
 <link rel="stylesheet" href="{asset("assets/css/site.css")}" />
-</head>
+{ld}</head>
 <body>"""
 
 
@@ -594,7 +693,7 @@ def render(c: dict) -> str:
     m = c["meta"]
     canonical = f"{SITE}/{c['page']}" if c["page"] != "index.html" else f"{SITE}/"
     other = f"{SITE}/{c['other_page']}" if c["other_page"] != "index.html" else f"{SITE}/"
-    return f"""{head(c['lang'], m['title'], m['description'], canonical, other)}
+    return f"""{head(c['lang'], m['title'], m['description'], canonical, other, landing_graph(c, canonical))}
 <a class="skip-link" href="#main">{e(c['skip'])}</a>
 {header(c)}
 <main id="main">
@@ -607,6 +706,7 @@ def render(c: dict) -> str:
 {lapis(c)}
 {nabau(c)}
 {more(c)}
+{faq(c)}
 {download(c)}
 </main>
 {footer(c)}
@@ -730,7 +830,24 @@ def doc_page(d: dict, site: dict, i: int) -> str:
     other_dir = "docs/id/" if d["lang"] == "en" else "docs/"
     other = f"{other_dir}{'' if p['slug'] == 'index' else out(p['slug'])}"
     title = f"{p['title']} · {L['site']}"
-    return f"""{head(d['lang'], title, plain(p['lede']), f"{SITE}/{path}", f"{SITE}/{other}")}
+    url = f"{SITE}/{path}"
+    graph = [ORG, {
+        "@type": "TechArticle",
+        "headline": p["title"],
+        "description": plain(p["lede"]),
+        "url": url,
+        "inLanguage": d["lang"],
+        "dateModified": date.today().isoformat(),
+        "about": {"@id": f"{SITE}/#ign26"},
+        "publisher": {"@id": f"{SITE}/#org"},
+    }, {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "IGOS Nusantara", "item": f"{SITE}/{landing if landing != 'index.html' else ''}"},
+            {"@type": "ListItem", "position": 2, "name": L["site"], "item": f"{SITE}/{d['dir']}"},
+        ] + ([{"@type": "ListItem", "position": 3, "name": p["title"], "item": url}] if p["slug"] != "index" else []),
+    }]
+    return f"""{head(d['lang'], title, plain(p['lede']), url, f"{SITE}/{other}", graph)}
 <a class="skip-link" href="#main">{e(site['skip'])}</a>
 {header(c)}
 <div class="wrap docs">
@@ -754,6 +871,86 @@ def doc_page(d: dict, site: dict, i: int) -> str:
 """
 
 
+def md_block(b: dict) -> str:
+    """One docs block as Markdown, for llms-full.txt."""
+    if "p" in b or "note" in b:
+        return b.get("p") or f"> {b['note']}"
+    if "h" in b:
+        return f"### {b['h']}"
+    if "list" in b:
+        return "\n".join(f"- {x}" for x in b["list"])
+    if "steps" in b:
+        return "\n".join(f"{k}. {s if isinstance(s, str) else s['t']}" for k, s in enumerate(b["steps"], 1))
+    if "cmd" in b or "code" in b:
+        return "```\n" + "\n".join(b.get("cmd", b.get("code"))) + "\n```"
+    if "table" in b:
+        rows = [b["head"], ["---"] * len(b["head"])] + b["table"]
+        return "\n".join("| " + " | ".join(r) + " |" for r in rows)
+    if "cards" in b:
+        return "\n".join(f"- [{x['title']}]({x['href']}): {x['body']}" for x in b["cards"])
+    return ""  # images
+
+
+def seo_files(sites: dict, docs: dict) -> None:
+    """sitemap.xml, robots.txt, and llms.txt / llms-full.txt for AI answers."""
+    today = date.today().isoformat()
+    pairs = [(f"{SITE}/", f"{SITE}/id.html")]
+    for p in docs["en"]["pages"]:
+        tail = "" if p["slug"] == "index" else f"{p['slug']}.html"
+        pairs.append((f"{SITE}/docs/{tail}", f"{SITE}/docs/id/{tail}"))
+    urls = []
+    for en, id_ in pairs:
+        alt = (f'<xhtml:link rel="alternate" hreflang="en" href="{en}"/>'
+               f'<xhtml:link rel="alternate" hreflang="id" href="{id_}"/>'
+               f'<xhtml:link rel="alternate" hreflang="x-default" href="{en}"/>')
+        for u in (en, id_):
+            urls.append(f"<url><loc>{u}</loc><lastmod>{today}</lastmod>{alt}</url>")
+    (ROOT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n",
+        encoding="utf-8")
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+
+    en, id_ = sites["en"], sites["id"]
+    facts = "\n".join(f"- {x['k']}: {x['v']}" for x in en["download"]["facts"] + en["download"]["sys"])
+    short = [
+        "# IGOS Nusantara 26 (IGN 26) \"Ciremai\"",
+        "",
+        f"> {en['meta']['description']}",
+        "",
+        en["faq"]["items"][0]["a"],
+        "",
+        "## Key facts",
+        "",
+        facts,
+        f"- Beta 6 ISO: {ISO_URL}",
+        f"- Nightly ISO (built daily from the newest code): {NIGHTLY_URL}",
+        "- Source code: https://github.com/igos-nusantara/bayu",
+        "- Bug reports: https://github.com/igos-nusantara/bayu/issues",
+        f"- Codename video: https://www.youtube.com/watch?v={VIDEO_ID}",
+        "",
+    ]
+    full = list(short)
+    for lang, title in (("en", "Docs (English)"), ("id", "Dokumentasi (Bahasa Indonesia)")):
+        d = docs[lang]
+        short += [f"## {title}", ""]
+        full += [f"## {title}", ""]
+        for p in d["pages"]:
+            url = f"{SITE}/{d['dir']}{'' if p['slug'] == 'index' else p['slug'] + '.html'}"
+            short.append(f"- [{p['title']}]({url}): {plain(p['lede'])}")
+            full += [f"## {p['title']}", "", f"Source: {url}", "", p["lede"], ""]
+            full += [x + "\n" for x in map(md_block, p["blocks"]) if x]
+        short.append("")
+    for c in (en, id_):
+        full += [f"## {c['faq']['title']}", ""]
+        for q in c["faq"]["items"]:
+            full += [f"### {q['q']}", "", q["a"], ""]
+    short += ["## Optional", "", f"- [Full text of the docs and FAQ]({SITE}/llms-full.txt)", ""]
+    (ROOT / "llms.txt").write_text("\n".join(short), encoding="utf-8")
+    (ROOT / "llms-full.txt").write_text("\n".join(full), encoding="utf-8")
+
+
 def main() -> int:
     global _root
     sites = {}
@@ -763,8 +960,10 @@ def main() -> int:
         out = ROOT / c["page"]
         out.write_text(render(c), encoding="utf-8")
         print(f"wrote {out.name}  ({out.stat().st_size // 1024} KB)")
+    docs = {}
     for name in ("en", "id"):
         d = json.loads((ROOT / "content" / "docs" / f"{name}.json").read_text(encoding="utf-8"))
+        docs[name] = d
         folder = ROOT / d["dir"]
         folder.mkdir(parents=True, exist_ok=True)
         _root = "../" * d["dir"].count("/")
@@ -772,6 +971,8 @@ def main() -> int:
             (folder / f"{p['slug']}.html").write_text(doc_page(d, sites[name], i), encoding="utf-8")
         print(f"wrote {d['dir']}  ({len(d['pages'])} pages)")
         _root = ""
+    seo_files(sites, docs)
+    print("wrote sitemap.xml, robots.txt, llms.txt, llms-full.txt")
     return 0
 
 

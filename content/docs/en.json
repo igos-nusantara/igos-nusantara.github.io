@@ -31,7 +31,9 @@
           {"href": "download.html", "icon": "download", "color": "tile-blue", "title": "Download and write to USB", "body": "Get the image and make a USB stick you can start from."},
           {"href": "live.html", "icon": "power", "color": "tile-indigo", "title": "Start the live session", "body": "Start from the USB stick and try IGN 26 without installing."},
           {"href": "install.html", "icon": "hard-drive", "color": "tile-cyan", "title": "Install with Nabau", "body": "Put IGN 26 on your disk in eight steps."},
-          {"href": "desktop.html", "icon": "monitor", "color": "tile-purple", "title": "Use the desktop", "body": "The top bar, the dock, the launcher and Settings."},
+          {"href": "desktop.html", "icon": "monitor", "color": "tile-purple", "title": "Use the desktop", "body": "The top bar, the dock, the launcher, Settings and updates."},
+          {"href": "files.html", "icon": "folder", "color": "tile-blue", "title": "Files and Terminal", "body": "Open system folders as an administrator, split the terminal, and the tools that come with it."},
+          {"href": "hardware.html", "icon": "cpu", "color": "tile-gray", "title": "Hardware", "body": "Wi-Fi, printers, scanners, the touchpad and MacBooks."},
           {"href": "apps.html", "icon": "shopping-bag", "color": "tile-orange", "title": "Install apps", "body": "Find, install, update and remove apps with Bayu Store."},
           {"href": "android.html", "icon": "smartphone", "color": "tile-green", "title": "Android apps", "body": "Run apps from F-Droid in their own windows."},
           {"href": "agents.html", "icon": "bot", "color": "tile-pink", "title": "Bayu for agents", "body": "Let an AI agent use the desktop, with your permission."},
@@ -105,7 +107,7 @@
       "blocks": [
         {"note": "The automatic layout erases the whole disk you choose. Back up your files before you start.", "kind": "warn"},
         {"p": "Nabau opens by itself in the live session. If you closed it, click its icon in the dock."},
-        {"note": "The screenshots show Nabau in English. For now Nabau stays in Indonesian after step 1, even if you choose English ([issue #42](https://github.com/igos-nusantara/bayu/issues/42)). The buttons are in the same place, and the installed system uses the language you chose."},
+        {"note": "In the nightly image, Nabau first checks the USB stick when you click **Start installation**. If the stick is damaged, it stops before changing any disk. See [Troubleshooting](troubleshooting.html#medium)."},
         {"h": "The eight steps", "id": "steps"},
         {"steps": [
           {"t": "**Language.** Choose the language for the installed system and a regional format. The format decides how dates, numbers and money look. The **Preview** box shows an example. Click **Continue**.", "img": "docs/en-nabau-01.png", "alt": "Nabau step 1, Language, with English selected"},
@@ -126,6 +128,7 @@
         {"h": "Get the latest updates", "id": "update"},
         {"p": "The image can be a few days old. Open **Terminal** from the dock and run:"},
         {"cmd": ["sudo dnf upgrade"]},
+        {"p": "In the nightly image you can also update from Settings, see [Updates](desktop.html#updates)."},
         {"p": "Next: [use the desktop](desktop.html)."}
       ]
     },
@@ -133,7 +136,7 @@
       "slug": "desktop",
       "nav": "Use the desktop",
       "title": "Use the desktop",
-      "lede": "Find your way around Bayu: the top bar, the dock, the launcher and Settings.",
+      "lede": "Find your way around Bayu: the top bar, the dock, the launcher, Settings, updates and the sign-in screen.",
       "blocks": [
         {"img": "docs/en-desktop.png", "alt": "The Bayu desktop with the top bar and the dock", "caption": "The top bar runs across the top. The dock sits at the bottom."},
         {"h": "The top bar", "id": "top-bar"},
@@ -172,6 +175,80 @@
           ["Theme", "The day picture in light mode, the night picture in dark mode."]
         ]},
         {"p": "To use your own picture, click **Add wallpaper**. The login screen uses the same wallpaper as the desktop."},
+        {"h": "Updates", "id": "updates"},
+        {"note": "System Update and the update icon are in the nightly image. On Beta 6, run `sudo dnf upgrade` in Terminal."},
+        {"p": "Bayu looks for updates a minute after you sign in, then every six hours. When there are some, an update icon appears in the top bar, or in the bottom bar in the Panel layout. A red dot on it means a security update."},
+        {"img": "ign26/updates.webp", "alt": "The System Update page in Settings with a list of updates", "caption": "Settings > System Update."},
+        {"steps": ["Click the update icon and choose **System Update**, or open **System Update** in Settings.", "Click **Download**. You can cancel while it downloads.", "Click **Restart and Install**. The computer restarts, installs the updates, then starts as usual."]},
+        {"p": "Nothing is installed without asking you. Turn on **Download updates automatically** to download updates in the background; Bayu then asks you to restart. Updates for apps are in Bayu Store, see [Install apps](apps.html#updates)."},
+        {"h": "The sign-in screen", "id": "sign-in"},
+        {"note": "The power button and X11 sessions are in the nightly image."},
+        {"p": "Below the sign-in box is a power button with **Suspend**, **Restart** and **Shut Down**. Restart and Shut Down ask you first."},
+        {"p": "If you install another desktop or window manager, for example IceWM with `sudo dnf install icewm`, choose it in the session menu before you sign in. Sessions that run on X11 have **(X11)** after their name. The sign-in screen remembers the last one you used."},
+        {"p": "Next: [Files and Terminal](files.html)."}
+      ]
+    },
+    {
+      "slug": "files",
+      "nav": "Files and Terminal",
+      "title": "Files and Terminal",
+      "lede": "Work with files, open system folders as an administrator, and use the terminal and the tools that come with it.",
+      "blocks": [
+        {"note": "Open as Administrator, the Terminal menu button, the command-line tools and the shell shortcuts are in the nightly image."},
+        {"h": "Files", "id": "files"},
+        {"p": "Open **Files** from the dock. The sidebar shows your folders and drives. When Android is on, **Android** in the sidebar holds the files of your Android apps, such as downloads and photos."},
+        {"p": "Copying and moving to a Windows drive (NTFS) works the same as on any other drive."},
+        {"h": "Open as Administrator", "id": "admin"},
+        {"p": "Only an administrator can change system folders such as `/etc`."},
+        {"steps": ["Go to the folder.", "Click the menu button in the title bar, next to the search button, and choose **Open as Administrator**.", "Type your password.", "A second window opens, titled **Files (Administrator)**. Changes made there are made as the administrator. You can copy and move between it and your other windows as usual."]},
+        {"p": "Clicking a folder in the sidebar that only an administrator may open does the same. Administrator access ends when you close Files."},
+        {"note": "In the administrator window you can delete or change system files. Be careful.", "kind": "warn"},
+        {"h": "Terminal", "id": "terminal"},
+        {"p": "Open **Terminal** from the dock. Click **+** in the title bar for a new tab."},
+        {"p": "To split a tab, click the menu button next to **+**, or right-click the title bar, and choose **Split Right** or **Split Down**. This also works while a program such as htop or mc is using the mouse. To close a pane, right-click inside it and choose **Close Pane**."},
+        {"h": "Command-line tools", "id": "tools"},
+        {"p": "These tools are already installed:"},
+        {"head": ["For", "Commands"], "table": [["Code", "`git`"], ["Editing files", "`vim`, `nano`"], ["Downloading", "`wget`, `curl`"], ["Processes and disk use", "`htop`, `btop`, `iotop`, `ncdu`, `tree`"], ["Network", "`dig`, `host`, `traceroute`, `mtr`, `whois`"], ["Hardware", "`lsusb`, `lspci`, `lshw`, `sensors`, `smartctl` and more, see [Hardware](hardware.html#tools)"], ["Other", "`tmux`, `fastfetch`, `7z`, `bc`, `pip`, `strace`"]]},
+        {"p": "Manual pages are installed too: run `man` followed by the command, for example `man tar`."},
+        {"h": "Shortcuts in the shell", "id": "shortcuts"},
+        {"p": "The terminal comes with a colored prompt and these short commands:"},
+        {"head": ["Type", "To"], "table": [["`ll`", "List files with details, folders first"], ["`..` and `...`", "Go up one or two folders"], ["`ex file`", "Extract an archive: zip, tar.gz, tar.xz, 7z, rar and more"], ["`update`", "Update the system (`sudo dnf update`)"], ["`install name`", "Install a package (`sudo dnf install`)"], ["`search word`", "Look for a package (`dnf search`)"], ["`myip`", "Show your public IP address"], ["`fastfetch`", "Show the system summary with the IGN logo"]]},
+        {"p": "`rm`, `cp` and `mv` ask before they delete or overwrite a file. To change any of this, add your own lines to `~/.bashrc`."},
+        {"h": "tmux", "id": "tmux"},
+        {"p": "Run `tmux` to keep several shells in one window. The prefix key is **Ctrl+A**: press it, let go, then press the next key."},
+        {"head": ["Keys", "To"], "table": [["**Ctrl+A**, then **v**", "Split side by side"], ["**Ctrl+A**, then **h**", "Split top and bottom"], ["**Alt+arrow keys**", "Move between panes"], ["**Ctrl+A**, then **r**", "Load the configuration again"]]},
+        {"p": "The mouse works in tmux: click a pane, drag a border, scroll back. Your own `~/.tmux.conf` is read after the system one."},
+        {"p": "Next: [hardware](hardware.html)."}
+      ]
+    },
+    {
+      "slug": "hardware",
+      "nav": "Hardware",
+      "title": "Hardware",
+      "lede": "Wi-Fi, printers, scanners, the touchpad and MacBooks: what works and where to change it.",
+      "blocks": [
+        {"note": "USB Wi-Fi, printers, the touchpad defaults and MacBook support are in the nightly image. Beta 6 has the drivers for built-in Wi-Fi cards."},
+        {"h": "Wi-Fi", "id": "wifi"},
+        {"p": "Most built-in cards work right away: Intel, Realtek, Qualcomm Atheros, MediaTek and Broadcom, including the Broadcom cards of older MacBooks."},
+        {"p": "USB Wi-Fi adapters work too. Their driver loads when you plug one in:"},
+        {"list": ["Realtek RTL8811CU and RTL8821CU (the common AC600 adapters), RTL8822CU, RTL8723DU, RTL8812AU, RTL8821AU, RTL8814AU, RTL8852BU and RTL8851BU", "MediaTek MT7921AU, MT7925U and MT7663U", "Ralink RT2500 and RT73, Atheros AR9170 and ath10k on USB"]},
+        {"p": "Some adapters first show up as a CD drive with a Windows driver on it. IGN switches them to Wi-Fi by itself."},
+        {"h": "Printers", "id": "printers"},
+        {"p": "Printers on your network are found and set up by themselves, and every app can print to them. A USB printer is set up when you plug it in. Drivers for HP, Gutenprint and Samsung (SpliX) printers are included."},
+        {"img": "ign26/printers.webp", "alt": "The Printers page in Settings with a printer and its jobs", "caption": "Settings > Printers."},
+        {"steps": ["Open **Printers** in Settings.", "At the top are the printers that are set up, with their state and print jobs. Below them, under **Printers Found**, are printers that were found but are not set up yet. Click **Add** next to one.", "Select a printer and click **Print Test Page** to check it. **Set as Default** makes apps choose it first."]},
+        {"p": "If your printer is not listed, click **Add a Printer by Address** and type its address, for example `ipp://192.168.1.20`."},
+        {"h": "Scanners", "id": "scanners"},
+        {"p": "Scanners and multifunction printers that scan over the network or USB without a driver (AirScan or eSCL) work. Install a scanning app such as **Document Scanner** from Bayu Store."},
+        {"h": "Touchpad", "id": "touchpad"},
+        {"p": "Tap to click is on. To right-click, tap with two fingers or press the bottom-right corner of the touchpad."},
+        {"p": "To change this, open **Touchpad** in Settings. There you find **Tap to click**, **Tap and drag** and **Natural scrolling**."},
+        {"h": "MacBooks", "id": "macbook"},
+        {"list": ["The keyboard and touchpad of MacBook and MacBook Pro models from 2015 to 2017 work, including the 13-inch MacBook Pro of 2017 (A1708).", "The keyboard works at start-up too, so you can type a disk encryption password.", "Sound works on the MacBook Pro of 2016 and 2017.", "The BCM43602 Wi-Fi of these models stays connected."]},
+        {"h": "What is in your computer", "id": "tools"},
+        {"p": "Run these in Terminal:"},
+        {"head": ["Command", "Shows"], "table": [["`lsusb`", "USB devices"], ["`lspci`", "Cards inside the computer: graphics, Wi-Fi, sound"], ["`sudo lshw -short`", "All hardware in one list"], ["`sensors`", "Temperatures and fan speeds"], ["`sudo smartctl -a /dev/sda`", "The health of a disk. For an NVMe disk, use `/dev/nvme0n1`."], ["`iw dev`", "Wi-Fi interfaces"]]},
+        {"p": "When you report a hardware problem, include the output of `lspci -nn` or `lsusb`."},
         {"p": "Next: [install apps](apps.html)."}
       ]
     },
@@ -317,12 +394,14 @@
         {"p": "Restart and choose **Start IGOS Nusantara 26 (basic graphics)** in the boot menu."},
         {"h": "Starting stops partway", "id": "stops"},
         {"p": "In the boot menu, open **Troubleshooting** and choose the **verbose** entry. The last lines on screen show where it stops. If your computer has Broadcom Wi-Fi, try the entry **without the Broadcom wl driver**."},
-        {"h": "Nabau stays in Indonesian after I choose English", "id": "nabau-language"},
-        {"p": "This is a known problem ([issue #42](https://github.com/igos-nusantara/bayu/issues/42)). The installed system still uses the language you chose. Every step has its buttons in the same place in every language, so you can follow [Install with Nabau](install.html) as it is."},
+        {"h": "Nabau says the installation medium is damaged", "id": "medium"},
+        {"p": "Part of the USB stick cannot be read as it was written. Nothing on your disks has changed. Check the image's SHA-256 (see [Download](download.html)), write it to the stick again, or use another stick. If you used Ventoy, try writing the image directly with Fedora Media Writer, Rufus or balenaEtcher."},
+        {"h": "Wi-Fi does not work", "id": "wifi"},
+        {"p": "Check that your card or adapter is listed in [Hardware](hardware.html#wifi), and try the nightly image, which has more drivers. If it still does not work, report a bug and include the output of `lspci -nn` and `lsusb`."},
         {"h": "Android apps could not be turned on", "id": "android"},
         {"p": "Usually the 1.3 GB download stopped. Run `sudo lapis init -type VANILLA` in Terminal; it continues where it stopped. See [Android apps](android.html#download-stops)."},
         {"h": "Reporting a bug", "id": "report"},
-        {"p": "Open an issue at [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues). Say what you did, what you expected and what happened instead, and attach a screenshot if you can."}
+        {"p": "Open an issue at [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) and choose **Laporan Bug**. The form is in Indonesian, and you may answer in English. Say what you did, what you expected and what happened instead, and attach a screenshot if you can."}
       ]
     }
   ]

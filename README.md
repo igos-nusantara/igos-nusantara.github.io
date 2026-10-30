@@ -16,6 +16,10 @@ content/id.json     all Indonesian copy
 content/docs/*.json the docs (guides), one file per language
 docs/*.html         generated — English docs
 docs/id/*.html      generated — Indonesian docs
+sitemap.xml         generated — every page, with its EN/ID pair
+robots.txt          generated — allows all crawlers, points to the sitemap
+llms.txt            generated — summary and page index for AI answer engines
+llms-full.txt       generated — full text of the docs and FAQ
 assets/css/pitaloka.css   design tokens, generated from Pitaloka tokens.json
 assets/css/site.css       layout and components
 assets/js/site.js         hero slider, mobile nav, copy buttons
