@@ -357,7 +357,7 @@ Next: [hardware](hardware.html).
 
 Source: https://igos-nusantara.or.id/docs/hardware.html
 
-Wi-Fi, drivers, printers, scanners, the touchpad and MacBooks: what works and where to change it.
+Wi-Fi, drivers including NVIDIA, printers, scanners, the touchpad and MacBooks: what works and where to change it.
 
 > USB Wi-Fi, printers, the touchpad defaults and MacBook support are in the nightly image. Beta 6 has the drivers for built-in Wi-Fi cards.
 
@@ -402,11 +402,15 @@ To change this, open **Touchpad** in Settings. There you find **Tap to click**, 
 
 ### Drivers & Hardware
 
-> Drivers & Hardware is in nightly images from 31 October 2026.
+> Drivers & Hardware, including the NVIDIA driver, is in nightly images from 31 October 2026.
 
 Open **Drivers & Hardware** in Settings to see every device in the computer, inside it and on USB, with the driver it uses. A device without one says **No driver**.
 
-If a Wi-Fi card, graphics card or sound card needs firmware that is not installed, it is listed under **Recommended**. Click **Install** and type the administrator password. Without the firmware the device may not work, or work only in part.
+Drivers and firmware that your devices need but that are not installed yet are listed under **Recommended**, for example firmware for a Wi-Fi card, graphics card or sound card. Click **Install** and type the administrator password. Without them the device may not work, or work only in part.
+
+If the computer has an NVIDIA graphics card, **Recommended** offers NVIDIA's own driver, marked **Proprietary**. It works better in games and 3D apps than the open driver used by default. After it is installed, restart the computer.
+
+> If Secure Boot is on, the NVIDIA driver cannot load, and Settings says so. Turn Secure Boot off in the computer's firmware settings (the setup screen you open while the computer starts, often with F2, F10 or Del) to use it.
 
 **Copy Hardware Information** copies the list. Paste it into a bug report.
 
@@ -969,7 +973,7 @@ Berikutnya: [perangkat keras](hardware.html).
 
 Source: https://igos-nusantara.or.id/docs/id/hardware.html
 
-Wi-Fi, driver, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.
+Wi-Fi, driver termasuk NVIDIA, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.
 
 > Wi-Fi USB, printer, pengaturan bawaan touchpad, dan dukungan MacBook ada di image nightly. Beta 6 sudah punya driver kartu Wi-Fi bawaan laptop.
 
@@ -1014,11 +1018,15 @@ Untuk mengubahnya, buka **Touchpad** di Pengaturan. Di sana ada **Ketuk untuk me
 
 ### Driver & Perangkat Keras
 
-> Driver & Perangkat Keras ada di image nightly mulai 31 Oktober 2026.
+> Driver & Perangkat Keras, termasuk driver NVIDIA, ada di image nightly mulai 31 Oktober 2026.
 
 Buka **Driver & Perangkat Keras** di Pengaturan untuk melihat semua perangkat di komputer, baik di dalam maupun lewat USB, beserta driver yang dipakainya. Perangkat tanpa driver bertuliskan **Tanpa driver**.
 
-Jika kartu Wi-Fi, kartu grafis, atau kartu suara butuh firmware yang belum terpasang, firmware itu muncul di bagian **Disarankan**. Klik **Pasang** lalu ketik kata sandi administrator. Tanpa firmware, perangkat mungkin tidak berfungsi, atau hanya berfungsi sebagian.
+Driver dan firmware yang dibutuhkan perangkat Anda tapi belum terpasang muncul di bagian **Disarankan**, misalnya firmware untuk kartu Wi-Fi, kartu grafis, atau kartu suara. Klik **Pasang** lalu ketik kata sandi administrator. Tanpanya, perangkat mungkin tidak berfungsi, atau hanya berfungsi sebagian.
+
+Jika komputer punya kartu grafis NVIDIA, bagian **Disarankan** menawarkan driver resmi dari NVIDIA, bertanda **Proprietari**. Driver ini lebih baik untuk game dan aplikasi 3D dibanding driver terbuka yang dipakai secara bawaan. Setelah terpasang, nyalakan ulang komputer.
+
+> Jika Secure Boot aktif, driver NVIDIA tidak bisa dimuat, dan Pengaturan memberi tahu hal ini. Matikan Secure Boot di pengaturan firmware komputer (layar pengaturan yang dibuka saat komputer menyala, biasanya dengan F2, F10, atau Del) agar driver bisa dipakai.
 
 **Salin Info Perangkat Keras** menyalin daftar ini. Tempelkan di laporan bug.
 

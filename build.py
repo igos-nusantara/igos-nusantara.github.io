@@ -813,8 +813,11 @@ def doc_page(d: dict, site: dict, i: int) -> str:
     c.update(home=f"{_root}{landing}", en_href=f"{en_dir}{out(p['slug'])}", id_href=f"{id_dir}{out(p['slug'])}")
 
     current = ' aria-current="page"'
+    # The current page also lists its sections, to jump within it.
+    sub = "".join(f'<li><a href="#{e(b["id"])}">{e(b["h"])}</a></li>' for b in p["blocks"] if "h" in b)
     nav = "".join(
-        f'<li><a href="{out(x["slug"])}"{current if j == i else ""}>{e(x["nav"])}</a></li>'
+        f'<li><a href="{out(x["slug"])}"{current if j == i else ""}>{e(x["nav"])}</a>'
+        + (f'<ul class="docs-sub">{sub}</ul>' if j == i and sub else "") + "</li>"
         for j, x in enumerate(pages)
     )
     pager = ""
