@@ -183,7 +183,7 @@ Next: [use the desktop](desktop.html).
 
 Source: https://igos-nusantara.or.id/docs/desktop.html
 
-Find your way around Bayu: the top bar, the dock, the launcher, Settings, updates and the sign-in screen.
+Find your way around Bayu: the top bar, the dock, the launcher, Settings, updates, the sign-in screen and memory.
 
 ### The top bar
 
@@ -254,11 +254,21 @@ Nothing is installed without asking you. Turn on **Download updates automaticall
 
 ### The sign-in screen
 
-> The power button and X11 sessions are in the nightly image.
+> The power button and X11 sessions are in the nightly image. Log in automatically is in nightly images from 31 October 2026.
 
 Below the sign-in box is a power button with **Suspend**, **Restart** and **Shut Down**. Restart and Shut Down ask you first.
 
 If you install another desktop or window manager, for example IceWM with `sudo dnf install icewm`, choose it in the session menu before you sign in. Sessions that run on X11 have **(X11)** after their name. The sign-in screen remembers the last one you used.
+
+To skip the sign-in screen, open **Users** in Settings and turn on **Log in automatically**. Your account then opens without a password when the computer turns on. Anyone at the computer can use it, so leave this off on a laptop you take with you. If another account already logs in automatically, Settings names it; turning the switch on moves automatic login to your account.
+
+### Memory
+
+> Memory compression is in nightly images from 31 October 2026.
+
+Bayu keeps memory that is not in use compressed in memory (zram), as phones do. More apps and Android apps fit before the computer slows down. It is on by default and uses up to half of your memory, at most 8 GB.
+
+To change it, open **Memory** in Settings. Turn **Compress memory** off, or set **Size** to **Automatic**, **25% of memory** or **50% of memory**. Changes apply at once and need the administrator password. Below, **Usage** shows how much is compressed and how much memory that takes.
 
 Next: [Files and Terminal](files.html).
 
@@ -347,7 +357,7 @@ Next: [hardware](hardware.html).
 
 Source: https://igos-nusantara.or.id/docs/hardware.html
 
-Wi-Fi, printers, scanners, the touchpad and MacBooks: what works and where to change it.
+Wi-Fi, drivers, printers, scanners, the touchpad and MacBooks: what works and where to change it.
 
 > USB Wi-Fi, printers, the touchpad defaults and MacBook support are in the nightly image. Beta 6 has the drivers for built-in Wi-Fi cards.
 
@@ -390,6 +400,16 @@ To change this, open **Touchpad** in Settings. There you find **Tap to click**, 
 - Sound works on the MacBook Pro of 2016 and 2017.
 - The BCM43602 Wi-Fi of these models stays connected.
 
+### Drivers & Hardware
+
+> Drivers & Hardware is in nightly images from 31 October 2026.
+
+Open **Drivers & Hardware** in Settings to see every device in the computer, inside it and on USB, with the driver it uses. A device without one says **No driver**.
+
+If a Wi-Fi card, graphics card or sound card needs firmware that is not installed, it is listed under **Recommended**. Click **Install** and type the administrator password. Without the firmware the device may not work, or work only in part.
+
+**Copy Hardware Information** copies the list. Paste it into a bug report.
+
 ### What is in your computer
 
 Run these in Terminal:
@@ -403,7 +423,7 @@ Run these in Terminal:
 | `sudo smartctl -a /dev/sda` | The health of a disk. For an NVMe disk, use `/dev/nvme0n1`. |
 | `iw dev` | Wi-Fi interfaces |
 
-When you report a hardware problem, include the output of `lspci -nn` or `lsusb`.
+When you report a hardware problem, paste the information from **Copy Hardware Information**, or include the output of `lspci -nn` and `lsusb`.
 
 Next: [install apps](apps.html).
 
@@ -447,7 +467,7 @@ Apps from F-Droid run in Lapis, an Android system that runs next to the desktop.
 
 ### Before you start
 
-- 8 GB of memory is recommended.
+- 8 GB of memory is recommended. With less, keep memory compression on (see [Memory](desktop.html#memory)).
 - Turning Android on downloads about 1.3 GB, once. Use a fast connection.
 - You need the administrator password.
 
@@ -474,6 +494,12 @@ It continues where the download stopped and tries other mirrors by itself. When 
 ### If it says Android is not running
 
 Android needs about a minute to start after you sign in or turn it on. If Bayu Store says **Android container is not running** or **Can't find service: package**, wait a minute and click **Install** again.
+
+### Game controllers
+
+> Game controllers in Android are in the nightly image.
+
+Game controllers, USB or Bluetooth, reach Android as soon as you plug them in or pair them, so games and emulators find them as on a phone. Bluetooth headsets, mice and keyboards need nothing extra: Android plays sound through the desktop, and the mouse and keyboard work as in any other app.
 
 ### Apps built only for ARM
 
@@ -597,6 +623,8 @@ Part of the USB stick cannot be read as it was written. Nothing on your disks ha
 
 ### Wi-Fi does not work
 
+Open **Drivers & Hardware** in Settings: if your card needs firmware that is not installed, it is under **Recommended**. See [Drivers & Hardware](hardware.html#drivers).
+
 Check that your card or adapter is listed in [Hardware](hardware.html#wifi), and try the nightly image, which has more drivers. If it still does not work, report a bug and include the output of `lspci -nn` and `lsusb`.
 
 ### Android apps could not be turned on
@@ -605,7 +633,7 @@ Usually the 1.3 GB download stopped. Run `sudo lapis init -type VANILLA` in Term
 
 ### Reporting a bug
 
-Open an issue at [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) and choose **Laporan Bug**. The form is in Indonesian, and you may answer in English. Say what you did, what you expected and what happened instead, and attach a screenshot if you can.
+Open an issue at [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) and choose **Laporan Bug**. The form is in Indonesian, and you may answer in English. Say what you did, what you expected and what happened instead, and attach a screenshot if you can. For a hardware problem, paste the information from **Copy Hardware Information** (Settings > Drivers & Hardware).
 
 ## Dokumentasi (Bahasa Indonesia)
 
@@ -767,7 +795,7 @@ Berikutnya: [memakai desktop](desktop.html).
 
 Source: https://igos-nusantara.or.id/docs/id/desktop.html
 
-Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, Pengaturan, pembaruan, dan layar masuk.
+Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, Pengaturan, pembaruan, layar masuk, dan memori.
 
 ### Bilah atas
 
@@ -838,11 +866,21 @@ Tidak ada yang dipasang tanpa persetujuan Anda. Nyalakan **Unduh pembaruan secar
 
 ### Layar masuk
 
-> Tombol daya dan sesi X11 ada di image nightly.
+> Tombol daya dan sesi X11 ada di image nightly. Masuk otomatis ada di image nightly mulai 31 Oktober 2026.
 
 Di bawah kotak masuk ada tombol daya berisi **Tangguhkan**, **Mulai Ulang**, dan **Matikan**. Mulai Ulang dan Matikan meminta konfirmasi dulu.
 
 Jika Anda memasang desktop atau window manager lain, misalnya IceWM dengan `sudo dnf install icewm`, pilih di menu sesi sebelum masuk. Sesi yang berjalan di X11 diberi tanda **(X11)** di belakang namanya. Layar masuk mengingat sesi terakhir yang Anda pakai.
+
+Untuk melewati layar masuk, buka **Pengguna** di Pengaturan lalu aktifkan **Masuk otomatis**. Akun Anda lalu terbuka tanpa kata sandi saat komputer dinyalakan. Siapa pun di depan komputer bisa memakainya, jadi biarkan mati di laptop yang sering Anda bawa. Jika ada akun lain yang sudah masuk otomatis, Pengaturan menyebut namanya; mengaktifkan tombol ini memindahkan masuk otomatis ke akun Anda.
+
+### Memori
+
+> Kompresi memori ada di image nightly mulai 31 Oktober 2026.
+
+Bayu menyimpan memori yang tidak sedang dipakai dalam bentuk terkompresi di memori (zram), seperti di ponsel. Lebih banyak aplikasi dan aplikasi Android muat sebelum komputer melambat. Fitur ini aktif secara bawaan dan memakai paling banyak setengah memori, maksimal 8 GB.
+
+Untuk mengubahnya, buka **Memori** di Pengaturan. Matikan **Kompres memori**, atau atur **Ukuran** ke **Otomatis**, **25% dari memori**, atau **50% dari memori**. Perubahan langsung berlaku dan butuh kata sandi administrator. Di bawahnya, **Pemakaian** menunjukkan berapa yang terkompresi dan berapa memori yang dipakainya.
 
 Berikutnya: [Berkas dan Terminal](files.html).
 
@@ -931,7 +969,7 @@ Berikutnya: [perangkat keras](hardware.html).
 
 Source: https://igos-nusantara.or.id/docs/id/hardware.html
 
-Wi-Fi, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.
+Wi-Fi, driver, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.
 
 > Wi-Fi USB, printer, pengaturan bawaan touchpad, dan dukungan MacBook ada di image nightly. Beta 6 sudah punya driver kartu Wi-Fi bawaan laptop.
 
@@ -974,6 +1012,16 @@ Untuk mengubahnya, buka **Touchpad** di Pengaturan. Di sana ada **Ketuk untuk me
 - Suara berfungsi di MacBook Pro tahun 2016 dan 2017.
 - Wi-Fi BCM43602 di model-model ini tidak lagi putus-putus.
 
+### Driver & Perangkat Keras
+
+> Driver & Perangkat Keras ada di image nightly mulai 31 Oktober 2026.
+
+Buka **Driver & Perangkat Keras** di Pengaturan untuk melihat semua perangkat di komputer, baik di dalam maupun lewat USB, beserta driver yang dipakainya. Perangkat tanpa driver bertuliskan **Tanpa driver**.
+
+Jika kartu Wi-Fi, kartu grafis, atau kartu suara butuh firmware yang belum terpasang, firmware itu muncul di bagian **Disarankan**. Klik **Pasang** lalu ketik kata sandi administrator. Tanpa firmware, perangkat mungkin tidak berfungsi, atau hanya berfungsi sebagian.
+
+**Salin Info Perangkat Keras** menyalin daftar ini. Tempelkan di laporan bug.
+
 ### Isi komputer Anda
 
 Jalankan perintah berikut di Terminal:
@@ -987,7 +1035,7 @@ Jalankan perintah berikut di Terminal:
 | `sudo smartctl -a /dev/sda` | Kesehatan disk. Untuk disk NVMe, pakai `/dev/nvme0n1`. |
 | `iw dev` | Antarmuka Wi-Fi |
 
-Saat melaporkan masalah perangkat keras, sertakan keluaran `lspci -nn` atau `lsusb`.
+Saat melaporkan masalah perangkat keras, tempelkan hasil **Salin Info Perangkat Keras**, atau sertakan keluaran `lspci -nn` dan `lsusb`.
 
 Berikutnya: [memasang aplikasi](apps.html).
 
@@ -1031,7 +1079,7 @@ Aplikasi dari F-Droid berjalan di Lapis, sistem Android yang berjalan di samping
 
 ### Sebelum mulai
 
-- Disarankan memori 8 GB.
+- Disarankan memori 8 GB. Jika kurang, biarkan kompresi memori aktif (lihat [Memori](desktop.html#memori)).
 - Mengaktifkan Android mengunduh sekitar 1,3 GB, sekali saja. Pakai koneksi yang cepat.
 - Anda perlu kata sandi administrator.
 
@@ -1058,6 +1106,12 @@ Perintah ini melanjutkan unduhan dari titik terakhir dan mencoba mirror lain den
 ### Jika tertulis Android tidak berjalan
 
 Android butuh sekitar satu menit untuk menyala setelah Anda masuk atau mengaktifkannya. Jika Bayu Store menampilkan **Android container is not running** atau **Can't find service: package**, tunggu satu menit lalu klik **Pasang** lagi.
+
+### Kontroler game
+
+> Kontroler game di Android ada di image nightly.
+
+Kontroler game (gamepad), lewat USB atau Bluetooth, langsung sampai ke Android begitu dicolokkan atau dipasangkan, jadi game dan emulator menemukannya seperti di ponsel. Headset, mouse, dan keyboard Bluetooth tidak butuh pengaturan tambahan: suara Android keluar lewat desktop, dan mouse serta keyboard berfungsi seperti di aplikasi lain.
 
 ### Aplikasi khusus ARM
 
@@ -1181,6 +1235,8 @@ Sebagian isi flashdisk tidak terbaca seperti saat ditulis. Belum ada yang beruba
 
 ### Wi-Fi tidak jalan
 
+Buka **Driver & Perangkat Keras** di Pengaturan: jika kartu Anda butuh firmware yang belum terpasang, firmware itu ada di bagian **Disarankan**. Lihat [Driver & Perangkat Keras](hardware.html#driver).
+
 Pastikan kartu atau adaptor Anda ada di [Perangkat keras](hardware.html#wifi), dan coba image nightly yang punya lebih banyak driver. Jika masih tidak jalan, laporkan bug dan sertakan keluaran `lspci -nn` dan `lsusb`.
 
 ### Aplikasi Android tidak dapat diaktifkan
@@ -1189,7 +1245,7 @@ Biasanya unduhan 1,3 GB terputus. Jalankan `sudo lapis init -type VANILLA` di Te
 
 ### Melaporkan bug
 
-Buat issue di [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) lalu pilih **Laporan Bug**. Formulirnya berbahasa Indonesia. Ceritakan apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi, lalu lampirkan tangkapan layar jika bisa.
+Buat issue di [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) lalu pilih **Laporan Bug**. Formulirnya berbahasa Indonesia. Ceritakan apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi, lalu lampirkan tangkapan layar jika bisa. Untuk masalah perangkat keras, tempelkan hasil **Salin Info Perangkat Keras** (Pengaturan > Driver & Perangkat Keras).
 
 ## Questions people ask
 

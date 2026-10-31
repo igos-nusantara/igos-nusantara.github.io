@@ -136,7 +136,7 @@
       "slug": "desktop",
       "nav": "Use the desktop",
       "title": "Use the desktop",
-      "lede": "Find your way around Bayu: the top bar, the dock, the launcher, Settings, updates and the sign-in screen.",
+      "lede": "Find your way around Bayu: the top bar, the dock, the launcher, Settings, updates, the sign-in screen and memory.",
       "blocks": [
         {"img": "docs/en-desktop.png", "alt": "The Bayu desktop with the top bar and the dock", "caption": "The top bar runs across the top. The dock sits at the bottom."},
         {"h": "The top bar", "id": "top-bar"},
@@ -182,9 +182,16 @@
         {"steps": ["Click the update icon and choose **System Update**, or open **System Update** in Settings.", "Click **Download**. You can cancel while it downloads.", "Click **Restart and Install**. The computer restarts, installs the updates, then starts as usual."]},
         {"p": "Nothing is installed without asking you. Turn on **Download updates automatically** to download updates in the background; Bayu then asks you to restart. Updates for apps are in Bayu Store, see [Install apps](apps.html#updates)."},
         {"h": "The sign-in screen", "id": "sign-in"},
-        {"note": "The power button and X11 sessions are in the nightly image."},
+        {"note": "The power button and X11 sessions are in the nightly image. Log in automatically is in nightly images from 31 October 2026."},
         {"p": "Below the sign-in box is a power button with **Suspend**, **Restart** and **Shut Down**. Restart and Shut Down ask you first."},
         {"p": "If you install another desktop or window manager, for example IceWM with `sudo dnf install icewm`, choose it in the session menu before you sign in. Sessions that run on X11 have **(X11)** after their name. The sign-in screen remembers the last one you used."},
+        {"p": "To skip the sign-in screen, open **Users** in Settings and turn on **Log in automatically**. Your account then opens without a password when the computer turns on. Anyone at the computer can use it, so leave this off on a laptop you take with you. If another account already logs in automatically, Settings names it; turning the switch on moves automatic login to your account."},
+        {"img": "ign26/settings-autologin.webp", "alt": "The Users page in Settings with the Log in automatically switch turned on", "caption": "Settings > Users, in Indonesian."},
+        {"h": "Memory", "id": "memory"},
+        {"note": "Memory compression is in nightly images from 31 October 2026."},
+        {"p": "Bayu keeps memory that is not in use compressed in memory (zram), as phones do. More apps and Android apps fit before the computer slows down. It is on by default and uses up to half of your memory, at most 8 GB."},
+        {"img": "ign26/settings-memory.webp", "alt": "The Memory page in Settings with the Compress memory switch and the Size menu", "caption": "Settings > Memory, in Indonesian."},
+        {"p": "To change it, open **Memory** in Settings. Turn **Compress memory** off, or set **Size** to **Automatic**, **25% of memory** or **50% of memory**. Changes apply at once and need the administrator password. Below, **Usage** shows how much is compressed and how much memory that takes."},
         {"p": "Next: [Files and Terminal](files.html)."}
       ]
     },
@@ -225,7 +232,7 @@
       "slug": "hardware",
       "nav": "Hardware",
       "title": "Hardware",
-      "lede": "Wi-Fi, printers, scanners, the touchpad and MacBooks: what works and where to change it.",
+      "lede": "Wi-Fi, drivers, printers, scanners, the touchpad and MacBooks: what works and where to change it.",
       "blocks": [
         {"note": "USB Wi-Fi, printers, the touchpad defaults and MacBook support are in the nightly image. Beta 6 has the drivers for built-in Wi-Fi cards."},
         {"h": "Wi-Fi", "id": "wifi"},
@@ -245,10 +252,16 @@
         {"p": "To change this, open **Touchpad** in Settings. There you find **Tap to click**, **Tap and drag** and **Natural scrolling**."},
         {"h": "MacBooks", "id": "macbook"},
         {"list": ["The keyboard and touchpad of MacBook and MacBook Pro models from 2015 to 2017 work, including the 13-inch MacBook Pro of 2017 (A1708).", "The keyboard works at start-up too, so you can type a disk encryption password.", "Sound works on the MacBook Pro of 2016 and 2017.", "The BCM43602 Wi-Fi of these models stays connected."]},
+        {"h": "Drivers & Hardware", "id": "drivers"},
+        {"note": "Drivers & Hardware is in nightly images from 31 October 2026."},
+        {"p": "Open **Drivers & Hardware** in Settings to see every device in the computer, inside it and on USB, with the driver it uses. A device without one says **No driver**."},
+        {"img": "ign26/settings-hardware.webp", "alt": "The Drivers & Hardware page in Settings listing devices and their drivers", "caption": "Settings > Drivers & Hardware, in Indonesian."},
+        {"p": "If a Wi-Fi card, graphics card or sound card needs firmware that is not installed, it is listed under **Recommended**. Click **Install** and type the administrator password. Without the firmware the device may not work, or work only in part."},
+        {"p": "**Copy Hardware Information** copies the list. Paste it into a bug report."},
         {"h": "What is in your computer", "id": "tools"},
         {"p": "Run these in Terminal:"},
         {"head": ["Command", "Shows"], "table": [["`lsusb`", "USB devices"], ["`lspci`", "Cards inside the computer: graphics, Wi-Fi, sound"], ["`sudo lshw -short`", "All hardware in one list"], ["`sensors`", "Temperatures and fan speeds"], ["`sudo smartctl -a /dev/sda`", "The health of a disk. For an NVMe disk, use `/dev/nvme0n1`."], ["`iw dev`", "Wi-Fi interfaces"]]},
-        {"p": "When you report a hardware problem, include the output of `lspci -nn` or `lsusb`."},
+        {"p": "When you report a hardware problem, paste the information from **Copy Hardware Information**, or include the output of `lspci -nn` and `lsusb`."},
         {"p": "Next: [install apps](apps.html)."}
       ]
     },
@@ -286,7 +299,7 @@
       "blocks": [
         {"h": "Before you start", "id": "before"},
         {"list": [
-          "8 GB of memory is recommended.",
+          "8 GB of memory is recommended. With less, keep memory compression on (see [Memory](desktop.html#memory)).",
           "Turning Android on downloads about 1.3 GB, once. Use a fast connection.",
           "You need the administrator password."
         ]},
@@ -306,6 +319,9 @@
         {"p": "It continues where the download stopped and tries other mirrors by itself. When it finishes, install the app again from Bayu Store."},
         {"h": "If it says Android is not running", "id": "not-running"},
         {"p": "Android needs about a minute to start after you sign in or turn it on. If Bayu Store says **Android container is not running** or **Can't find service: package**, wait a minute and click **Install** again."},
+        {"h": "Game controllers", "id": "gamepads"},
+        {"note": "Game controllers in Android are in the nightly image."},
+        {"p": "Game controllers, USB or Bluetooth, reach Android as soon as you plug them in or pair them, so games and emulators find them as on a phone. Bluetooth headsets, mice and keyboards need nothing extra: Android plays sound through the desktop, and the mouse and keyboard work as in any other app."},
         {"h": "Apps built only for ARM", "id": "arm"},
         {"p": "Some Android apps are built only for phone processors (ARM). They are hidden by default. To show them, turn on **Show apps built only for ARM** in Store settings. They run through translation, so they are slower and some do not work."},
         {"p": "Next: [Bayu for agents](agents.html)."}
@@ -397,11 +413,12 @@
         {"h": "Nabau says the installation medium is damaged", "id": "medium"},
         {"p": "Part of the USB stick cannot be read as it was written. Nothing on your disks has changed. Check the image's SHA-256 (see [Download](download.html)), write it to the stick again, or use another stick. If you used Ventoy, try writing the image directly with Fedora Media Writer, Rufus or balenaEtcher."},
         {"h": "Wi-Fi does not work", "id": "wifi"},
+        {"p": "Open **Drivers & Hardware** in Settings: if your card needs firmware that is not installed, it is under **Recommended**. See [Drivers & Hardware](hardware.html#drivers)."},
         {"p": "Check that your card or adapter is listed in [Hardware](hardware.html#wifi), and try the nightly image, which has more drivers. If it still does not work, report a bug and include the output of `lspci -nn` and `lsusb`."},
         {"h": "Android apps could not be turned on", "id": "android"},
         {"p": "Usually the 1.3 GB download stopped. Run `sudo lapis init -type VANILLA` in Terminal; it continues where it stopped. See [Android apps](android.html#download-stops)."},
         {"h": "Reporting a bug", "id": "report"},
-        {"p": "Open an issue at [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) and choose **Laporan Bug**. The form is in Indonesian, and you may answer in English. Say what you did, what you expected and what happened instead, and attach a screenshot if you can."}
+        {"p": "Open an issue at [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) and choose **Laporan Bug**. The form is in Indonesian, and you may answer in English. Say what you did, what you expected and what happened instead, and attach a screenshot if you can. For a hardware problem, paste the information from **Copy Hardware Information** (Settings > Drivers & Hardware)."}
       ]
     }
   ]

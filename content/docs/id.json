@@ -135,7 +135,7 @@
       "slug": "desktop",
       "nav": "Memakai desktop",
       "title": "Memakai desktop",
-      "lede": "Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, Pengaturan, pembaruan, dan layar masuk.",
+      "lede": "Kenali bagian-bagian Bayu: bilah atas, dok, peluncur, Pengaturan, pembaruan, layar masuk, dan memori.",
       "blocks": [
         {"img": "docs/id-desktop.png", "alt": "Desktop Bayu dengan bilah atas dan dok", "caption": "Bilah atas membentang di bagian atas layar. Dok ada di bawah."},
         {"h": "Bilah atas", "id": "bilah-atas"},
@@ -181,9 +181,16 @@
         {"steps": ["Klik ikon pembaruan lalu pilih **Pembaruan Sistem**, atau buka **Pembaruan Sistem** di Pengaturan.", "Klik **Unduh**. Unduhan bisa dibatalkan selama berjalan.", "Klik **Mulai Ulang dan Pasang**. Komputer menyala ulang, memasang pembaruan, lalu menyala seperti biasa."]},
         {"p": "Tidak ada yang dipasang tanpa persetujuan Anda. Nyalakan **Unduh pembaruan secara otomatis** agar pembaruan diunduh di latar belakang; setelah itu Bayu meminta Anda menyalakan ulang. Pembaruan aplikasi ada di Bayu Store, lihat [Memasang aplikasi](apps.html#pembaruan)."},
         {"h": "Layar masuk", "id": "layar-masuk"},
-        {"note": "Tombol daya dan sesi X11 ada di image nightly."},
+        {"note": "Tombol daya dan sesi X11 ada di image nightly. Masuk otomatis ada di image nightly mulai 31 Oktober 2026."},
         {"p": "Di bawah kotak masuk ada tombol daya berisi **Tangguhkan**, **Mulai Ulang**, dan **Matikan**. Mulai Ulang dan Matikan meminta konfirmasi dulu."},
         {"p": "Jika Anda memasang desktop atau window manager lain, misalnya IceWM dengan `sudo dnf install icewm`, pilih di menu sesi sebelum masuk. Sesi yang berjalan di X11 diberi tanda **(X11)** di belakang namanya. Layar masuk mengingat sesi terakhir yang Anda pakai."},
+        {"p": "Untuk melewati layar masuk, buka **Pengguna** di Pengaturan lalu aktifkan **Masuk otomatis**. Akun Anda lalu terbuka tanpa kata sandi saat komputer dinyalakan. Siapa pun di depan komputer bisa memakainya, jadi biarkan mati di laptop yang sering Anda bawa. Jika ada akun lain yang sudah masuk otomatis, Pengaturan menyebut namanya; mengaktifkan tombol ini memindahkan masuk otomatis ke akun Anda."},
+        {"img": "ign26/settings-autologin.webp", "alt": "Halaman Pengguna di Pengaturan dengan tombol Masuk otomatis yang aktif", "caption": "Pengaturan > Pengguna."},
+        {"h": "Memori", "id": "memori"},
+        {"note": "Kompresi memori ada di image nightly mulai 31 Oktober 2026."},
+        {"p": "Bayu menyimpan memori yang tidak sedang dipakai dalam bentuk terkompresi di memori (zram), seperti di ponsel. Lebih banyak aplikasi dan aplikasi Android muat sebelum komputer melambat. Fitur ini aktif secara bawaan dan memakai paling banyak setengah memori, maksimal 8 GB."},
+        {"img": "ign26/settings-memory.webp", "alt": "Halaman Memori di Pengaturan dengan tombol Kompres memori dan menu Ukuran", "caption": "Pengaturan > Memori."},
+        {"p": "Untuk mengubahnya, buka **Memori** di Pengaturan. Matikan **Kompres memori**, atau atur **Ukuran** ke **Otomatis**, **25% dari memori**, atau **50% dari memori**. Perubahan langsung berlaku dan butuh kata sandi administrator. Di bawahnya, **Pemakaian** menunjukkan berapa yang terkompresi dan berapa memori yang dipakainya."},
         {"p": "Berikutnya: [Berkas dan Terminal](files.html)."}
       ]
     },
@@ -224,7 +231,7 @@
       "slug": "hardware",
       "nav": "Perangkat keras",
       "title": "Perangkat keras",
-      "lede": "Wi-Fi, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.",
+      "lede": "Wi-Fi, driver, printer, pemindai, touchpad, dan MacBook: apa yang sudah jalan dan di mana mengaturnya.",
       "blocks": [
         {"note": "Wi-Fi USB, printer, pengaturan bawaan touchpad, dan dukungan MacBook ada di image nightly. Beta 6 sudah punya driver kartu Wi-Fi bawaan laptop."},
         {"h": "Wi-Fi", "id": "wifi"},
@@ -244,10 +251,16 @@
         {"p": "Untuk mengubahnya, buka **Touchpad** di Pengaturan. Di sana ada **Ketuk untuk mengeklik**, **Ketuk dan seret**, dan **Pengguliran alami**."},
         {"h": "MacBook", "id": "macbook"},
         {"list": ["Keyboard dan touchpad MacBook dan MacBook Pro tahun 2015 sampai 2017 berfungsi, termasuk MacBook Pro 13 inci tahun 2017 (A1708).", "Keyboard juga berfungsi saat komputer menyala, jadi Anda bisa mengetik kata sandi enkripsi disk.", "Suara berfungsi di MacBook Pro tahun 2016 dan 2017.", "Wi-Fi BCM43602 di model-model ini tidak lagi putus-putus."]},
+        {"h": "Driver & Perangkat Keras", "id": "driver"},
+        {"note": "Driver & Perangkat Keras ada di image nightly mulai 31 Oktober 2026."},
+        {"p": "Buka **Driver & Perangkat Keras** di Pengaturan untuk melihat semua perangkat di komputer, baik di dalam maupun lewat USB, beserta driver yang dipakainya. Perangkat tanpa driver bertuliskan **Tanpa driver**."},
+        {"img": "ign26/settings-hardware.webp", "alt": "Halaman Driver & Perangkat Keras di Pengaturan berisi daftar perangkat dan drivernya", "caption": "Pengaturan > Driver & Perangkat Keras."},
+        {"p": "Jika kartu Wi-Fi, kartu grafis, atau kartu suara butuh firmware yang belum terpasang, firmware itu muncul di bagian **Disarankan**. Klik **Pasang** lalu ketik kata sandi administrator. Tanpa firmware, perangkat mungkin tidak berfungsi, atau hanya berfungsi sebagian."},
+        {"p": "**Salin Info Perangkat Keras** menyalin daftar ini. Tempelkan di laporan bug."},
         {"h": "Isi komputer Anda", "id": "alat"},
         {"p": "Jalankan perintah berikut di Terminal:"},
         {"head": ["Perintah", "Menampilkan"], "table": [["`lsusb`", "Perangkat USB"], ["`lspci`", "Kartu di dalam komputer: grafis, Wi-Fi, suara"], ["`sudo lshw -short`", "Semua perangkat keras dalam satu daftar"], ["`sensors`", "Suhu dan kecepatan kipas"], ["`sudo smartctl -a /dev/sda`", "Kesehatan disk. Untuk disk NVMe, pakai `/dev/nvme0n1`."], ["`iw dev`", "Antarmuka Wi-Fi"]]},
-        {"p": "Saat melaporkan masalah perangkat keras, sertakan keluaran `lspci -nn` atau `lsusb`."},
+        {"p": "Saat melaporkan masalah perangkat keras, tempelkan hasil **Salin Info Perangkat Keras**, atau sertakan keluaran `lspci -nn` dan `lsusb`."},
         {"p": "Berikutnya: [memasang aplikasi](apps.html)."}
       ]
     },
@@ -285,7 +298,7 @@
       "blocks": [
         {"h": "Sebelum mulai", "id": "sebelum"},
         {"list": [
-          "Disarankan memori 8 GB.",
+          "Disarankan memori 8 GB. Jika kurang, biarkan kompresi memori aktif (lihat [Memori](desktop.html#memori)).",
           "Mengaktifkan Android mengunduh sekitar 1,3 GB, sekali saja. Pakai koneksi yang cepat.",
           "Anda perlu kata sandi administrator."
         ]},
@@ -305,6 +318,9 @@
         {"p": "Perintah ini melanjutkan unduhan dari titik terakhir dan mencoba mirror lain dengan sendirinya. Setelah selesai, pasang lagi aplikasinya dari Bayu Store."},
         {"h": "Jika tertulis Android tidak berjalan", "id": "tidak-berjalan"},
         {"p": "Android butuh sekitar satu menit untuk menyala setelah Anda masuk atau mengaktifkannya. Jika Bayu Store menampilkan **Android container is not running** atau **Can't find service: package**, tunggu satu menit lalu klik **Pasang** lagi."},
+        {"h": "Kontroler game", "id": "gamepad"},
+        {"note": "Kontroler game di Android ada di image nightly."},
+        {"p": "Kontroler game (gamepad), lewat USB atau Bluetooth, langsung sampai ke Android begitu dicolokkan atau dipasangkan, jadi game dan emulator menemukannya seperti di ponsel. Headset, mouse, dan keyboard Bluetooth tidak butuh pengaturan tambahan: suara Android keluar lewat desktop, dan mouse serta keyboard berfungsi seperti di aplikasi lain."},
         {"h": "Aplikasi khusus ARM", "id": "arm"},
         {"p": "Sebagian aplikasi Android hanya dibuat untuk prosesor ponsel (ARM). Aplikasi ini disembunyikan secara bawaan. Untuk menampilkannya, aktifkan **Tampilkan aplikasi yang hanya dibuat untuk ARM** di Pengaturan toko. Aplikasi ini berjalan lewat penerjemah, jadi lebih lambat dan sebagian tidak berjalan."},
         {"p": "Berikutnya: [Bayu untuk agen](agents.html)."}
@@ -396,11 +412,12 @@
         {"h": "Nabau mengatakan media instalasi rusak", "id": "media"},
         {"p": "Sebagian isi flashdisk tidak terbaca seperti saat ditulis. Belum ada yang berubah pada disk Anda. Periksa SHA-256 image-nya (lihat [Unduh](download.html)), tulis ulang ke flashdisk, atau pakai flashdisk lain. Jika Anda memakai Ventoy, coba tulis image-nya langsung dengan Fedora Media Writer, Rufus, atau balenaEtcher."},
         {"h": "Wi-Fi tidak jalan", "id": "wifi"},
+        {"p": "Buka **Driver & Perangkat Keras** di Pengaturan: jika kartu Anda butuh firmware yang belum terpasang, firmware itu ada di bagian **Disarankan**. Lihat [Driver & Perangkat Keras](hardware.html#driver)."},
         {"p": "Pastikan kartu atau adaptor Anda ada di [Perangkat keras](hardware.html#wifi), dan coba image nightly yang punya lebih banyak driver. Jika masih tidak jalan, laporkan bug dan sertakan keluaran `lspci -nn` dan `lsusb`."},
         {"h": "Aplikasi Android tidak dapat diaktifkan", "id": "android"},
         {"p": "Biasanya unduhan 1,3 GB terputus. Jalankan `sudo lapis init -type VANILLA` di Terminal; unduhan dilanjutkan dari titik terakhir. Lihat [Aplikasi Android](android.html#unduhan-berhenti)."},
         {"h": "Melaporkan bug", "id": "lapor"},
-        {"p": "Buat issue di [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) lalu pilih **Laporan Bug**. Formulirnya berbahasa Indonesia. Ceritakan apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi, lalu lampirkan tangkapan layar jika bisa."}
+        {"p": "Buat issue di [github.com/igos-nusantara/bayu/issues](https://github.com/igos-nusantara/bayu/issues) lalu pilih **Laporan Bug**. Formulirnya berbahasa Indonesia. Ceritakan apa yang Anda lakukan, apa yang Anda harapkan, dan apa yang terjadi, lalu lampirkan tangkapan layar jika bisa. Untuk masalah perangkat keras, tempelkan hasil **Salin Info Perangkat Keras** (Pengaturan > Driver & Perangkat Keras)."}
       ]
     }
   ]
